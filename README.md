@@ -1,6 +1,6 @@
 # gallegos-corporation-front
 
-This proyecto is GALLEGOS CORPORATION FRONT
+This proyect is GALLEGOS CORPORATION FRONT
 
 ## Recommended IDE Setup
 

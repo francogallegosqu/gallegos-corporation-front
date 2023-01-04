@@ -1,13 +1,19 @@
 <template>
-  <div class="carrusel container p-4 pt-5" style="color: white">
-    <div class="carrusel_box columns-2">
-      <div>
-        <span class="font-medium"> Text</span>
-      </div>
-      <div class="hero__img">
-        <div class="bg-cover block">
-          <img alt="Marketing logo" class="logo" src="@/assets/marketing.png" />
-        </div>
+  <div class="carrusel d-flex justify-content-center align-items-center">
+    <div class="card" style="width: 220px; border: 0px">
+      <img
+        src="@/assets/gato.jpg"
+        class="card-img-top"
+        alt="..."
+        style="width: 100%"
+      />
+      <div class="card-body">
+        <h5 class="card-title" style="color: black">Card title</h5>
+        <p class="card-text" style="color: black">
+          Some quick example text to build on the card title and make up the
+          bulk of the card's content.
+        </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
   </div>
