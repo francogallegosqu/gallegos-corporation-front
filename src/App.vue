@@ -1,14 +1,13 @@
 <template>
-  <!-- <HeaderGlobal /> -->
-
+  <HeaderGlobal />
   <RouterView />
 </template>
 
 <script>
-// import HeaderGlobal from './components/global/HeaderGlobal.vue'
+import HeaderGlobal from './components/global/HeaderGlobal.vue'
 export default {
   components: {
-    // HeaderGlobal,
+    HeaderGlobal,
   },
 }
 </script>

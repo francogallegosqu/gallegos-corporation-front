@@ -1,19 +1,28 @@
 <template>
-  <header class="header flex flex-row">
-    <div class="basis-1/3">
+  <header class="header d-flex align-items-center">
+    <div style="width: 30%">
       <img
         alt="Gallegos Corporation logo"
         class="logo"
         src="@/assets/logo-gc.svg"
       />
-      <span style="font-family: 'Montserrat'">GALLEGOS CORPORATION</span>
+      <span class="name-logo">GALLEGOS CORPORATION</span>
     </div>
-    <nav class="basis-1/2">
-      <RouterLink class="p-1" :to="`/about`">Home</RouterLink>
-      <RouterLink class="p-1" to="/#services">Nosotros</RouterLink>
-      <RouterLink class="p-1" to="/#process">Servicios</RouterLink>
-      <RouterLink class="p-1" to="/#process">Proyectos</RouterLink>
-      <RouterLink class="p-1" to="/#process">Contacto</RouterLink>
+    <nav class="d-flex justify-content-end gap-7" style="width: 70%">
+      <RouterLink class="text-decoration-none" to="/Home"> Home</RouterLink>
+      <RouterLink class="text-decoration-none" to="/services"
+        >Nosotros</RouterLink
+      >
+      <RouterLink class="text-decoration-none" to="/process"
+        >Servicios</RouterLink
+      >
+      <RouterLink class="text-decoration-none" to="/process"
+        >Proyectos</RouterLink
+      >
+      <RouterLink class="text-decoration-none" to="/process">Blog</RouterLink>
+      <RouterLink class="text-decoration-none" to="/process"
+        >Contacto</RouterLink
+      >
     </nav>
   </header>
 </template>
@@ -26,7 +35,28 @@
   top: 0;
   z-index: 980;
   background-color: #071121;
-  text-align: right;
-  box-shadow: 0px 1px 3px rgba(black, 0.2);
+  margin-left: 50px;
+  margin-right: 50px;
+  min-height: 150px;
+}
+.name-logo {
+  /* font-family: 'Montserrat'; */
+  font-style: normal !important;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height */
+  margin-left: 20px;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+}
+
+a {
+  /* font-family: 'Poppins'; */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
 }
 </style>
