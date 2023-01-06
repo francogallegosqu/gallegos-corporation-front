@@ -1,6 +1,9 @@
 <template>
   <header class="header d-flex align-items-center">
-    <div style="width: 30%">
+    <div
+      style="width: 30%"
+      class="d-flex justify-content-end align-items-center"
+    >
       <img
         alt="Gallegos Corporation logo"
         class="logo"
@@ -8,7 +11,10 @@
       />
       <span class="name-logo">GALLEGOS CORPORATION</span>
     </div>
-    <nav class="d-flex justify-content-end gap-7" style="width: 70%">
+    <nav
+      class="d-flex justify-content-end gap-3"
+      style="width: 70%; margin-right: 5%"
+    >
       <RouterLink class="text-decoration-none" to="/Home"> Home</RouterLink>
       <RouterLink class="text-decoration-none" to="/services"
         >Nosotros</RouterLink
@@ -29,14 +35,11 @@
 
 <style scoped>
 .header {
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
   left: 0;
   top: 0;
   z-index: 980;
-  background-color: #071121;
-  margin-left: 50px;
-  margin-right: 50px;
   min-height: 150px;
 }
 .name-logo {
