@@ -30,10 +30,11 @@
         >Contacto</RouterLink
       >
     </nav>
+    <div class="background-nav"></div>
   </header>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .header {
   /* position: fixed; */
   width: 100%;
@@ -43,23 +44,28 @@
   min-height: 150px;
 }
 .name-logo {
-  /* font-family: 'Montserrat'; */
-  font-style: normal !important;
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
-  /* identical to box height */
   margin-left: 20px;
   letter-spacing: 0.04em;
-  color: #ffffff;
 }
-
 a {
-  /* font-family: 'Poppins'; */
-  font-style: normal;
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-  color: white;
+  color: $bg-color-primary;
+}
+
+.background-nav {
+  height: 136px;
+  /* width: 800px; */
+  width: 65vw;
+  position: absolute;
+  background: #086079;
+  right: 0%;
+  top: -15.43%;
+  opacity: 0.25;
+  border-radius: 0 0 0 20px;
 }
 </style>
