@@ -64,7 +64,7 @@ a {
   position: absolute;
   background: #086079;
   right: 0%;
-  top: -15.43%;
+  /* top: -15.43%; */
   opacity: 0.25;
   border-radius: 0 0 0 20px;
 }

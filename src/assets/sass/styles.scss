@@ -1,0 +1,10 @@
+@import './variables';
+
+.img-primary {
+    border-radius: 20px;
+    max-height: 524px;
+    width: 550px;
+    overflow: hidden;
+    object-fit: cover;
+}
+

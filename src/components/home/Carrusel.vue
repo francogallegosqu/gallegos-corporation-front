@@ -4,6 +4,7 @@
       id="carouselExampleIndicators"
       class="carousel slide"
       data-bs-ride="true"
+      style="max-width: 1220px; margin-bottom: 100px"
     >
       <div class="carousel-indicators">
         <div class="carrusel-indicators-inside d-flex justify-content-center">
@@ -25,8 +26,10 @@
           :key="index"
           :class="index == 0 ? 'active carousel-item' : 'carousel-item'"
         >
-          <div class="row">
-            <div class="col-6 d-flex justify-content-center align-items-center">
+          <div class="item w-100">
+            <div
+              class="sub-item d-flex justify-content-center align-items-center"
+            >
               <div style="width: 80%">
                 <h1 class="title-item-carrusel">
                   {{ element.title }}
@@ -36,7 +39,7 @@
                 </p>
               </div>
             </div>
-            <div class="col-6">
+            <div class="sub-item">
               <img
                 :src="`/src/assets/carrusel/${element.image}`"
                 class="title-item-image d-block w-100"
@@ -57,32 +60,17 @@ export default {
       buttons: [
         {
           title: 'SOFTWARE INNOVADOR PARA POTENCIAR TU EMPRESA',
-          text: `Surgido en la década de 1990, el Marketing Digital mudó la
-                  manera como las empresas utilizan la tecnología en la
-                  promoción de sus negocios. El término se ha tornado más
-                  popular a medida que las personas pasaran a utilizar más
-                  dispositivos digitales en el proceso de compra, sea para
-                  buscar productos o para realizar compras en sí.`,
+          text: 'Un software innovador puede cambiar la forma en que las personas trabajan, comunican y experimentan el mundo digital. Es una herramienta valiosa para empresas y organizaciones que buscan mejorar su competitividad y eficiencia en un mercado cada vez más tecnológico.',
           image: 'cubos.jpg',
         },
         {
           title: 'MARKETING DIGITAL PARA POTENCIAR TU MARCA',
-          text: `Surgido en la década de 1990, el Marketing Digital mudó la
-                  manera como las empresas utilizan la tecnología en la
-                  promoción de sus negocios. El término se ha tornado más
-                  popular a medida que las personas pasaran a utilizar más
-                  dispositivos digitales en el proceso de compra, sea para
-                  buscar productos o para realizar compras en sí.`,
+          text: 'Un software innovador puede cambiar la forma en que las personas trabajan, comunican y experimentan el mundo digital. Es una herramienta valiosa para empresas y organizaciones que buscan mejorar su competitividad y eficiencia en un mercado cada vez más tecnológico.',
           image: 'cubos.jpg',
         },
         {
           title: 'MARKETING DIGITAL PARA POTENCIAR TU MARCA',
-          text: `Surgido en la década de 1990, el Marketing Digital mudó la
-                  manera como las empresas utilizan la tecnología en la
-                  promoción de sus negocios. El término se ha tornado más
-                  popular a medida que las personas pasaran a utilizar más
-                  dispositivos digitales en el proceso de compra, sea para
-                  buscar productos o para realizar compras en sí.`,
+          text: 'Un software innovador puede cambiar la forma en que las personas trabajan, comunican y experimentan el mundo digital. Es una herramienta valiosa para empresas y organizaciones que buscan mejorar su competitividad y eficiencia en un mercado cada vez más tecnológico.',
           image: 'cubos.jpg',
         },
       ],
@@ -90,12 +78,7 @@ export default {
   },
 }
 </script>
-<style scoped>
-#carouselExampleIndicators {
-  right: 5%;
-  left: 5%;
-  position: absolute;
-}
+<style scoped lang="scss">
 .carousel-indicators .button-slider {
   border-radius: 50%;
   background: #4970b0;
@@ -126,7 +109,7 @@ export default {
   padding: 7px;
 }
 
-.carousel-inner {
+#carouselExampleIndicators {
   border: solid 1px #3d7eb9;
   border-radius: 20px;
 }
@@ -140,7 +123,27 @@ export default {
   line-height: 3vw;
   letter-spacing: 0.04em;
 }
+
 .title-item-image {
   border-radius: 20px;
+}
+
+.carousel-inner {
+  .item {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
+@media (min-width: $tablet-size) {
+  .carousel-inner {
+    .item {
+      display: flex;
+      flex-direction: row;
+    }
+    .sub-item {
+      width: 50%;
+    }
+  }
 }
 </style>
