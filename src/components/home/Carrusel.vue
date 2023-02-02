@@ -79,17 +79,30 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-.carousel-indicators .button-slider {
-  border-radius: 50%;
-  background: #4970b0;
-  border: solid 2px #fff;
-  width: 0.1mm !important;
-  height: 0.1mm !important;
-  padding: 7px;
-  opacity: 1;
+#carouselExampleIndicators {
+  border: solid 1px $color-border-carrusel;
+  border-radius: 20px;
 }
+
 .carousel-indicators {
   margin-bottom: -2.3rem !important ;
+  .button-slider {
+    border-radius: 50%;
+    background: #4970b0;
+    border: solid 2px #fff;
+    width: 0.1mm !important;
+    height: 0.1mm !important;
+    padding: 7px;
+    opacity: 1;
+  }
+  .active {
+    border-radius: 50%;
+    border: solid 2px #fff;
+    background: black;
+    width: 0.1mm !important;
+    height: 0.1mm !important;
+    padding: 7px;
+  }
 }
 .carrusel-indicators-inside {
   background: #4970b0;
@@ -100,16 +113,8 @@ export default {
   border-radius: 20px;
   opacity: 0.7;
 }
-.carousel-indicators .active {
-  border-radius: 50%;
-  border: solid 2px #fff;
-  background: black;
-  width: 0.1mm !important;
-  height: 0.1mm !important;
-  padding: 7px;
-}
 
-#carouselExampleIndicators {
+.carousel-inner {
   border: solid 1px #3d7eb9;
   border-radius: 20px;
 }
@@ -123,7 +128,6 @@ export default {
   line-height: 3vw;
   letter-spacing: 0.04em;
 }
-
 .title-item-image {
   border-radius: 20px;
 }
