@@ -1,5 +1,5 @@
 <template>
-  <div class="carrusel d-flex justify-content-start align-items-end">
+  <div class="carrusel">
     <div
       id="carouselExampleIndicators"
       class="carousel slide"
@@ -49,6 +49,15 @@
         </div>
       </div>
     </div>
+
+    <div class="scroll-down">
+      <img
+        alt="Scroll Down"
+        class="scroll-down"
+        src="@/assets/img/scroll.svg"
+        style="height: 230px; width: 300px"
+      />
+    </div>
   </div>
 </template>
 
@@ -63,13 +72,13 @@ export default {
           image: 'cubos.jpg',
         },
         {
-          title: 'MARKETING DIGITAL PARA POTENCIAR TU MARCA',
-          text: 'Un software innovador puede cambiar la forma en que las personas trabajan, comunican y experimentan el mundo digital. Es una herramienta valiosa para empresas y organizaciones que buscan mejorar su competitividad y eficiencia en un mercado cada vez más tecnológico.',
+          title: 'CLIENTES ÚNICOS CON SOLUCIONES ÚNICAS',
+          text: 'Nos especializamos en proveedor técnologías de última generación y avanzadas para tu empresa, esto para crear soluciones únicas para su negocio',
           image: 'cubos.jpg',
         },
         {
-          title: 'MARKETING DIGITAL PARA POTENCIAR TU MARCA',
-          text: 'Un software innovador puede cambiar la forma en que las personas trabajan, comunican y experimentan el mundo digital. Es una herramienta valiosa para empresas y organizaciones que buscan mejorar su competitividad y eficiencia en un mercado cada vez más tecnológico.',
+          title: 'CALIDAD DE EXCELENCIA EN CADA SERVICIO ',
+          text: 'Nos destacamos por nuestro excelente servicio al cliente. Ya que a diferencia de otraS empresaS, nosotros tenemos una respuesta rápida y eficaz ante cualquier problema de cada cliente.',
           image: 'cubos.jpg',
         },
       ],
@@ -123,6 +132,31 @@ export default {
     gap: 17px;
     border-radius: 20px;
     opacity: 0.7;
+  }
+}
+
+.scroll-down {
+  position: absolute;
+  width: 70px;
+  height: 55px;
+  z-index: 2;
+  cursor: pointer;
+  bottom: 50px;
+  left: calc(50% - 35px);
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  .arrow {
+    background-color: white;
+    padding: 20px 15px;
+    border-radius: 20px;
+    position: absolute;
+    // top: 60px
+    animation: fadeOutDown;
+    animation-duration: 1.7s;
+    animation-delay: 1.2s;
+    animation-timing-function: cubic-bezier(0.86, 0.23, 0.39, 0.73);
+    animation-iteration-count: infinite;
   }
 }
 

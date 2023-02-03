@@ -1,5 +1,7 @@
 <template>
-  <HeaderGlobal />
+  <!-- <template v-if="scrollY > 5"> -->
+  <HeaderGlobal v-if="widthScreen > 767" />
+  <!-- </template> -->
   <RouterView />
 </template>
 
@@ -8,6 +10,19 @@ import HeaderGlobal from './components/global/HeaderGlobal.vue'
 export default {
   components: {
     HeaderGlobal,
+  },
+  data() {
+    return {
+      widthScreen: window.innerWidth ? window.innerWidth : screen.width,
+    }
+  },
+  methods: {
+    catchScreen() {
+      this.widthScreen = window.innerWidth
+    },
+  },
+  mounted() {
+    window.addEventListener('resize', this.catchScreen)
   },
 }
 </script>
@@ -38,7 +53,7 @@ nav a {
   border: 0;
 } */
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   header {
     display: flex;
     place-items: center;
@@ -63,5 +78,5 @@ nav a {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-}
+} */
 </style>

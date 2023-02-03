@@ -1,15 +1,16 @@
 
 $color-blue:#4970b0;
-
+$colore-blue-light: #086079; // rgb(8, 96, 121, 0.25);// #086079;
 $bg-color-primary: #ffff;
 $bg-color-title: $color-blue;
 $bg-color-dark:#071121;
 
 
 
+//header
+$color-header:$colore-blue-light;
 
 //Colors Carrusel
-
 $color-border-carrusel:#3d7eb9;
 $color-indicator-carrusel:$color-blue;
 
@@ -18,5 +19,4 @@ $color-indicator-carrusel:$color-blue;
 $movil-size:320px;
 $movil-xl-size:767px;
 $tablet-size: 768px; // 480px;
-$tablet-md-size: 768px;
 $desktop-size: 1200px ;
