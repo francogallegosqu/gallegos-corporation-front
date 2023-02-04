@@ -51,12 +51,7 @@
     </div>
 
     <div class="scroll-down">
-      <img
-        alt="Scroll Down"
-        class="scroll-down"
-        src="@/assets/img/scroll.svg"
-        style="height: 230px; width: 300px"
-      />
+      <img alt="Scroll Down" class="arrow" src="@/assets/img/arrow.svg" />
     </div>
   </div>
 </template>
@@ -90,7 +85,6 @@ export default {
 #carouselExampleIndicators {
   padding-left: 5%;
   padding-right: 5%;
-  margin-bottom: 100px;
   .carousel-inner {
     border: solid 2px $color-border-carrusel;
     border-radius: 20px;
@@ -136,49 +130,41 @@ export default {
 }
 
 .scroll-down {
-  position: absolute;
-  width: 70px;
-  height: 55px;
-  z-index: 2;
+  width: 100%;
   cursor: pointer;
-  bottom: 50px;
-  left: calc(50% - 35px);
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
   display: flex;
   .arrow {
-    background-color: white;
-    padding: 20px 15px;
-    border-radius: 20px;
-    position: absolute;
-    // top: 60px
-    animation: fadeOutDown;
-    animation-duration: 1.7s;
-    animation-delay: 1.2s;
-    animation-timing-function: cubic-bezier(0.86, 0.23, 0.39, 0.73);
-    animation-iteration-count: infinite;
+    max-width: 200px;
   }
 }
 
 @media (max-width: $movil-xl-size) {
-  .carousel-inner {
-    .item {
-      display: flex;
-      flex-direction: column-reverse;
-      .sub-item {
-        .text {
-          margin-top: 10px;
-          margin-bottom: 5px;
-          .title-item-carrusel {
-            font-family: 'Poppins';
-            font-weight: 700;
-            font-size: 4vw;
-            line-height: 4vw;
-            letter-spacing: 0.04em;
-          }
-          .text-item-carrusel {
-            font-size: 3vw;
-            line-height: 3vw;
+  .carrusel {
+    margin-bottom: 5%;
+  }
+  #carouselExampleIndicators {
+    margin-bottom: 12%;
+    .carousel-inner {
+      .item {
+        display: flex;
+        flex-direction: column-reverse;
+        .sub-item {
+          .text {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            .title-item-carrusel {
+              font-family: 'Poppins';
+              font-weight: 700;
+              font-size: 4vw;
+              line-height: 4vw;
+              letter-spacing: 0.04em;
+            }
+            .text-item-carrusel {
+              font-size: 3vw;
+              line-height: 3vw;
+            }
           }
         }
       }
@@ -187,23 +173,29 @@ export default {
 }
 
 @media (min-width: $tablet-size) {
-  .carousel-inner {
-    .item {
-      display: flex;
-      flex-direction: row;
-      .sub-item {
-        width: 50%;
-        .text {
-          .title-item-carrusel {
-            font-family: 'Poppins';
-            font-weight: 700;
-            font-size: 2.5vw;
-            line-height: 2.5vw;
-            letter-spacing: 0.04em;
-          }
-          .text-item-carrusel {
-            font-size: 1.7vw;
-            line-height: 2.5vw;
+  .carrusel {
+    margin-bottom: 10%;
+  }
+  #carouselExampleIndicators {
+    margin-bottom: 5%;
+    .carousel-inner {
+      .item {
+        display: flex;
+        flex-direction: row;
+        .sub-item {
+          width: 50%;
+          .text {
+            .title-item-carrusel {
+              font-family: 'Poppins';
+              font-weight: 700;
+              font-size: 2.5vw;
+              line-height: 2.5vw;
+              letter-spacing: 0.04em;
+            }
+            .text-item-carrusel {
+              font-size: 1.7vw;
+              line-height: 2.5vw;
+            }
           }
         }
       }
@@ -212,23 +204,29 @@ export default {
 }
 
 @media (min-width: $desktop-size) {
-  .carousel-inner {
-    .item {
-      display: flex;
-      flex-direction: row;
-      .sub-item {
-        width: 50%;
-        .text {
-          .title-item-carrusel {
-            font-family: 'Poppins';
-            font-weight: 700;
-            font-size: 3.5vw;
-            line-height: 3.5vw;
-            letter-spacing: 0.04em;
-          }
-          .text-item-carrusel {
-            font-size: 1.7vw;
-            line-height: 2vw;
+  .carrusel {
+    margin-bottom: 10%;
+  }
+  #carouselExampleIndicators {
+    margin-bottom: 5%;
+    .carousel-inner {
+      .item {
+        display: flex;
+        flex-direction: row;
+        .sub-item {
+          width: 50%;
+          .text {
+            .title-item-carrusel {
+              font-family: 'Poppins';
+              font-weight: 700;
+              font-size: 3.5vw;
+              line-height: 3.5vw;
+              letter-spacing: 0.04em;
+            }
+            .text-item-carrusel {
+              font-size: 1.7vw;
+              line-height: 2vw;
+            }
           }
         }
       }

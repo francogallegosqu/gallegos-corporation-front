@@ -1,10 +1,62 @@
 @import './variables';
 
+
 .img-primary {
     border-radius: 20px;
-    max-height: 524px;
-    width: 550px;
+    max-height: 255px;
     overflow: hidden;
-    object-fit: cover;
+    display: flex;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
 }
 
+.img-secondary {
+    border-radius: 20px;
+    max-height: 193px;
+    overflow: hidden;
+    display: flex;
+    margin: 3%;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+@media (min-width: $tablet-size) {
+    .img-primary {
+        border-radius: 20px;
+        max-height: 524px;
+        overflow: hidden;
+        
+        img {
+    
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+  }
+  
+  @media (min-width: $desktop-size) {
+    .img-primary {
+        border-radius: 20px;
+        max-height: 524px;
+        min-height: 524px;
+        overflow: hidden;
+        
+        img {
+    
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+  }
