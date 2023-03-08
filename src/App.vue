@@ -1,28 +1,30 @@
 <template>
-  <!-- <template v-if="scrollY > 5"> -->
-  <HeaderGlobal v-if="widthScreen > 767" />
-  <!-- </template> -->
+  <HeaderGlobal v-if="getWidthScreen > 767" />
   <RouterView />
+  <FooterGlobal />
 </template>
 
 <script>
 import HeaderGlobal from './components/global/HeaderGlobal.vue'
+import FooterGlobal from './components/global/FooterGlobal.vue'
+import { mapState, mapActions } from 'pinia'
+import { useSizeStore } from './stores/size'
+import { projectStore } from './stores/project'
 export default {
   components: {
     HeaderGlobal,
+    FooterGlobal,
   },
-  data() {
-    return {
-      widthScreen: window.innerWidth ? window.innerWidth : screen.width,
-    }
+  computed: {
+    ...mapState(useSizeStore, ['getWidthScreen']),
   },
   methods: {
-    catchScreen() {
-      this.widthScreen = window.innerWidth
-    },
+    ...mapActions(useSizeStore, ['loadCharacters']),
+    ...mapActions(projectStore, ['loadProjects']),
   },
   mounted() {
-    window.addEventListener('resize', this.catchScreen)
+    this.loadCharacters()
+    // this.loadProjects()
   },
 }
 </script>

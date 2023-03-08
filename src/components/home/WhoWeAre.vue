@@ -1,6 +1,6 @@
 <template>
   <div
-    class="we-are row d-flex flex-wrap justify-content-center m-0"
+    class="we-are row d-flex justify-content-center m-0"
     style="background-color: #ffff; padding-top: 5%"
   >
     <div class="column col-10 col-md-5 col-lg-5 col-xxl-5">
@@ -36,14 +36,14 @@
       </div>
     </div>
     <div class="column col-10 col-md-5 col-lg-5 col-xxl-5">
-      <div class="item img-primary item-relative-one">
+      <div class="item img-primary">
         <img
           src="/src/assets/who-we-are/nosotros.jpg"
           class="img-primary"
           alt="quienes"
         />
       </div>
-      <div class="item-text">
+      <div class="item item-text">
         <h1 class="title">MISIÓN</h1>
         <P
           >Queremos incrementar las capacidades de nuestros clientes mediante
@@ -53,7 +53,7 @@
         >
       </div>
 
-      <div class="img-primary item-relative-two">
+      <div class="item img-primary">
         <img src="/src/assets/who-we-are/nosotros2.jpg" alt="quienes" />
       </div>
     </div>
@@ -80,8 +80,15 @@
 p {
   color: $bg-color-dark;
 }
+.column {
+  padding: 3%;
+  .item {
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+}
 
-@media (max-width: $movil-xl-size) {
+/* @media (max-width: $movil-xl-size) {
   .we-are {
     padding-bottom: 10%;
   }
@@ -171,5 +178,5 @@ p {
       margin-bottom: 0%;
     }
   }
-}
+} */
 </style>

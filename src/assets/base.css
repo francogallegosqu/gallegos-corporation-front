@@ -4,7 +4,7 @@
   --vt-c-white-soft: #ffff;
   --vt-c-white-mute: #ffff;
 
-  --vt-c-black: #071121;
+  --vt-c-black: #060922;
   --vt-c-black-soft: #222222;
   --vt-c-black-mute: #282828;
   --vt-c-blue-soft:#4970b0;
@@ -35,6 +35,7 @@
   --color-text: var(--vt-c-text-light-1);
 
   --section-gap: 160px;
+  --bs-body-bg: var(--vt-c-black-soft);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -62,15 +63,15 @@
 
 body {
   /* min-height: 100vh; */
-  color: var(--color-text);
+  color: var(--color-text) !important;
   background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
-  line-height: 1.6;
-  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6 !important;
+  font-family: 'Montserrat', sans-serif !important;
   font-style: normal;
-  font-size: 16px;
+  font-size: 16px !important;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  --bs-body-bg: var(--vt-c-black);
 }

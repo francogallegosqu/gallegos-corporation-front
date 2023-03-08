@@ -129,6 +129,11 @@ export default {
   }
 }
 
+.carrusel {
+  background-image: url('/src/assets/prueba.gif');
+  background-position: center 25%;
+  background-size: cover;
+}
 .scroll-down {
   width: 100%;
   cursor: pointer;
@@ -142,7 +147,8 @@ export default {
 
 @media (max-width: $movil-xl-size) {
   .carrusel {
-    margin-bottom: 5%;
+    padding-bottom: 5%;
+    padding-top: 5%;
   }
   #carouselExampleIndicators {
     margin-bottom: 12%;

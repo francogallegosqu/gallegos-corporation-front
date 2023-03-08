@@ -1,11 +1,16 @@
 @import './variables';
-
+@import './buttons.scss';
+@import './animation.scss';
 
 .img-primary {
     border-radius: 20px;
     max-height: 255px;
     overflow: hidden;
     display: flex;
+    border-radius: 50px;
+background: #071121;
+box-shadow:  13px 13px 26px #071121,
+-13px -13px 26px #204260;
     img {
         width: 100%;
         height: 100%;

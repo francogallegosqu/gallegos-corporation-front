@@ -1,9 +1,13 @@
 
 $color-blue:#4970b0;
+$color-blue-primary: #089cf4;
 $colore-blue-light: #086079; // rgb(8, 96, 121, 0.25);// #086079;
+$color-button-primary:#2A96C9;
+$color-degraded:linear-gradient(90deg, #3CA7FD 0%, #9B5AF6 100%);
+
 $bg-color-primary: #ffff;
 $bg-color-title: $color-blue;
-$bg-color-dark:#071121;
+$bg-color-dark:#060922;
 
 
 
@@ -14,10 +18,18 @@ $color-header:$colore-blue-light;
 $color-border-carrusel:#3d7eb9;
 $color-indicator-carrusel:$color-blue;
 
+//color degrade
+$bg-degraded: $color-degraded;
+
 
 // Size
 $movil-size:320px;
-$movil-xl-size:767px;
-$tablet-size: 768px; // 480px;
-$desktop-size: 1200px ;
-$desktop-xl-size: 1920px;
+$movil-xl-size: 768;
+//$tablet-size: 768px; // 480px;
+
+// $desktop-size: 1200px ;
+// $desktop-xl-size: 1920px;
+
+//new Size
+$tablet-size:768px; // para arriba
+$desktop-size:1025px; // para arriba

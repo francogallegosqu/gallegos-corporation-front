@@ -5,19 +5,27 @@
       class="content d-flex justify-content-between align-items-center w-100"
       :class="scrollY > 0 ? 'header-fixed' : ''"
     >
-      <div class="d-flex align-items-center">
+      <div class="logo d-flex align-items-center">
         <Logo />
-        <span class="name-logo" v-if="widthScreen >= 1200"
+        <span class="name-logo" v-if="getWidthScreen >= 1200"
           >GALLEGOS CORPORATION</span
         >
       </div>
       <nav class="navbar d-flex align-items-center">
-        <RouterLink class="" style="color: white" to="/"> Home</RouterLink>
-        <RouterLink class="" to="/services">Nosotros</RouterLink>
-        <RouterLink class="" to="/process">Servicios</RouterLink>
-        <RouterLink class="" to="/process">Proyectos</RouterLink>
-        <RouterLink class="" to="/process">Blog</RouterLink>
-        <RouterLink class="text-decoration-none" to="/process"
+        <RouterLink class="navlink-header-one" style="color: white" to="/">
+          Home</RouterLink
+        >
+        <RouterLink class="navlink-header-two" to="/services"
+          >Nosotros</RouterLink
+        >
+        <RouterLink class="navlink-header-three" to="/process"
+          >Servicios</RouterLink
+        >
+        <RouterLink class="navlink-header-four" to="/process"
+          >Proyectos</RouterLink
+        >
+        <RouterLink class="navlink-header-five" to="/process">Blog</RouterLink>
+        <RouterLink class="navlink-header-six" to="/process"
           >Contacto</RouterLink
         >
       </nav>
@@ -27,6 +35,8 @@
 
 <script>
 import Logo from '../icons/Logo.vue'
+import { mapState } from 'pinia'
+import { useSizeStore } from '../../stores/size'
 export default {
   components: {
     Logo,
@@ -34,60 +44,78 @@ export default {
   data() {
     return {
       scrollY: 0,
-      widthScreen: window.innerWidth ? window.innerWidth : screen.width,
     }
   },
-  computed: {},
+  computed: {
+    ...mapState(useSizeStore, ['getWidthScreen']),
+  },
   methods: {
     catchScroll() {
       this.scrollY = window.scrollY
     },
-    catchScreen() {
-      this.widthScreen = window.innerWidth
-    },
   },
   mounted() {
     window.addEventListener('scroll', this.catchScroll)
-    window.addEventListener('resize', this.catchScreen)
   },
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+$links: 'one' 1s, 'two' 1.2s, 'three' 1.4s, 'four' 1.6s, 'five' 1.8s, 'six' 2s;
+
+@each $name, $time in $links {
+  .navlink-header-#{$name} {
+    @include animation-top-down($time);
+    text-decoration: none;
+  }
+}
+
 .header-fixed {
   position: fixed;
   width: 100%;
   left: 0;
   top: 0;
   z-index: 980;
-  min-height: 150px;
+  min-height: 120px;
   background-color: rgb($bg-color-dark, 1);
   -webkit-box-shadow: 0px 22px 110px 8px rgba(7, 17, 33, 0.5);
   -moz-box-shadow: 0px 22px 110px 8px rgba(7, 17, 33, 0.5);
   box-shadow: 0px 22px 110px 8px rgba(7, 17, 33, 0.5);
+  animation: fadeInDown 0.5s ease 1;
 }
 
-.name-logo {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
-  margin-left: 20px;
-  letter-spacing: 0.04em;
+@keyframes fadeInDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
 
 .header {
-  min-height: 150px;
+  .logo,
+  .name-logo {
+    font-weight: 700;
+    line-height: 20px;
+    margin-left: 20px;
+    letter-spacing: 0.04em;
+    z-index: 560;
+    @include animation-top-down(1s);
+  }
+  position: absolute;
+  top: 0;
+  min-height: 140px;
+  width: 100%;
   .content {
-    padding-left: 10%;
-    padding-right: 6%;
+    z-index: 560;
     .navbar {
       gap: 4rem;
       height: 136px;
       top: 0%;
       right: 0%;
       position: absolute;
-      background-color: rgb($color-header, 0.25);
-      border-radius: 0 0 0 20px;
       padding-right: 6%;
       padding-left: 2%;
       a {
