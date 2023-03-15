@@ -6,19 +6,23 @@
       <h2 class="circle"></h2>
     </div>
     <div class="row sub-briefcase">
-      <div class="col-12 col-sm-7">
+      <div class="col-12 col-sm-8">
         <h2 class="title-two">Nuestros Trabajos</h2>
       </div>
-      <div class="col-12 col-sm-5">
+      <div class="col-12 col-sm-3">
         <p class="background-service">Ver Más</p>
       </div>
     </div>
   </div>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .briefcase {
-  margin: 20px;
+  @media (min-width: $movil-size) {
+    margin: 20px 60px 20px 60px;
+  }
+  padding-top: 100px;
+  margin-bottom: 50px;
   .title {
     margin: 15px;
     font-weight: 500;
@@ -45,9 +49,7 @@
     justify-content: space-between;
     align-content: center;
     .background-service {
-      display: flex;
-      justify-content: center;
-      align-content: center;
+      text-align: center;
       background: $bg-degraded;
       border-radius: 4px 10px;
       padding: 5px;

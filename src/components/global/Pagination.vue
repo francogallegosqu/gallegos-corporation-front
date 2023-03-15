@@ -103,12 +103,13 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .pagination {
   width: 100%;
   display: flex;
   justify-content: center;
   .button-items {
+    z-index: 2;
     margin: 5px;
     width: 35px !important;
     height: 35px !important;

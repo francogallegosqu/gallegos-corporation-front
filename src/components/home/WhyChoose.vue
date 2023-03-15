@@ -20,7 +20,7 @@
         id="why-img"
         class="col-item col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4"
       >
-        <img class="about-img" src="@/assets/about/abouT-us.jpg" alt="" />
+        <img class="about-img" src="@/assets/software-development.jpg" alt="" />
       </div>
       <div
         class="col-item col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-icons-text"
@@ -28,7 +28,7 @@
         <div class="row row-second">
           <div
             id="row-second-one-why"
-            class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+            class="row-second-item col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
           >
             <div class="icon-title">
               <h3 class="number">01.</h3>
@@ -41,7 +41,7 @@
           </div>
           <div
             id="row-second-two-why"
-            class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+            class="row-second-item col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
           >
             <div class="icon-title">
               <h3 class="number">02.</h3>
@@ -54,7 +54,7 @@
           </div>
           <div
             id="row-second-three-why"
-            class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+            class="row-second-item col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
           >
             <div class="icon-title">
               <h3 class="number">03.</h3>
@@ -78,7 +78,6 @@ export default {
       this.onScroll('row-second-one-why')
       this.onScroll('row-second-two-why')
       this.onScroll('row-second-three-why')
-      this.onScroll('why-img')
     },
   },
   mounted() {
@@ -86,10 +85,12 @@ export default {
   },
 }
 </script>
-<style lang="scss">
+<style scoped lang="scss">
 .why {
+  @media (min-width: $movil-size) {
+    margin: 20px 60px 20px 60px;
+  }
   padding-top: 100px;
-  margin: 20px;
   .title,
   .title-two,
   .description {
@@ -97,6 +98,7 @@ export default {
   }
   .description {
     padding-bottom: 100px;
+    text-align: center;
   }
 
   .title {
@@ -107,8 +109,9 @@ export default {
     color: $color-blue-primary;
     display: flex;
     align-items: center !important;
-    justify-content: start;
+    justify-content: center;
     align-content: end;
+    text-align: center;
     gap: 0.5rem;
     .circle {
       height: 10px !important;
@@ -118,6 +121,7 @@ export default {
     }
   }
   .title-two {
+    text-align: center;
     .year {
       color: $color-blue-primary;
     }
@@ -128,6 +132,11 @@ export default {
       padding: 0;
       .row-second {
         padding-left: 20px;
+        .row-second-item {
+          opacity: 0;
+          transform: scale(0.5);
+          transition: 0.7s ease-in-out transform, 0.7s ease-in-out opacity;
+        }
         .icon-title {
           display: flex;
           justify-content: start;
@@ -152,7 +161,7 @@ export default {
       }
       .about-img {
         border-radius: 10px;
-        padding-bottom: 30px;
+        margin-bottom: 30px;
       }
     }
     .col-icons-text {
@@ -160,8 +169,5 @@ export default {
       align-content: center;
     }
   }
-}
-.item-zoom {
-  @include animation-small-big(0.7s);
 }
 </style>

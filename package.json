@@ -13,9 +13,13 @@
     "@popperjs/core": "^2.11.6",
     "axios": "^1.3.4",
     "bootstrap": "^5.2.3",
+    "owl.carousel": "^2.3.4",
+    "particles.vue3": "^2.9.3",
     "pinia": "^2.0.28",
+    "tsparticles": "^2.9.3",
     "vue": "^3.2.45",
-    "vue-router": "^4.1.6"
+    "vue-router": "^4.1.6",
+    "vue3-particles": "^2.9.3"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.1.4",

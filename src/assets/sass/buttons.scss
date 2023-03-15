@@ -1,12 +1,13 @@
 .button-gradient {
   position: relative;
-  padding: 10px 20px;
-  border-radius: 10px;
-  max-width: 80%;
+  // padding: 10px 20px;
+  border-radius: 4px 10px;
+  // max-width: 80%;
+  // max-height: 50px;
   border: 1px solid #3d7eb9; //#3d7eb9
-  font-size: 0.8rem;
-  background: rgb(42, 150, 201) ;
-  font-weight: 600;
+  font-size: 0.5rem;
+  background: $color-blue-primary ;
+  font-weight: 800;
   letter-spacing: 2px;
   color: #fff;
   overflow: hidden;
@@ -17,8 +18,8 @@
 }
 
 .button-gradient:hover {
-  background: #3d7eb9;
-  box-shadow: 0 0 30px 5px rgba(8, 96, 121, 0.9); //086079
+  background: $color-blue-primary;
+  box-shadow: 0 0 30px 5px $color-blue-primary; //086079
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
@@ -34,7 +35,7 @@
   content: "";
   display: block;
   width: 0px;
-  height: 86%;
+  // height: 86%;
   position: absolute;
   top: 7%;
   left: 0%;

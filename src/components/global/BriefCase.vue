@@ -7,15 +7,20 @@
         class="col-item col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3"
       >
         <div
-          class="img"
+          class="background-img"
           :style="`background-image: url('${baseURL}${project?.attributes?.image?.data?.attributes?.url}')`"
-        >
-          <h2 class="title">{{ project?.attributes?.title }}</h2>
-          <button type="button" class="btn btn-primary">Ver Web</button>
+        ></div>
+        <div class="brief-text">
+          <h3>{{ project?.attributes?.title }}</h3>
+          <button type="button" class="button-gradient">
+            <span class="text">Ver Más</span>
+            <!-- <div class="img-button">
+              <img src="@/assets/icons/arrow-lg-icon.svg" alt="Arrow Right" />
+            </div> -->
+          </button>
         </div>
       </div>
     </div>
-    {{ nameRoute }}
     <PaginationVue
       :totalResults="meta?.pagination?.total"
       :resultsPerPage="maxSizePage"
@@ -39,14 +44,14 @@ export default {
     return {
       currentPage: {
         current: 1,
-      }, // página actual
+      },
     }
   },
   computed: {
     ...mapState(projectStore, ['projects', 'meta']),
     ...mapState(baseUrlStore, ['baseURL']),
     maxSizePage() {
-      return this.$route.name.includes('home') ? 5 : 10
+      return this.$route.name.includes('home') ? 8 : 10
     },
   },
   methods: {
@@ -64,51 +69,70 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .brief-case-global {
-  margin: 20px;
+  @media (min-width: $movil-size) {
+    margin: 20px 60px 20px 60px;
+  }
   margin-bottom: 100px;
   .brief-item {
     margin: 0;
     padding: 0;
     width: 100%;
     .col-item {
+      z-index: 1;
       margin-bottom: 15px;
-      .img {
-        position: relative;
+      transition: scale 0.4s ease-out 100ms;
+      .background-img {
         width: 100%;
         height: 200px;
         background-size: cover;
-        transition: scale 1s ease-out 100ms;
-        border-radius: 10px;
-        /* opacity: 0.8; */
+        background-position: center;
+        border-radius: 5px 5px 0 0;
+      }
+      .brief-text {
         display: flex;
-        flex-direction: column;
-        justify-content: end;
-        align-content: end;
-        .title {
+        justify-content: space-between;
+        align-items: center;
+        background-color: black;
+        color: white;
+        border-radius: 0 0 5px 5px;
+        height: 70px;
+        padding: 5px;
+        width: 100%;
+        h3 {
           font-weight: 700;
-          font-size: 1.5rem;
-          line-height: 60px;
-          margin: 0;
-          padding-left: 10px;
-          opacity: 1;
+          font-size: 1.15rem;
+          max-width: 50%;
         }
         button {
-          background: $bg-degraded;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: end !important;
+          align-items: center;
+          /* background: $bg-degraded; */
           border: none;
+          font-size: 1rem;
+          font-weight: 500;
           transition: filter 1s ease-out 100ms;
-          &:hover {
-            filter: brightness(1.35);
+          .text {
+            padding: 2px 7px;
           }
+          .img-button {
+            max-width: 35px;
+            img {
+              width: 80%;
+            }
+          }
+          /* &:hover {
+            filter: brightness(1.35);
+          } */
         }
       }
       &:hover {
-        .img {
-          scale: (1.2);
-          opacity: 1;
-          z-index: 2;
-        }
+        scale: (1.2);
+        opacity: 1;
+        z-index: 2;
       }
     }
   }

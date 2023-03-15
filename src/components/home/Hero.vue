@@ -4,7 +4,17 @@
     <img class="planet" :src="srcEarth" alt="Planet Earth" />
     <img class="moon" :src="srcMoon" alt="Moon" />
     <img class="astronaut" :src="srcAstronauth" alt="Planet Earth" />
+    <div class="music">
+      <img :src="srcMusicActive" @click="changeMusic" alt="Music Active" />
+    </div>
     <div class="mask"></div>
+    <div class="arrow">
+      <div class="content">
+        <img id="img-one" src="@/assets/icons/arrow-down.svg" alt="Arrow" />
+        <img id="img-two" src="@/assets/icons/arrow-down.svg" alt="Arrow" />
+        <img id="img-three" src="@/assets/icons/arrow-down.svg" alt="Arrow" />
+      </div>
+    </div>
     <div class="carusel">
       <div class="content">
         <h2>LAS MEJORES SOLUCIONES EN</h2>
@@ -34,7 +44,9 @@
 <script>
 export default {
   data() {
-    return {}
+    return {
+      music: true,
+    }
   },
   computed: {
     srcSpace() {
@@ -49,14 +61,27 @@ export default {
     srcAstronauth() {
       return '/src/assets/hero/astronaut.png'
     },
+    srcMusicActive() {
+      return this.music
+        ? '/src/assets/hero/music.gif'
+        : '/src/assets/hero/music_inactive.gif'
+    },
+  },
+  methods: {
+    changeMusic() {
+      this.music = !this.music
+    },
   },
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .hero {
+  position: relative;
+  overflow: hidden;
   img {
     height: 100vh;
+    overflow: hidden;
   }
   .space {
     width: 100%;
@@ -69,8 +94,8 @@ export default {
     object-fit: cover;
     position: absolute;
     right: 30%;
-    /* top: 5%; */
     z-index: 555;
+    animation: fadeLeftRightPlanet 2s ease 1, rotation 700s infinite linear 3s;
   }
   .moon {
     width: 100%;
@@ -84,8 +109,37 @@ export default {
     object-fit: cover;
     position: absolute;
     right: 0;
-    z-index: 557;
+    z-index: 559;
+    @include animation-right-left(2s);
   }
+  .music {
+    position: absolute;
+    top: 0;
+    left: 60%;
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-content: center;
+    z-index: 559;
+    img {
+      width: 5rem;
+      height: 5rem;
+      max-width: 90px;
+      max-height: 90px;
+      border-radius: 50%;
+      box-shadow: 0px 3px 0px 2px $color-blue-primary;
+      -webkit-box-shadow: 0px 3px 0px 2px $color-blue-primary;
+      -moz-box-shadow: 0px 3px 0px 2px $color-blue-primary;
+      @include animation-right-left(2s);
+      &:hover {
+        cursor: pointer;
+        /* z-index: 560 !important; */
+      }
+    }
+  }
+
   .mask {
     background: rgba(33, 70, 112, 0.7);
     mix-blend-mode: soft-light;
@@ -96,22 +150,59 @@ export default {
     top: 0;
     right: 0;
   }
+  @media (min-height: $movil-size) {
+    .arrow {
+      position: absolute;
+      top: calc(100vh - 100px);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-content: end;
+      flex-wrap: wrap;
+      z-index: 559;
+      .content {
+        display: flex;
+        flex-direction: column;
+        &:hover {
+          cursor: pointer;
+        }
+        img {
+          max-width: 5rem;
+          max-height: 5rem;
+        }
+        #img-one {
+          animation: arrowAnimationOne 2s linear infinite;
+          position: relative;
+          /* top: 50%; */
+        }
+        #img-two {
+          animation: arrowAnimation 2s linear infinite;
+          position: relative;
+          top: -25%;
+        }
+        #img-three {
+          animation: arrowAnimationThree 2s linear infinite;
+          position: relative;
+          top: -50%;
+        }
+      }
+    }
+  }
+
   .carusel {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-content: center;
-    height: 10em;
+    height: 100vh;
     max-height: 100vh;
     min-width: 70%;
+    flex-wrap: wrap;
     position: absolute;
-    top: 5%;
+    top: 0;
     left: 10%;
-    /* margin: 10%; */
     z-index: 558;
     word-break: break-word;
-    @media (orientation: landscape) and (max-width: $tablet-size) {
-      top: 2%;
-    }
+    @include animation-down-top(2s);
     .content {
       display: flex;
       flex-direction: column;
@@ -158,8 +249,10 @@ export default {
   .carusel > * {
     animation: 12s autoplay6 infinite linear;
     position: absolute;
-    top: 0;
-    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
     opacity: 0;
   }
   .carusel > *:nth-child(1) {
@@ -187,6 +280,50 @@ export default {
     opacity: 0;
   }
   100% {
+    opacity: 0;
+  }
+}
+
+@keyframes arrowAnimationThree {
+  0% {
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-30%);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+}
+
+@keyframes arrowAnimationOne {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-30%);
+    opacity: 8;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+@keyframes arrowAnimation {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-30%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0%);
     opacity: 0;
   }
 }
@@ -227,8 +364,14 @@ export default {
   }
 }
 
-.planet {
-  animation: rotation 700s infinite linear;
+@keyframes fadeLeftRightPlanet {
+  0% {
+    transform: translateX(-300%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
 
 @keyframes rotation {

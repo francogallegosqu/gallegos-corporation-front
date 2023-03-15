@@ -16,7 +16,7 @@
             <img src="@/assets/icons/clients/folder-solid.svg" alt="Field" />
           </div>
           <h2>{{ createdJobs }}+</h2>
-          <h3>Trabajos Creados</h3>
+          <h3>Clientes Satisfechos</h3>
         </div>
       </div>
       <div class="client-item col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3">
@@ -28,7 +28,7 @@
             />
           </div>
           <h2>{{ happyCustomers }}+</h2>
-          <h3>Clientes Satisfechos</h3>
+          <h3>Trabajos Creados</h3>
         </div>
       </div>
       <div class="client-item col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3">
@@ -117,9 +117,13 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .clients {
+  @media (min-width: $movil-size) {
+    margin: 20px 60px 20px 60px;
+  }
   margin: 20px;
+  margin-top: 100px;
 }
 .client-item {
   padding: 10px;
@@ -131,7 +135,8 @@ export default {
       width: 15%;
     }
   }
-  border: 1px solid $color-blue-primary;
+  border: 1px solid transparent;
+  border-image: url('@/assets/clients/back-clients.jpg') 30 round;
   border-radius: 0px 0px 10px 10px;
   border-top: 6px solid $color-blue-primary;
   width: 100%;

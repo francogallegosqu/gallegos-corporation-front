@@ -24,7 +24,7 @@ $bg-degraded: $color-degraded;
 
 // Size
 $movil-size:320px;
-$movil-xl-size: 768;
+$movil-xl-size: 768px;
 //$tablet-size: 768px; // 480px;
 
 // $desktop-size: 1200px ;
@@ -33,3 +33,7 @@ $movil-xl-size: 768;
 //new Size
 $tablet-size:768px; // para arriba
 $desktop-size:1025px; // para arriba
+
+//color files
+$form-file-button-color: white;
+$form-file-button-bg:$bg-color-dark;

@@ -1,18 +1,23 @@
 export default {
   methods: {
     isElementInViewport(el) {
-      let rect = el.getBoundingClientRect()
-      let windowHeight =
-        window.innerHeight || document.documentElement.clientHeight
-      return rect.top >= 0 && rect.top <= windowHeight
+      if (!el) {
+        return
+      }
+      let distance = el.getBoundingClientRect()
+      return (
+        distance.top <
+          (window.innerHeight || document.documentElement.clientHeight) &&
+        distance.bottom > 0
+      )
     },
     onScroll(id) {
       let myElement = document.getElementById(id)
+      let className = 'item-small-big'
       if (this.isElementInViewport(myElement)) {
-        let className = ' item-zoom '
-        if (!myElement.className.includes(className)) {
-          myElement.className += className
-        }
+        myElement.classList.add(className)
+      } else {
+        myElement.classList.remove(className)
       }
     },
   },

@@ -1,37 +1,45 @@
 <template>
-  <footer class="row w-100 d-flex justify-content-center align-items-start">
-    <div
-      class="item col-10 col-sm-4 col-md-4 d-flex justify-content-center align-items-center"
-    >
-      <Logo class="logo" />
-      <span class="name-logo" v-if="getWidthScreen >= 1200"
-        >GALLEGOS CORPORATION</span
+  <footer>
+    <div class="row">
+      <div
+        class="item col-10 col-sm-4 col-md-4 d-flex justify-content-center align-items-center"
       >
-    </div>
-    <div class="item col-10 col-sm-4 col-md-4 text-start">
-      <h3>Contacto</h3>
-      <ul class="contact">
-        <li><Phone />+51 960 207 415</li>
-        <li><Email />info@gallegoscorporation.com</li>
-        <li>
-          <Location />
-          <span>Lima, Perú</span>
-        </li>
-      </ul>
-    </div>
-    <div class="item col-10 col-sm-4 col-md-4 text-start">
-      <h3>Redes Sociales</h3>
-      <ul class="networks">
-        <li>
-          <img alt="Logo Instagram" src="/src/assets/icons/insta.png" />
-        </li>
-        <li>
-          <img alt="Logo Instagram" src="/src/assets/icons/face.png" />
-        </li>
-        <li>
-          <img alt="Logo Instagram" src="/src/assets/icons/wsp.png" />
-        </li>
-      </ul>
+        <div class="item-content">
+          <Logo class="logo" />
+          <span class="name-logo" v-if="getWidthScreen >= 1200"
+            >GALLEGOS CORPORATION</span
+          >
+        </div>
+      </div>
+      <div class="item col-10 col-sm-4 col-md-4 text-start">
+        <div class="item-content">
+          <h3>Contacto</h3>
+          <ul class="contact">
+            <li><Phone />+51 960 207 415</li>
+            <li><Email />info@gallegoscorporation.com</li>
+            <li>
+              <Location />
+              <span>Lima, Perú</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="item col-10 col-sm-4 col-md-4 text-start">
+        <div class="item-content">
+          <h3>Redes Sociales</h3>
+          <ul class="networks">
+            <li>
+              <img alt="Logo Instagram" src="/src/assets/icons/insta.png" />
+            </li>
+            <li>
+              <img alt="Logo Instagram" src="/src/assets/icons/face.png" />
+            </li>
+            <li>
+              <img alt="Logo Instagram" src="/src/assets/icons/wsp.png" />
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </footer>
 </template>
@@ -55,13 +63,25 @@ export default {
   },
 }
 </script>
-<style lang="scss">
+<style scoped lang="scss">
+footer {
+  height: 450px !important;
+  background: no-repeat url('@/assets/footer/footer.gif');
+  background-size: cover;
+  background-position: bottom;
+}
 .row {
-  height: 7%;
-  padding-left: 3%;
-  padding-right: 3%;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, #060922 18.75%, rgba(6, 9, 34, 0) 100%);
+  height: 100%;
+  /* padding-left: 3%; */
+  /* padding-right: 3%; */
+  margin: 0;
+  margin-top: 100px;
   .item {
-    /* overflow-wrap: break-word; */
+    display: flex !important;
+    align-items: start !important;
     .name-logo {
       font-weight: 700;
       line-height: 20px;
