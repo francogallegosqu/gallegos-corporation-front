@@ -1,9 +1,11 @@
 
 $color-blue:#4970b0;
 $color-blue-primary: #089cf4;
+$color-purple-primary: #9F56F5;
 $colore-blue-light: #086079; // rgb(8, 96, 121, 0.25);// #086079;
 $color-button-primary:#2A96C9;
 $color-degraded:linear-gradient(90deg, #3CA7FD 0%, #9B5AF6 100%);
+$color-danger-primary:#dc3545;
 
 $bg-color-primary: #ffff;
 $bg-color-title: $color-blue;
@@ -37,3 +39,6 @@ $desktop-size:1025px; // para arriba
 //color files
 $form-file-button-color: white;
 $form-file-button-bg:$bg-color-dark;
+// $form-file-button-bg: red;
+$form-file-button-text: 'hola';
+$form-file-button-font-size: 3px;

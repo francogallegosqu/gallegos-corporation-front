@@ -40,7 +40,7 @@
               width: 1,
             },
             collisions: {
-              enable: true,
+              enable: false,
             },
             move: {
               enable: true,
