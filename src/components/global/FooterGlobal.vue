@@ -13,29 +13,32 @@
       </div>
       <div class="item col-10 col-sm-4 col-md-4 text-start">
         <div class="item-content">
-          <h3>Contacto</h3>
+          <h3>{{ getPage?.content?.footer?.contact }}</h3>
           <ul class="contact">
-            <li><Phone />+51 960 207 415</li>
-            <li><Email />info@gallegoscorporation.com</li>
+            <li><Phone /> +51 960 207 415</li>
+            <li><Email /> info@gallegoscorporation.com</li>
             <li>
               <Location />
-              <span>Lima, Perú</span>
+              <span> Lima, Perú</span>
             </li>
           </ul>
         </div>
       </div>
       <div class="item col-10 col-sm-4 col-md-4 text-start">
         <div class="item-content">
-          <h3>Redes Sociales</h3>
+          <h3>{{ getPage?.content?.footer?.network }}</h3>
           <ul class="networks">
             <li>
               <img alt="Logo Instagram" src="/src/assets/icons/insta.png" />
+              /GallegoCorporation
             </li>
             <li>
               <img alt="Logo Instagram" src="/src/assets/icons/face.png" />
+              @GallegoCorporation
             </li>
             <li>
               <img alt="Logo Instagram" src="/src/assets/icons/wsp.png" />
+              +51 933 571 960
             </li>
           </ul>
         </div>
@@ -46,7 +49,7 @@
 
 <script>
 import { mapState } from 'pinia'
-import { useSizeStore } from '../../stores/size'
+import { useSizeStore, pageStore } from '../../stores'
 import Logo from '../icons/Logo.vue'
 import Location from '../icons/Location.vue'
 import Phone from '../icons/Phone.vue'
@@ -60,33 +63,43 @@ export default {
   },
   computed: {
     ...mapState(useSizeStore, ['getWidthScreen']),
+    ...mapState(pageStore, ['getPage']),
   },
 }
 </script>
 <style scoped lang="scss">
 footer {
-  height: 450px !important;
+  min-height: 450px !important;
   background: no-repeat url('@/assets/footer/footer.gif');
   background-size: cover;
   background-position: bottom;
 }
 .row {
+  position: relative;
   display: flex;
-  align-items: center;
+  padding-top: 100px;
+  justify-content: center;
+  align-items: start;
   background: linear-gradient(180deg, #060922 18.75%, rgba(6, 9, 34, 0) 100%);
-  height: 100%;
-  /* padding-left: 3%; */
-  /* padding-right: 3%; */
+  height: 80%;
   margin: 0;
-  margin-top: 100px;
+  z-index: 3;
   .item {
-    display: flex !important;
-    align-items: start !important;
+    display: flex;
+    align-items: start;
+    justify-content: start;
     .name-logo {
       font-weight: 700;
       line-height: 20px;
       margin-left: 20px;
       letter-spacing: 0.04em;
+    }
+    .item-content {
+      h3 {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 35px;
+      }
     }
     .contact {
       padding: 0px;
@@ -95,28 +108,28 @@ footer {
         div {
           display: inline-block;
         }
+        font-weight: 400;
+        margin: 9px 0;
       }
       .location,
       .phone,
       .email {
-        max-width: 15px;
-        width: 3rem;
+        max-width: 20px;
+        width: 4rem;
         margin-right: 0.5rem;
-        svg {
-          * {
-            fill: white;
-          }
-        }
       }
     }
     .networks {
       padding: 0px;
-      display: flex;
+      overflow-wrap: break-word;
       li {
         margin-right: 3rem;
         img {
           max-width: 30px;
+          margin-right: 10px;
         }
+        font-weight: 400;
+        margin: 9px 0;
       }
     }
   }

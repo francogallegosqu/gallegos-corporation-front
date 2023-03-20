@@ -1,14 +1,21 @@
 <template>
   <div class="first-image">
     <div class="content">
-      <h1 id="first-image-title">Tecnología del Futuro</h1>
-      <h3 id="first-image-subtitle">Nosotros = Soluciones Infinitas</h3>
+      <h1 id="first-image-title">{{ getPage?.content?.firstImage?.title }}</h1>
+      <h3 id="first-image-subtitle">
+        {{ getPage?.content?.firstImage?.subtitle }}
+      </h3>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { pageStore } from '../../stores'
 export default {
+  computed: {
+    ...mapState(pageStore, ['getPage']),
+  },
   methods: {
     firstUpdate() {
       this.onScroll('first-image-title')
@@ -33,7 +40,6 @@ export default {
     width: 100%;
     height: 100%;
     flex-wrap: wrap;
-    /* background-color: rgba($color: #000000, $alpha: 0.3); */
     display: flex;
     justify-content: center;
     align-content: center;

@@ -12,22 +12,48 @@
         >
       </div>
       <nav class="navbar d-flex align-items-center">
-        <RouterLink class="navlink-header-one" style="color: white" to="/">
-          Home</RouterLink
+        <RouterLink
+          class="navlink-header-one"
+          style="color: white"
+          v-for="item in getPage?.content?.headers"
+          :key="item.id"
+          :to="`/${$i18n.locale}/${item.path}`"
         >
-        <RouterLink class="navlink-header-two" to="/services"
-          >Nosotros</RouterLink
+          {{ item?.name }}</RouterLink
         >
-        <RouterLink class="navlink-header-three" to="/process"
-          >Servicios</RouterLink
-        >
-        <RouterLink class="navlink-header-four" to="/process"
-          >Proyectos</RouterLink
-        >
-        <RouterLink class="navlink-header-five" to="/process">Blog</RouterLink>
-        <RouterLink class="navlink-header-six" to="/process"
-          >Contacto</RouterLink
-        >
+        <!-- <div class="locale-changer">
+          <select v-model="$i18n.locale" @change="updateRoute">
+            <option
+              v-for="locale in $i18n.availableLocales"
+              :key="`locale-${locale}`"
+              :value="locale"
+            >
+              {{ locale }}
+            </option>
+          </select>
+        </div> -->
+        <div class="dropdown">
+          <button
+            class="dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <Traslate />
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a
+                class="dropdown-item"
+                :id="`locale-${locale}`"
+                v-for="locale in $i18n.availableLocales"
+                :key="`locale-${locale}`"
+                :class="locale == $i18n.locale ? 'active' : ''"
+                @click="updateRoute(locale)"
+                >{{ locale }}</a
+              >
+            </li>
+          </ul>
+        </div>
       </nav>
     </div>
   </header>
@@ -35,11 +61,13 @@
 
 <script>
 import Logo from '../icons/Logo.vue'
-import { mapState } from 'pinia'
-import { useSizeStore } from '../../stores/size'
+import Traslate from '../icons/Traslate.vue'
+import { mapState, mapActions } from 'pinia'
+import { useSizeStore, pageStore } from '../../stores'
 export default {
   components: {
     Logo,
+    Traslate,
   },
   data() {
     return {
@@ -48,8 +76,15 @@ export default {
   },
   computed: {
     ...mapState(useSizeStore, ['getWidthScreen']),
+    ...mapState(pageStore, ['getPage']),
   },
   methods: {
+    ...mapActions(pageStore, ['loadPage']),
+    updateRoute(locale) {
+      const lang = locale
+      this.$router.push({ params: { lang } })
+      this.loadPage(locale)
+    },
     catchScroll() {
       this.scrollY = window.scrollY
     },
@@ -67,6 +102,22 @@ $links: 'one' 1s, 'two' 1.2s, 'three' 1.4s, 'four' 1.6s, 'five' 1.8s, 'six' 2s;
   .navlink-header-#{$name} {
     @include animation-top-down($time);
     text-decoration: none;
+  }
+}
+.dropdown {
+  .dropdown-toggle:after {
+    display: none;
+  }
+  /* transition: all 2s ease-in; */
+
+  .dropdown-menu {
+    background: url('@/assets/blue-target.jpg');
+    /* transition: all 3s ease-in-out; */
+    transition: display 700ms;
+    .dropdown-item {
+      transition: all 0.2s ease-in;
+      cursor: pointer;
+    }
   }
 }
 

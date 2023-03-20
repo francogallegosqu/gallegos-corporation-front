@@ -2,17 +2,17 @@
   <div class="why">
     <div class="title">
       <h2 class="circle"></h2>
-      <h2>Porqué Elegirnos</h2>
+      <h2>{{ getPage?.content?.whyChoose?.title }}</h2>
       <h2 class="circle"></h2>
     </div>
     <h2 class="title-two">
-      Porque Nuestros Clientes Eligen <span class="year">Trabajar</span> Con
-      Nosotros
+      {{ getPage?.content?.whyChoose?.subtitle }}
+      <span class="year">{{ getPage?.content?.whyChoose?.work }}</span>
+      {{ getPage?.content?.whyChoose?.subtitleTwo }}
     </h2>
     <div class="description">
       <p>
-        Gallegos Corporation Nació con el objetivo de brindar soluciones
-        tecnológicas en un mundo tecnologico.
+        {{ getPage?.content?.whyChoose?.text }}
       </p>
     </div>
     <div class="row row-first">
@@ -27,19 +27,20 @@
       >
         <div class="row row-second">
           <div
-            id="row-second-one-why"
+            :id="item.id"
+            v-for="item in getPage?.content?.whyChoose?.grid"
+            :key="item.id"
             class="row-second-item col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
           >
             <div class="icon-title">
-              <h3 class="number">01.</h3>
-              <h3>Últimas Tecnologías</h3>
+              <h3 class="number">{{ item?.number }}</h3>
+              <h3>{{ item?.title }}</h3>
             </div>
             <p>
-              Buscamos soluciones con la última tecnología del mercado para
-              llevar tu proyecto a otro nivel.
+              {{ item?.content }}
             </p>
           </div>
-          <div
+          <!-- <div
             id="row-second-two-why"
             class="row-second-item col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
           >
@@ -49,7 +50,7 @@
             </div>
             <p>
               Cada problema es tratado de manera única, así tu solucion también
-              será única e innovadora
+              será única e innovadora.
             </p>
           </div>
           <div
@@ -64,7 +65,7 @@
               Nos enfocamos en buscar la mejor estrategía para dar solución a tu
               problema.
             </p>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -72,7 +73,12 @@
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { pageStore } from '../../stores'
 export default {
+  computed: {
+    ...mapState(pageStore, ['getPage']),
+  },
   methods: {
     updateZoom() {
       this.onScroll('row-second-one-why')

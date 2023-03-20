@@ -13,7 +13,9 @@
         <div class="brief-text">
           <h3>{{ project?.attributes?.title }}</h3>
           <button type="button" class="button-gradient">
-            <span class="text">Ver Más</span>
+            <span class="text">{{
+              getPage?.content?.briefCaseTitle?.button
+            }}</span>
             <!-- <div class="img-button">
               <img src="@/assets/icons/arrow-lg-icon.svg" alt="Arrow Right" />
             </div> -->
@@ -33,8 +35,7 @@
 
 <script>
 import { mapState, mapActions } from 'pinia'
-import { projectStore } from '../../stores/project'
-import { baseUrlStore } from '../../stores/baseUrl'
+import { baseUrlStore, projectStore, pageStore } from '../../stores'
 import PaginationVue from './Pagination.vue'
 export default {
   components: {
@@ -50,6 +51,7 @@ export default {
   computed: {
     ...mapState(projectStore, ['projects', 'meta']),
     ...mapState(baseUrlStore, ['baseURL']),
+    ...mapState(pageStore, ['getPage']),
     maxSizePage() {
       return this.$route.name.includes('home') ? 8 : 10
     },
@@ -85,10 +87,12 @@ export default {
       transition: scale 0.4s ease-out 100ms;
       .background-img {
         width: 100%;
-        height: 200px;
-        background-size: cover;
+        height: 250px;
+        background-size: 100% 100%;
         background-position: center;
+        background-repeat: no-repeat;
         border-radius: 5px 5px 0 0;
+        box-shadow: 0 0 5px black;
       }
       .brief-text {
         display: flex;
@@ -110,23 +114,13 @@ export default {
           flex-wrap: wrap;
           justify-content: end !important;
           align-items: center;
-          /* background: $bg-degraded; */
           border: none;
-          font-size: 1rem;
+          font-size: 1.1rem;
           font-weight: 500;
           transition: filter 1s ease-out 100ms;
           .text {
             padding: 2px 7px;
           }
-          .img-button {
-            max-width: 35px;
-            img {
-              width: 80%;
-            }
-          }
-          /* &:hover {
-            filter: brightness(1.35);
-          } */
         }
       }
       &:hover {

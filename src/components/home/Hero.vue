@@ -10,38 +10,58 @@
     <div class="mask"></div>
     <div class="arrow">
       <div class="content">
-        <img id="img-one" src="@/assets/icons/arrow-down.svg" alt="Arrow" />
-        <img id="img-two" src="@/assets/icons/arrow-down.svg" alt="Arrow" />
-        <img id="img-three" src="@/assets/icons/arrow-down.svg" alt="Arrow" />
+        <img id="img-one" src="/assets/icons/arrow-down.svg" alt="Arrow" />
+        <img id="img-two" src="/assets/icons/arrow-down.svg" alt="Arrow" />
+        <img id="img-three" src="/assets/icons/arrow-down.svg" alt="Arrow" />
       </div>
     </div>
     <div class="carusel">
-      <div class="content">
-        <h2>LAS MEJORES SOLUCIONES EN</h2>
-        <h1>SOFTWARE</h1>
+      <div
+        class="content"
+        v-for="item in getPage?.content?.hero?.carrusel"
+        :key="item.id"
+      >
+        <h2>{{ item.h2 }}</h2>
+        <h1>{{ item.h1 }}</h1>
         <div class="button">
-          <RouterLink to="/">Conoce Más</RouterLink>
+          <RouterLink to="/">{{ item.router }}</RouterLink>
+        </div>
+      </div>
+
+      <!-- <div class="content">
+        <h2>{{ $t('content.hero.carrusel.h2') }}</h2>
+        <h1>{{ $tc('content.hero.carrusel.h1', 0) }}</h1>
+        <div class="button">
+          <RouterLink to="/">{{
+            $t('content.hero.carrusel.router')
+          }}</RouterLink>
         </div>
       </div>
       <div>
-        <h2>LAS MEJORES SOLUCIONES EN</h2>
-        <h1>HARDWARE</h1>
+        <h2>{{ $t('content.hero.carrusel.h2') }}</h2>
+        <h1>{{ $tc('content.hero.carrusel.h1', 1) }}</h1>
         <div class="button">
-          <RouterLink to="/">Conoce Más</RouterLink>
+          <RouterLink to="/">{{
+            $t('content.hero.carrusel.router')
+          }}</RouterLink>
         </div>
       </div>
       <div>
-        <h2>LAS MEJORES SOLUCIONES EN</h2>
-        <h1>APPS MOVILES</h1>
+        <h2>{{ $t('content.hero.carrusel.h2') }}</h2>
+        <h1>{{ $tc('content.hero.carrusel.h1', 2) }}</h1>
         <div class="button">
-          <RouterLink to="/">Conoce Más</RouterLink>
+          <RouterLink to="/">{{
+            $t('content.hero.carrusel.router')
+          }}</RouterLink>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { pageStore } from '../../stores'
 export default {
   data() {
     return {
@@ -49,22 +69,23 @@ export default {
     }
   },
   computed: {
+    ...mapState(pageStore, ['getPage']),
     srcSpace() {
-      return '/src/assets/hero/sky-space.jpg'
+      return '/assets/hero/sky-space.jpg'
     },
     srcMoon() {
-      return '/src/assets/hero/moon.png'
+      return '/assets/hero/moon.png'
     },
     srcEarth() {
-      return '/src/assets/hero/planet-earth1.png'
+      return '/assets/hero/planet-earth1.png'
     },
     srcAstronauth() {
-      return '/src/assets/hero/astronaut.png'
+      return '/assets/hero/astronaut.png'
     },
     srcMusicActive() {
       return this.music
-        ? '/src/assets/hero/music.gif'
-        : '/src/assets/hero/music_inactive.gif'
+        ? '/assets/hero/music.gif'
+        : '/assets/hero/music_inactive.gif'
     },
   },
   methods: {

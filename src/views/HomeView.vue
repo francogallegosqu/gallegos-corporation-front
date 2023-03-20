@@ -11,6 +11,7 @@
     <SliderInfinity />
     <Testimonial />
     <ContactUs />
+    <Blog />
   </main>
 </template>
 
@@ -26,6 +27,7 @@ import BriefCaseVue from '../components/global/BriefCase.vue'
 import SliderInfinity from '../components/global/SliderInfinity.vue'
 import Testimonial from '../components/home/Testimonial.vue'
 import ContactUs from '../components/home/ContactUs.vue'
+import Blog from '../components/home/Blog.vue'
 export default {
   components: {
     Hero,
@@ -39,6 +41,7 @@ export default {
     SliderInfinity,
     Testimonial,
     ContactUs,
+    Blog,
   },
 }
 </script>

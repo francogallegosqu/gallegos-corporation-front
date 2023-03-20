@@ -2,19 +2,20 @@
   <div class="service">
     <div class="title">
       <h2 class="circle"></h2>
-      <h2>Nuestros Servicios</h2>
+      <h2>{{ getPage?.content?.service?.title }}</h2>
       <h2 class="circle"></h2>
     </div>
-    <h2 class="title-two">Servicios Que Ofrecemos</h2>
+    <h2 class="title-two">{{ getPage?.content?.service?.subtitle }}</h2>
     <div class="row w-100 subtitle">
       <div class="col-12 col-sm-7">
         <p>
-          Mejora de la eficacia de tu trabajo gracias a la automatización de
-          procesos, aumentando la productividad de tu empresa.
+          {{ getPage?.content?.service?.text }}
         </p>
       </div>
       <div class="col-12 col-sm-3">
-        <p class="background-service">Todos Los Servicios</p>
+        <p class="background-service">
+          {{ getPage?.content?.service?.backService }}
+        </p>
       </div>
     </div>
     <div>
@@ -96,88 +97,23 @@
     </div>
     <div id="grid-container" class="row w-100 grid-container">
       <div
-        id="grid-item-one"
+        :id="item.id"
+        v-for="item in getPage?.content?.service?.grid"
+        :key="item.id"
         class="grid-item col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
       >
         <div class="content">
           <div class="img-title">
-            <img src="@/assets/icons/icon-development.svg" alt="Development" />
-            <h2>Web Development</h2>
+            <img :src="item?.img" :alt="item?.title" />
+            <h2>{{ item?.title }}</h2>
             <p>
-              Tu sitio web es la primera presentación a tus potenciales
-              clientes, por eso es importante un diseño web de impacto.
+              {{ item?.content }}
             </p>
           </div>
 
           <div class="button">
             <button class="button-gradient">
-              Conoce Más
-              <img src="@/assets/icons/arrow-lg-icon.svg" alt="Arrow Right" />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        id="grid-item-two"
-        class="grid-item col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
-      >
-        <div class="content">
-          <div class="img-title">
-            <img src="@/assets/icons/icon-digital.svg" alt="Development" />
-            <h2>Digital Marketing</h2>
-            <p>
-              Llega a tu público en el mejor momento con potentes
-              automatizaciones.
-            </p>
-          </div>
-
-          <div class="button">
-            <button class="button-gradient">
-              Conoce Más
-              <img src="@/assets/icons/arrow-lg-icon.svg" alt="Arrow Right" />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        id="grid-item-three"
-        class="grid-item col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
-      >
-        <div class="content">
-          <div class="img-title">
-            <img src="@/assets/icons/icon-apps.svg" alt="Development" />
-            <h2>Apps Development</h2>
-            <p>
-              Creación de software simple que pueda ser usado en dispositivos
-              móviles como tabletas y celulares.
-            </p>
-          </div>
-
-          <div class="button">
-            <button class="button-gradient">
-              Conoce Más
-              <img src="@/assets/icons/arrow-lg-icon.svg" alt="Arrow Right" />
-            </button>
-          </div>
-        </div>
-      </div>
-      <div
-        id="grid-item-four"
-        class="grid-item col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
-      >
-        <div class="content">
-          <div class="img-title">
-            <img src="@/assets/icons/icon-seo.svg" alt="Development" />
-            <h2>Seo Services</h2>
-            <p>
-              Estrategias y técnicas de optimización en una página web para que
-              aparezca orgánicamente en buscadores de Internet como Google,
-              Yahoo o Youtube.
-            </p>
-          </div>
-          <div class="button">
-            <button class="button-gradient">
-              Conoce Más
+              {{ item?.buttonName }}
               <img src="@/assets/icons/arrow-lg-icon.svg" alt="Arrow Right" />
             </button>
           </div>
@@ -189,7 +125,23 @@
 
 <script>
 import { loadFull } from 'tsparticles'
+import { mapState } from 'pinia'
+import { pageStore } from '../../stores'
 export default {
+  data() {
+    return {
+      img: [],
+    }
+  },
+  computed: {
+    ...mapState(pageStore, ['getPage']),
+    listImg() {
+      const list = this.getPage?.content?.service?.grid
+      return list.map((e) => {
+        return e.img
+      })
+    },
+  },
   methods: {
     async particlesInit(engine) {
       await loadFull(engine)

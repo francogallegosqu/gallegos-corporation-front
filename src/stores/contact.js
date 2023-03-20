@@ -23,7 +23,7 @@ export const contact = defineStore('contact', {
         console.log(response, 'statyus', response.status)
         if (response) return response.code == '200'
       } catch (error) {
-        console.log(error)
+        return error
       }
     },
   },

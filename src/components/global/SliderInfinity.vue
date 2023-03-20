@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="title-infinity">
-      <h3>Más de 50 clientes alrededor del mundo confían en nosotros</h3>
+      <h3>{{ getPage?.content?.slider?.title }}</h3>
     </div>
     <div class="carrusel-infinity">
       <div class="carrusel-items">
@@ -14,15 +14,23 @@
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { pageStore } from '../../stores'
 export default {
   data() {
     return {
       nameImages: [],
     }
   },
+  computed: {
+    ...mapState(pageStore, ['getPage']),
+  },
   created() {
-    const filesGlob = import.meta.glob('@/assets/infinity/*.jpg')
-    this.nameImages = Object.keys(filesGlob)
+    const filesGlob = import.meta.glob('/src/assets/infinity/*.jpg', {
+      as: 'url',
+      eager: true,
+    })
+    this.nameImages = Object.values(filesGlob)
   },
   async mounted() {
     const carrusel = document.querySelector('.carrusel-items')

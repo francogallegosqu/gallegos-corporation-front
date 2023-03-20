@@ -2,46 +2,64 @@
   <div class="about">
     <div class="title">
       <h2 class="circle"></h2>
-      <h2>Sobre Nosotros</h2>
+      <h2>{{ getPage?.content?.aboutUs?.title }}</h2>
       <h2 class="circle"></h2>
     </div>
     <h2 class="title-two">
-      Confiado Por Clientes En Todo El Mundo Desde
-      <span class="year">Siempre</span>
+      {{ getPage?.content?.aboutUs?.subtitle }}
+      <span class="year">{{ getPage?.content?.aboutUs?.year }}</span>
     </h2>
     <div class="description">
       <p>
-        Gallegos Corporation Nació con el objetivo de brindar soluciones
-        tecnológicas en un mundo tecnologico.
+        {{ getPage?.content?.aboutUs?.text }}
       </p>
     </div>
+    <!-- <div class="row w-100">
+      <div class="col-6">
+        {{ getPage?.content?.aboutUs?.grid }}
+      </div>
+      <div class="col-6" style="word-wrap: break-word">
+        <video
+          id="video"
+          src="/src/assets/planet-color.mp4"
+          autoplay="true"
+          muted="muted"
+          style="height: 100%; width: 100%"
+          loop
+        ></video>
+      </div>
+    </div> -->
     <div class="row row-first">
       <div
         class="col-item col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-icons-text"
       >
         <div class="row row-second">
           <div
-            id="row-second-one"
+            :id="item.id"
+            v-for="item in getPage?.content?.aboutUs?.grid"
+            :key="item.id"
             class="row-second-item col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
           >
             <div class="icon-title">
               <div class="icon">
-                <img src="@/assets/icons/about-us/field-icon.svg" alt="Field" />
+                <img :src="item.img" alt="Field" />
               </div>
-              <h3>Primero en el Campo</h3>
+              <h3>{{ item.title }}</h3>
             </div>
             <p>
-              Expertos en el campo de software, mantenimiento de hardware y
-              estrategias de publicidad.
+              {{ item.content }}
             </p>
           </div>
-          <div
+          <!-- <div
             id="row-second-two"
             class="row-second-item col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
           >
             <div class="icon-title">
               <div class="icon">
-                <img src="@/assets/icons/about-us/reach-icon.svg" alt="Field" />
+                <img
+                  src="/src/assets/icons/about-us/reach-icon.svg"
+                  alt="Field"
+                />
               </div>
               <h3>Fácil de Alcanzar</h3>
             </div>
@@ -53,7 +71,10 @@
           >
             <div class="icon-title">
               <div class="icon">
-                <img src="@/assets/icons/about-us/world-icon.svg" alt="Field" />
+                <img
+                  src="/src/assets/icons/about-us/world-icon.svg"
+                  alt="Field"
+                />
               </div>
               <h3>Servicios en Todo el mundo</h3>
             </div>
@@ -69,7 +90,7 @@
             <div class="icon-title">
               <div class="icon">
                 <img
-                  src="@/assets/icons/about-us/support- icon.svg"
+                  src="/src/assets/icons/about-us/world-icon.svg"
                   alt="Field"
                 />
               </div>
@@ -79,7 +100,7 @@
               Atención a través de nuestros contactos oficiales, con información
               veraz, calidad de servicio y la protección de sus datos.
             </p>
-          </div>
+          </div> -->
         </div>
       </div>
       <div
@@ -88,11 +109,10 @@
       >
         <video
           id="video"
-          width="100%"
-          height="auto"
-          src="@/assets/planet-color.mp4"
+          src="/src/assets/planet-color.mp4"
           autoplay="true"
           muted="muted"
+          style="height: 100%; width: 100%"
           loop
         ></video>
       </div>
@@ -101,7 +121,12 @@
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { pageStore } from '../../stores'
 export default {
+  computed: {
+    ...mapState(pageStore, ['getPage']),
+  },
   methods: {
     updateZoom() {
       this.onScroll('row-second-one')

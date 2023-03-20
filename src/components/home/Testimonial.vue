@@ -3,129 +3,63 @@
     <div class="titles">
       <div class="title">
         <h2 class="circle"></h2>
-        <h4>Testimonios</h4>
+        <h4>{{ getPage?.content?.testimonial?.title }}</h4>
         <h2 class="circle"></h2>
       </div>
-      <h1>Nuestros Clientes</h1>
+      <h1>{{ getPage?.content?.testimonial?.subtitle }}</h1>
     </div>
-
-    <div ref="carousel" class="owl-carousel owl-theme">
-      <div class="item">
-        <div class="image">
-          <div class="content-img" style="background-color: white">
-            <img src="@/assets/testimonial/cambio-mas.jpg" alt="" />
-          </div>
-        </div>
-        <div class="content">
-          <div class="text">
-            <p>Un trabajo impecable e innovador y de la mejor calidad.</p>
-          </div>
-          <div class="title-name">
-            <h3 class="title">Cambio mas</h3>
-            <p class="gender">Casa de Cambio</p>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <div class="content-img" style="background-color: white">
-            <img src="@/assets/testimonial/techyim.jpg" alt="" />
-          </div>
-        </div>
-        <div class="content">
-          <div class="text">
-            <p>Diseñaron toda nuestra web con la mejor calidad</p>
-          </div>
-          <div class="title-name">
-            <h3 class="title">Techym Tel</h3>
-            <p class="gender">Telecomunicaciones</p>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <div class="content-img" style="background-color: black">
-            <img src="@/assets/testimonial/coronel.jpg" alt="" />
-          </div>
-        </div>
-        <div class="content">
-          <div class="text">
-            <p>Me ayudaron a expadirme y generar confianza a mis clientes.</p>
-          </div>
-          <div class="title-name">
-            <h3 class="title">Coronel es de la Rumba</h3>
-            <p class="gender">Orquesta musical</p>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <div class="content-img" style="background-color: white">
-            <img src="@/assets/testimonial/corpamd.jpg" alt="" />
-          </div>
-        </div>
-        <div class="content">
-          <div class="text">
-            <p>
-              Los servicios SEO nos ayudaron a generar mayor ventas y mayor
-              expansión de mercado.
-            </p>
-          </div>
-          <div class="title-name">
-            <h3 class="title">Corporación Perez</h3>
-            <p class="gender">Distribuidor de suministros</p>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="image">
-          <div class="content-img" style="background-color: black">
-            <img src="@/assets/testimonial/moments.jpg" alt="" />
-          </div>
-        </div>
-        <div class="content">
-          <div class="text">
-            <p>Crearon un diseño funcional y estético en mi página web.</p>
-          </div>
-          <div class="title-name">
-            <h3 class="title">Moments and Brands</h3>
-            <p class="gender">Estudio de Fotografía</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <carrusel :key="id" :grid="getPage?.content?.testimonial?.grid" />
   </div>
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { pageStore } from '../../stores'
+import carrusel from '../testimonial/carrusel.vue'
 export default {
-  mounted() {
-    // eslint-disable-next-line no-undef
-    $(this.$refs.carousel).owlCarousel({
-      items: 4,
-      loop: true,
-      margin: 10,
-      autoplay: true,
-      autoplayTimeout: 3000,
-      autoplayHoverPause: true,
-      nav: true,
-      dots: false, //$movil-size:320px;
-      responsive: {
-        0: { items: 1 },
-        480: { items: 2 },
-        575: { items: 2 },
-        768: { items: 2 },
-        991: { items: 3 },
-        1200: { items: 4 },
-      },
-      navText: [
-        // eslint-disable-next-line quotes
-        `<i class='fa fa-chevron-left'></i>`,
-        // eslint-disable-next-line quotes
-        `<i class='fa fa-chevron-right'></i>`,
-      ],
-    })
+  data() {
+    return {
+      id: 0,
+    }
   },
+  components: {
+    carrusel,
+  },
+  watch: {
+    getPage(value) {
+      this.id = value?.content?.id
+    },
+  },
+  computed: {
+    ...mapState(pageStore, ['getPage']),
+  },
+  // mounted() {
+  //   // eslint-disable-next-line no-undef
+  //   $(this.$refs.carousel).owlCarousel({
+  //     items: 4,
+  //     loop: true,
+  //     margin: 10,
+  //     autoplay: true,
+  //     autoplayTimeout: 3000,
+  //     autoplayHoverPause: true,
+  //     nav: true,
+  //     dots: false, //$movil-size:320px;
+  //     responsive: {
+  //       0: { items: 1 },
+  //       480: { items: 2 },
+  //       575: { items: 2 },
+  //       768: { items: 2 },
+  //       991: { items: 3 },
+  //       1200: { items: 4 },
+  //     },
+  //     navText: [
+  //       // eslint-disable-next-line quotes
+  //       `<i class='fa fa-chevron-left'></i>`,
+  //       // eslint-disable-next-line quotes
+  //       `<i class='fa fa-chevron-right'></i>`,
+  //     ],
+  //   })
+  // },
 }
 </script>
 <style scoped lang="scss">

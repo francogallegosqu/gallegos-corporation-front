@@ -8,8 +8,7 @@
 import HeaderGlobal from './components/global/HeaderGlobal.vue'
 import FooterGlobal from './components/global/FooterGlobal.vue'
 import { mapState, mapActions } from 'pinia'
-import { useSizeStore } from './stores/size'
-import { projectStore } from './stores/project'
+import { useSizeStore, projectStore } from './stores'
 export default {
   components: {
     HeaderGlobal,
@@ -24,7 +23,6 @@ export default {
   },
   mounted() {
     this.loadCharacters()
-    // this.loadProjects()
   },
 }
 </script>

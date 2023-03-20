@@ -4,40 +4,37 @@
       <div class="client-item col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3">
         <div id="id-project" class="number-icon">
           <div class="client-icon">
-            <img src="@/assets/icons/clients/briefcase-solid.svg" alt="Field" />
+            <img src="/assets/icons/clients/briefcase-solid.svg" alt="Field" />
           </div>
           <h2>{{ projectNumber }}+</h2>
-          <h3>Proyectos Terminados</h3>
+          <h3>{{ getPage?.content?.clients?.project?.title }}</h3>
         </div>
       </div>
       <div class="client-item col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3">
         <div id="id-jobs" class="number-icon">
           <div class="client-icon">
-            <img src="@/assets/icons/clients/folder-solid.svg" alt="Field" />
+            <img src="/assets/icons/clients/folder-solid.svg" alt="Field" />
           </div>
-          <h2>{{ createdJobs }}+</h2>
-          <h3>Clientes Satisfechos</h3>
+          <h2>{{ happyCustomers }}+</h2>
+          <h3>{{ getPage?.content?.clients?.client?.title }}</h3>
         </div>
       </div>
       <div class="client-item col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3">
         <div id="id-customer" class="number-icon">
           <div class="client-icon">
-            <img
-              src="@/assets/icons/clients/user-group-solid.svg"
-              alt="Field"
-            />
+            <img src="/assets/icons/clients/user-group-solid.svg" alt="Field" />
           </div>
-          <h2>{{ happyCustomers }}+</h2>
-          <h3>Trabajos Creados</h3>
+          <h2>{{ createdJobs }}+</h2>
+          <h3>{{ getPage?.content?.clients?.job?.title }}</h3>
         </div>
       </div>
       <div class="client-item col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3">
         <div id="id-experience" class="number-icon">
           <div class="client-icon">
-            <img src="@/assets/icons/clients/calendar-solid.svg" alt="Field" />
+            <img src="/assets/icons/clients/calendar-solid.svg" alt="Field" />
           </div>
           <h2>{{ yearsExperiences }}+</h2>
-          <h3>Años de Experiencia</h3>
+          <h3>{{ getPage?.content?.clients?.experience?.title }}</h3>
         </div>
       </div>
     </div>
@@ -45,6 +42,8 @@
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { pageStore } from '../../stores'
 export default {
   data() {
     return {
@@ -53,6 +52,9 @@ export default {
       happyCustomers: 0,
       yearsExperiences: 0,
     }
+  },
+  computed: {
+    ...mapState(pageStore, ['getPage']),
   },
   methods: {
     addNumberProject(number) {
@@ -105,8 +107,8 @@ export default {
     },
     updateNumber() {
       this.scrollClients('id-project', 600, this.addNumberProject)
-      this.scrollClients('id-jobs', 200, this.addNumberJobs)
-      this.scrollClients('id-customer', 23, this.addNumberCustomer)
+      this.scrollClients('id-jobs', 23, this.addNumberJobs)
+      this.scrollClients('id-customer', 200, this.addNumberCustomer)
       this.scrollClients('id-experience', 7, this.addNumberExperience)
     },
   },

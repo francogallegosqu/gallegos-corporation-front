@@ -2,14 +2,13 @@
   <div class="contact-us">
     <div class="title">
       <h2 class="circle"></h2>
-      <h2>Contacto</h2>
+      <h2>{{ getPage?.content?.contact?.title }}</h2>
       <h2 class="circle"></h2>
     </div>
     <div class="top-content">
-      <h2>Inicia Tu Proyecto</h2>
+      <h2>{{ getPage?.content?.contact?.init }}</h2>
       <p>
-        Nos pondremos en contacto con usted dentro de las 24 horas y su
-        información se mantendrá privada.
+        {{ getPage?.content?.contact?.subtitle }}
       </p>
     </div>
     <div class="content">
@@ -20,14 +19,14 @@
         enctype="multipart/form-data"
       >
         <div v-if="danger" class="form-danger">
-          ¡Rellena los Campos Correctamente!
+          {{ getPage?.content?.contact?.dangerMessage }}
         </div>
         <div class="form-content">
           <input
             type="text"
             class="form-control"
             id="validationCustom01"
-            placeholder="Nombre"
+            :placeholder="getPage?.content?.contact?.form?.name"
             required
             v-model="form.name"
           />
@@ -37,7 +36,7 @@
             type="email"
             class="form-control"
             id="validationCustom02"
-            placeholder="Correo Electronico"
+            :placeholder="getPage?.content?.contact?.form?.email"
             required
             v-model="form.email"
           />
@@ -45,7 +44,7 @@
         <div class="form-content form-file">
           <label id="labelInput" for="inputTag">
             <span class="cross">+</span>
-            Archivo de Desarrollo
+            {{ getPage?.content?.contact?.form?.file }}
             <input id="inputTag" type="file" />
           </label>
           <span id="imageName"></span>
@@ -55,7 +54,7 @@
             type="text"
             class="form-control"
             id="validationCustom04"
-            placeholder="Empresa"
+            :placeholder="getPage?.content?.contact?.form?.business"
             required
             v-model="form.business"
             @change="fileImage"
@@ -66,7 +65,7 @@
             type="text"
             class="form-control"
             id="validationCustom04"
-            placeholder="Asunto"
+            :placeholder="getPage?.content?.contact?.form?.subject"
             required
             v-model="form.subject"
             @change="fileImage"
@@ -75,7 +74,7 @@
         <div class="form-content">
           <textarea
             class="form-control"
-            placeholder="Deja tu mensaje"
+            :placeholder="getPage?.content?.contact?.form?.message"
             id="validationCustom05"
             required
             v-model="form.message"
@@ -89,14 +88,18 @@
           @click="sendContactForm()"
           :disabled="!isFullForm"
         >
-          <span v-if="!buttonChange">Enviar</span>
+          <span v-if="!buttonChange">{{
+            getPage?.content?.contact?.form?.send
+          }}</span>
           <span
             class="spinner-border spinner-border-sm"
             role="status"
             aria-hidden="true"
             v-if="buttonChange"
           ></span>
-          <span v-if="buttonChange">Enviando...</span>
+          <span v-if="buttonChange"
+            >{{ getPage?.content?.contact?.form?.sent }}...</span
+          >
         </button>
       </div>
       <div
@@ -108,11 +111,44 @@
       >
         <div class="body-popup">
           <div class="title">
-            <button id="close" @click="closePopUp">X</button>
+            <button id="close" @click="closePopUp()">X</button>
           </div>
           <div class="popup-content">
-            <p class="popup-text">¡TU NUEVO PROYECTO ESTA EN CAMINO!</p>
-            <p>¡¡GRACIAS!!</p>
+            <p class="popup-text">
+              {{ getPage?.content?.contact?.congratulations?.message }}
+            </p>
+            <p>{{ getPage?.content?.contact?.congratulations?.thank }}</p>
+          </div>
+        </div>
+      </div>
+      <div
+        id="popupError"
+        class="popup panel panel-primary"
+        :style="
+          statusRequest == false
+            ? `visibility: visible; opacity: 1; ${stylesPopUp}`
+            : ''
+        "
+      >
+        <div class="body-popup">
+          <div class="title">
+            <button id="close" @click="closePopUpError()">X</button>
+          </div>
+          <div class="popup-content">
+            <p class="popup-text">
+              {{
+                errorServer == false
+                  ? getPage?.content?.contact?.errorMessage?.message
+                  : getPage?.content?.contact?.serverError?.message
+              }}
+            </p>
+            <p>
+              {{
+                errorServer == false
+                  ? getPage?.content?.contact?.errorMessage?.thank
+                  : getPage?.content?.contact?.serverError?.advice
+              }}
+            </p>
           </div>
         </div>
       </div>
@@ -129,8 +165,8 @@
 
 <script>
 import ConfettiExplosion from 'vue-confetti-explosion'
-import { mapActions } from 'pinia'
-import { contact } from '../../stores/contact'
+import { mapState, mapActions } from 'pinia'
+import { pageStore, contact } from '../../stores'
 import { validateEmail } from '../../utils/filters'
 export default {
   components: {
@@ -147,15 +183,18 @@ export default {
         message: '',
       },
       buttonChange: false,
-      statusRequest: false,
+      statusRequest: null,
       stylesPopUp: '',
       timeout: null,
+      timeoutError: null,
       danger: false,
       confetti: false,
       stylesConfe: '',
+      errorServer: false,
     }
   },
   computed: {
+    ...mapState(pageStore, ['getPage']),
     isFullForm() {
       return (
         this.form.name !== '' &&
@@ -177,13 +216,20 @@ export default {
         subject: '',
         message: '',
       }
+      let form = document.getElementById('formId')
+      form.classList.remove('was-validated')
       let imageName = document.getElementById('imageName')
       imageName.innerText = ''
     },
     closePopUp() {
-      this.statusRequest = false
+      this.statusRequest = null
       this.confetti = false
+      this.cleanForm()
       clearTimeout(this.timeout)
+    },
+    closePopUpError() {
+      this.statusRequest = null
+      clearTimeout(this.timeoutError)
     },
     updatePositionPopup() {
       const elemento = document.getElementById('popup')
@@ -210,21 +256,31 @@ export default {
         try {
           // this.statusRequest = await this.sendContact(this.form)
           this.updatePositionPopup()
-          this.statusRequest = true
+          this.statusRequest = true //error
           if (this.statusRequest) {
             this.confetti = true
           }
-        } finally {
           this.buttonChange = false
           this.danger = false
           if (this.statusRequest) {
             this.timeout = setTimeout(() => {
-              this.statusRequest = false
+              this.statusRequest = null
               this.confetti = false
               this.cleanForm()
-              form.classList.remove('was-validated')
             }, 5000)
           }
+          if (this.statusRequest == false) {
+            this.timeoutError = setTimeout(() => {
+              this.statusRequest = null
+            }, 5000)
+          }
+        } catch (error) {
+          this.statusRequest = false
+          this.errorServer = true
+          this.timeoutError = setTimeout(() => {
+            this.statusRequest = null
+            this.errorServer = false
+          }, 5000)
         }
       }
     },
@@ -255,7 +311,19 @@ export default {
     box-shadow: 0px 0px 20px 3px $color-purple-primary;
   }
 }
+@keyframes shadowAnimationError {
+  0% {
+    box-shadow: 0px 0px 20px 3px $color-danger-primary;
+  }
 
+  50% {
+    box-shadow: 0px 0px 30px 10px $color-danger-primary;
+  }
+
+  100% {
+    box-shadow: 0px 0px 20px 3px $color-danger-primary;
+  }
+}
 #popup {
   position: fixed;
   opacity: 0;
@@ -273,6 +341,7 @@ export default {
   width: 21rem;
   .body-popup {
     height: 100%;
+    width: 100%;
     transition: all 5s ease-in-out;
     border-radius: 15px;
     box-shadow: 0 0 5px #ccc;
@@ -293,6 +362,62 @@ export default {
       justify-content: center;
       align-items: center;
       padding: 30px;
+      .popup-text {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        padding: 20px;
+        font-weight: 800;
+        font-size: 1.2rem;
+        line-height: 2rem;
+      }
+    }
+  }
+}
+
+#popupError {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 700ms;
+  animation: shadowAnimationError 2s linear infinite;
+  display: flex;
+  align-items: start;
+  background-image: url('@/assets/blue-target.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  height: 200px;
+  margin: 0 auto;
+  width: 21rem;
+  .body-popup {
+    height: 100%;
+    width: 100%;
+    transition: all 5s ease-in-out;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #ccc;
+    .title {
+      display: flex;
+      justify-content: end;
+      margin: 0;
+      height: 15%;
+      button {
+        height: 100%;
+        width: 10%;
+        color: $color-danger-primary;
+      }
+    }
+    .popup-content {
+      height: 85%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      p {
+        color: $color-danger-primary;
+      }
       .popup-text {
         margin: 0;
         width: 100%;

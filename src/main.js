@@ -16,10 +16,14 @@ import Particles from 'vue3-particles'
 import 'owl.carousel/dist/assets/owl.carousel.css'
 import 'owl.carousel'
 
+//I18n
+import { i18n } from './i18n'
+
 const app = createApp(App)
 app.use(createPinia())
 app.use(Particles)
 app.use(router)
 app.mixin(mixins)
+app.use(i18n)
 app.mount('#app')
 import 'bootstrap/dist/js/bootstrap.js'

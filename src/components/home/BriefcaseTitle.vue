@@ -2,19 +2,32 @@
   <div class="briefcase">
     <div class="title">
       <h2 class="circle"></h2>
-      <h2>Portafolio</h2>
+      <h2>{{ getPage?.content?.briefCaseTitle?.title }}</h2>
       <h2 class="circle"></h2>
     </div>
     <div class="row sub-briefcase">
       <div class="col-12 col-sm-8">
-        <h2 class="title-two">Nuestros Trabajos</h2>
+        <h2 class="title-two">
+          {{ getPage?.content?.briefCaseTitle?.subtitle }}
+        </h2>
       </div>
       <div class="col-12 col-sm-3">
-        <p class="background-service">Ver Más</p>
+        <p class="background-service">
+          {{ getPage?.content?.briefCaseTitle?.button }}
+        </p>
       </div>
     </div>
   </div>
 </template>
+<script>
+import { mapState } from 'pinia'
+import { pageStore } from '../../stores'
+export default {
+  computed: {
+    ...mapState(pageStore, ['getPage']),
+  },
+}
+</script>
 
 <style scoped lang="scss">
 .briefcase {
