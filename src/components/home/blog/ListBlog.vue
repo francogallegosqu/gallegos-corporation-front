@@ -56,6 +56,7 @@ export default {
 
 <style scoped lang="scss">
 .col-item-blog {
+  z-index: 1;
   .item-content {
     height: 100%;
     border: solid 2px $color-blue-primary;

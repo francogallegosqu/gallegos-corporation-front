@@ -1,6 +1,6 @@
 <template>
   <div class="hero-global">
-    <h1>Detalles de Nuestra Historia</h1>
+    <h1>{{ title }}</h1>
   </div>
 </template>
 
@@ -17,6 +17,8 @@ export default {
 
 <style lang="scss" scoped>
 .hero-global {
+  position: relative;
+  z-index: 1;
   width: 100%;
   background: no-repeat url('/assets/hero/hero-header.jpg');
   background-size: cover;

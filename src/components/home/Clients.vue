@@ -112,8 +112,10 @@ export default {
       this.scrollClients('id-experience', 7, this.addNumberExperience)
     },
   },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.updateNumber)
+  },
   mounted() {
-    // this.update()
     window.addEventListener('scroll', this.updateNumber)
   },
 }

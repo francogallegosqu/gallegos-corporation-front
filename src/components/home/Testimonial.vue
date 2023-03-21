@@ -68,7 +68,7 @@ export default {
   background: no-repeat url('@/assets/testimonial/back-testimonial.png');
   background-size: cover;
   background-position: center;
-  z-index: -1;
+  z-index: 1;
   .titles {
     padding-top: 70px;
     .title {
@@ -108,7 +108,7 @@ export default {
       padding: 20px;
     }
     /* background-color: rgba(6, 9, 34, 0.8); */
-    z-index: 0;
+    z-index: 1;
     .owl-item {
       margin-right: 0 !important;
     }

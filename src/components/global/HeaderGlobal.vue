@@ -76,7 +76,7 @@ export default {
   },
   computed: {
     ...mapState(useSizeStore, ['getWidthScreen']),
-    ...mapState(pageStore, ['getPage']),
+    ...mapState(pageStore, ['getPage', 'getLang']),
   },
   methods: {
     ...mapActions(pageStore, ['loadPage']),
@@ -84,6 +84,9 @@ export default {
       const lang = locale
       this.$router.push({ params: { lang } })
       this.loadPage(locale)
+    },
+    loadParams() {
+      // const isValidParams = this.$i18n.availableLocales.includes()
     },
     catchScroll() {
       this.scrollY = window.scrollY
@@ -113,11 +116,25 @@ $links: 'one' 1s, 'two' 1.2s, 'three' 1.4s, 'four' 1.6s, 'five' 1.8s, 'six' 2s;
   .dropdown-menu {
     background: url('@/assets/blue-target.jpg');
     /* transition: all 3s ease-in-out; */
-    transition: display 700ms;
+    animation: dropdownAnimation 0.5s ease-in-out;
+    /* transition: display 700ms; */
     .dropdown-item {
       transition: all 0.2s ease-in;
       cursor: pointer;
     }
+    perspective: 300px;
+    /* transform: skewY(20deg); */
+  }
+}
+
+@keyframes dropdownAnimation {
+  0% {
+    opacity: 0;
+    transform: rotateX(90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
   }
 }
 

@@ -8,7 +8,6 @@ export const blogStore = defineStore('blogStore', {
   },
   actions: {
     async loadBlog(params) {
-      console.log('blog', i18n.global.locale)
       const { pageSize, page, lang } = params
       const langG = i18n.global.locale
       const { data } = await Api.get(

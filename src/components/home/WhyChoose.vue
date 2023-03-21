@@ -80,14 +80,17 @@ export default {
     ...mapState(pageStore, ['getPage']),
   },
   methods: {
-    updateZoom() {
+    updateZoomWhy() {
       this.onScroll('row-second-one-why')
       this.onScroll('row-second-two-why')
       this.onScroll('row-second-three-why')
     },
   },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.updateZoomWhy)
+  },
   mounted() {
-    window.addEventListener('scroll', this.updateZoom)
+    window.addEventListener('scroll', this.updateZoomWhy)
   },
 }
 </script>

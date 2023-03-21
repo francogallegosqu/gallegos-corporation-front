@@ -1,3 +1,4 @@
+import './utils/loader'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 

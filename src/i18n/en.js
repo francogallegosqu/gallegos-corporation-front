@@ -22,12 +22,12 @@ export const english = {
     id: 2,
     lang: 'en',
     headers: [
-      { name: 'home', path: 'home' },
-      { name: 'about', path: 'about' },
-      { name: 'service', path: 'service' },
-      { name: 'project', path: 'project' },
-      { name: 'blog', path: 'blog' },
-      { name: 'contact', path: 'contact' },
+      { name: 'Home', path: 'home' },
+      { name: 'About', path: 'about' },
+      { name: 'Service', path: 'service' },
+      { name: 'Project', path: 'project' },
+      { name: 'Blog', path: 'blog' },
+      { name: 'Contact', path: 'contact' },
     ],
     hero: {
       carrusel: [
@@ -48,6 +48,7 @@ export const english = {
         },
       ],
     },
+    //home
     service: {
       title: 'Our Services',
       subtitle: 'Services We Offer',
@@ -59,6 +60,7 @@ export const english = {
           id: 'grid-item-one',
           img: '/assets/icons/icon-development.svg',
           title: 'Web Development',
+          path: 'web',
           content: `Your website is the first presentation to your potential
           customers, that is why an impact web design is important.`,
           buttonName: 'Learn More',
@@ -68,6 +70,7 @@ export const english = {
           id: 'grid-item-two',
           img: '/assets/icons/icon-digital.svg',
           title: 'Digital Marketing',
+          path: 'marketing',
           content: `Reach your audience at the best time with powerful
           automations.`,
           buttonName: 'Learn More',
@@ -77,6 +80,7 @@ export const english = {
           id: 'grid-item-three',
           img: '/assets/icons/icon-apps.svg',
           title: 'App Development',
+          path: 'apps',
           content: `Creating simple software that can be used on devices
           Mobile phones such as tablets and cell phones.`,
           buttonName: 'Learn More',
@@ -86,6 +90,7 @@ export const english = {
           id: 'grid-item-four',
           img: '/assets/icons/icon-seo.svg',
           title: 'Seo Services',
+          path: 'seo',
           content: `Strategies and optimization techniques in a web page so that it
           appear organically on Internet search engines like Google,
           Yahoo or Youtube.`,
@@ -93,6 +98,126 @@ export const english = {
           buttonImg: '@/assets/icons/arrow-lg-icon.svg',
         },
       ],
+    },
+    //another section
+    services: {
+      webdevelopment: {
+        title: 'Web Development',
+        phrase: 'A website for you',
+        message:
+          'Improvement of the efficiency of your work thanks to the automation of processes, increasing the productivity of your company.',
+        bar: {
+          title:
+            'We develop a powerful website for you to publish what you want, from wherever you want.',
+          list: [
+            'Software that adapts to your entrepreneurship, business or personal brand.',
+            'You can customize it however you want.',
+            'We provide personalized advice that adapts to you.',
+          ],
+        },
+        phraseTwo: 'We create what you need to take off on the internet',
+        grid: [
+          {
+            id: 'wedevelopmente-one',
+            number: '01.',
+            title: 'Custom professional web design',
+            text: 'We design professional web pages tailored for all types of companies and brands.',
+          },
+          {
+            id: 'wedevelopmente-two',
+            number: '02.',
+            title: 'Hosting for fast loading',
+            text: 'Our team offers the best loading speed on the market for your web design.',
+          },
+          {
+            id: 'wedevelopmente-three',
+            number: '03.',
+            title: 'Diseño responsive de tu web',
+            text: 'We generate web designs that adapt and are displayed on all types of mobile devices.',
+          },
+          {
+            id: 'wedevelopmente-four',
+            number: '04.',
+            title: 'Optimization for Google',
+            text: 'We carry out optimized web design to boost your brand towards Google and other search engines.',
+          },
+        ],
+      },
+      seo: {
+        title: 'SEO service',
+        phrase: 'Optimize your website now',
+        message:
+          'It consists of persuading search engines like Google, Bing and Yahoo, to recommend your content to their users as the best solution to their problems.',
+        important: {
+          title: 'Why is SEO important?',
+          list: [
+            {
+              id: 'important-one',
+              img: '/assets/icons/services/bull-icon.svg',
+              text: 'Optimize your content: That is, improve the experience for both the user who reads you and the search engines.',
+            },
+            {
+              id: 'important-two',
+              img: '/assets/icons/services/coin-icon.svg',
+              text: `Drive organic traffic to your website: Which means more visits that can become customers.
+              `,
+            },
+            {
+              id: 'important-three',
+              img: '/assets/icons/services/like-icon.svg',
+              text: 'Gain authority: Because you can position yourself as an expert in your industry and gain the trust of both Google and people.',
+            },
+            {
+              id: 'important-four',
+              img: '/assets/icons/services/deliver-icon.svg',
+              text: `Capture leads: Attract people who don't know you exist and convert them into customers.
+              `,
+            },
+          ],
+        },
+        strategy: {
+          title: 'Strategies',
+          subtitle: 'How does it work',
+          list: [
+            {
+              id: 'strategy-one',
+              number: '01.',
+              title: 'technical factors',
+              text: 'They are a fundamental basis for search engines to understand the hierarchy of your website, what the content is about and what it is related to. Google will appreciate these efforts and so will your users. In the technical factors you find:',
+              list: ['charging speed', 'XML sitemap', 'HTML Semantics'],
+            },
+            {
+              id: 'strategy-two',
+              number: '02.',
+              title: 'strategic content',
+              text: `It is about optimizing all the content on your website to answer people's questions and so that Google considers giving you visibility in the first search results. Among the factors to take into account are:
+              `,
+              list: [
+                'keyword search',
+                'Optimization of meta titles and meta descriptions',
+                'Interlinking',
+              ],
+            },
+            {
+              id: 'strategy-three',
+              number: '03.',
+              title: 'Authority',
+              text: 'The search engine measures the popularity of your website through domain authority and page authority. This will make Google trust the content you generate and position you at the top of the top. This includes:',
+              list: [
+                'External links to your website',
+                'user experience',
+                'Optimization for mobile devices',
+              ],
+            },
+          ],
+        },
+      },
+      apps: {
+        title: 'Mobile application development',
+        phrase: 'Development of Apps to suit you',
+        message:
+          'It covers all the processes of creating and launching a mobile application, or specific, as it refers to the coding and implementation of the application.',
+      },
     },
     firstImage: {
       title: 'Future Technology',
@@ -133,6 +258,39 @@ export const english = {
           truthful, quality of service and the protection of your data.`,
         },
       ],
+      about: {
+        header: 'Details of Our History',
+        title: 'About Us',
+        subtitle: 'Who we are',
+        text: `We live in a world where technology is becoming a
+        essential part of our life. Businesses depend on factors
+        goals to create new solutions for people to improve
+        their lives, focusing on bringing commodities and mobility as a
+        service. Gallegos Corporation brings the most complete solutions that
+        allow businesses and companies to grow on a large scale with a service of
+        first.`,
+      },
+      vision: {
+        title: 'Vision',
+        textOne: ` Gallegos Corp. aims to bring digital transformation
+        unsurpassed to the business world when working with technologies of
+        leading trend.`,
+        textTwo: `Achieving our goal by hiring a team
+        experienced and talented in key industries, following the
+        top trending technologies around the world and learning
+        about them, and adopting a comprehensive methodology provided by
+        our experienced partner in Tokyo.`,
+      },
+      mision: {
+        title: 'Mission',
+        textOne: `We intend to live up to this VUCA world
+        (volatility, uncertainty, complexity and ambiguity) as a
+        growing software development company.`,
+        textTwo: `Our team has spent a lot of time in many disciplines of the
+        development process. Work closely with our
+        partners provides us with the security and agility necessary to deliver
+        outstanding services and products.`,
+      },
     },
     whyChoose: {
       title: 'Why Choose Us',

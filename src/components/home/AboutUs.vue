@@ -128,7 +128,7 @@ export default {
     ...mapState(pageStore, ['getPage']),
   },
   methods: {
-    updateZoom() {
+    updateZoomAbout() {
       this.onScroll('row-second-one')
       this.onScroll('row-second-two')
       this.onScroll('row-second-three')
@@ -136,8 +136,11 @@ export default {
       this.onScroll('about-img')
     },
   },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.updateZoomAbout)
+  },
   mounted() {
-    window.addEventListener('scroll', this.updateZoom)
+    window.addEventListener('scroll', this.updateZoomAbout)
   },
 }
 </script>

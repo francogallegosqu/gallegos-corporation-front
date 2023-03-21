@@ -22,6 +22,9 @@ export default {
       this.onScroll('first-image-subtitle')
     },
   },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.firstUpdate)
+  },
   mounted() {
     window.addEventListener('scroll', this.firstUpdate)
   },

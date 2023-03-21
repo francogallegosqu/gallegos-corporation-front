@@ -1,35 +1,25 @@
 <template>
   <div>
-    <Hero />
+    <Hero :title="getPage?.content?.aboutUs?.about?.header" />
     <div class="row about-title">
       <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-        <div class="title">Sobre Nosotros</div>
-        <div class="subtitle">Quienes Somos</div>
+        <div class="title">{{ getPage?.content?.aboutUs?.about?.title }}</div>
+        <div class="subtitle">
+          {{ getPage?.content?.aboutUs?.about?.subtitle }}
+        </div>
         <p>
-          Vivimos en un mundo donde la tecnología se está convirtiendo en una
-          parte esencial de nuestra vida. Las empresas dependen de factores
-          objetivos para crear nuevas soluciones para que las personas mejoren
-          sus vidas, enfocándose en traer commodities y movilidad como un
-          servicio. Gallegos Corporation trae las soluciones más completas que
-          permiten a negocios y empresas crecer a gran escala con un servicio de
-          primera.
+          {{ getPage?.content?.aboutUs?.about?.text }}
         </p>
       </div>
     </div>
     <div class="row vision">
-      <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-        <div class="title">Vision</div>
+      <div class="col-item-text col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="title">{{ getPage?.content?.aboutUs?.vision?.title }}</div>
         <p>
-          Gallegos Corp. tiene como objetivo brindar una transformación digital
-          insuperable al mundo de los negocios al trabajar con tecnologías de
-          tendencia líderes.
+          {{ getPage?.content?.aboutUs?.vision?.textOne }}
         </p>
         <p>
-          Lograr nuestro objetivo mediante la contratación de un equipo
-          experimentado y talentoso en industrias clave, siguiendo las
-          principales tecnologías de tendencia en todo el mundo y aprendiendo
-          sobre ellas, y adoptando una metodología integral proporcionada por
-          nuestro socio experimentado en Tokio.
+          {{ getPage?.content?.aboutUs?.vision?.textTwo }}
         </p>
       </div>
       <div class="col-item-img col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
@@ -41,19 +31,50 @@
         </div>
       </div>
     </div>
+    <div class="row mision">
+      <div class="col-item-img col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="content-images">
+          <img class="chess" src="/assets/about/cosmonaut.jpg" alt="World" />
+          <div class="back"></div>
+          <img
+            class="world"
+            src="/assets/about/mission-to-mars.jpg"
+            alt="World"
+          />
+        </div>
+      </div>
+      <div class="col-item-text col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+        <div class="title">{{ getPage?.content?.aboutUs?.mision?.title }}</div>
+        <p>
+          {{ getPage?.content?.aboutUs?.mision?.textOne }}
+        </p>
+        <p>
+          {{ getPage?.content?.aboutUs?.mision?.textTwo }}
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'pinia'
+import { pageStore } from '../../stores'
 import Hero from '../global/Hero.vue'
 export default {
   components: {
     Hero,
   },
+  computed: {
+    ...mapState(pageStore, ['getPage']),
+  },
 }
 </script>
 
 <style scoped lang="scss">
+.row {
+  position: relative;
+  z-index: 1;
+}
 .about-title {
   @media (max-width: $movil-size) {
     margin: 30px 2px 30px 2px;
@@ -86,7 +107,8 @@ export default {
     line-height: 1.6;
   }
 }
-.vision {
+.vision,
+.mision {
   @media (max-width: $movil-size) {
     margin: 30px 2px 30px 2px;
   }
@@ -101,12 +123,23 @@ export default {
   }
   .title {
     font-size: 3rem;
-    font-weight: 900;
+    font-weight: 1000;
   }
   background-color: white;
   color: $bg-color-dark;
   border-radius: 10px;
   padding: 1rem;
+  .col-item-text {
+    @media (min-width: $movil-size) {
+      padding: 10px;
+    }
+    @media (min-width: $tablet-size) {
+      padding: 20px;
+    }
+    @media (min-width: $desktop-size) {
+      padding: 30px;
+    }
+  }
   .col-item-img {
     display: flex;
     justify-content: center;
@@ -126,16 +159,32 @@ export default {
         max-width: 200px;
         border-radius: 5px;
       }
+      .chess,
+      .back,
+      .world {
+        transition: transform 0.2s ease-out;
+        &:hover {
+          transform: translate(-2px, -2px);
+        }
+      }
+      .chess,
+      .world {
+        -webkit-box-shadow: 0px 22px 110px 8px rgba($bg-color-dark, 0.5);
+        -moz-box-shadow: 0px 22px 110px 8px rgba($bg-color-dark, 0.5);
+        box-shadow: 0px 22px 110px 8px rgba($bg-color-dark, 0.5);
+      }
       .chess {
         position: relative;
         left: -20%;
         top: 5%;
+        z-index: 1;
       }
       .back {
         background-color: rgba($color: $bg-color-dark, $alpha: 0.3);
         max-width: 200px;
         height: 6rem;
         border-radius: 5px;
+        z-index: 0;
       }
       .world {
         position: relative;

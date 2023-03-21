@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import { pageStore } from '../stores'
+import { i18n } from '../i18n'
 import Render from '../components/lang/Render.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,25 +27,41 @@ const router = createRouter({
           name: 'about',
           component: AboutView,
         },
+        {
+          path: 'service',
+          name: 'service',
+          redirect: { name: 'web' },
+          children: [
+            {
+              path: 'web',
+              name: 'web',
+              component: () => import('../views/WebDevelopmentView.vue'),
+            },
+            {
+              path: 'seo',
+              name: 'seo',
+              component: () => import('../views/SeoView.vue'),
+            },
+            {
+              path: 'apps',
+              name: 'apps',
+              component: () => import('../views/AppsView.vue'),
+            },
+          ],
+        },
       ],
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
     //   component: () => import('../views/AboutView.vue'),
-    // },
   ],
 })
 
 // eslint-disable-next-line no-unused-vars
 router.beforeEach((to, from, next) => {
-  // const storeLang = langStore()
+  const lang = to.params?.lang
+  const languages = i18n.global.availableLocales
   const pgeStore = pageStore()
-  // storeLang.loadLang(to.params?.lang)
-  pgeStore.loadPage(to.params?.lang)
+  const paramLang = languages.includes(lang) ? lang : pgeStore.getLang
+  pgeStore.loadPage(paramLang)
   return next()
 })
 

@@ -18,83 +18,6 @@
         </p>
       </div>
     </div>
-    <div>
-      <Particles
-        id="tsparticles"
-        :particlesInit="particlesInit"
-        :particlesLoaded="particlesLoaded"
-        :options="{
-          fullScreen: {
-            enable: true,
-            zIndex: 0,
-          },
-          fpsLimit: 120,
-          particles: {
-            color: {
-              value: '#ffffff',
-            },
-            line_linked: {
-              enable: false,
-              distance: 150,
-              color: '#ffffff',
-              opacity: 0.4,
-              width: 1,
-            },
-            collisions: {
-              enable: false,
-            },
-            move: {
-              enable: true,
-              speed: 1,
-              direction: 'none',
-              random: true,
-              straight: false,
-              out_mode: 'out',
-              bounce: false,
-              attract: { enable: false, rotateX: 600, rotateY: 600 },
-            },
-            number: { value: 60, density: { enable: true, value_area: 600 } },
-            opacity: {
-              value: 1,
-              random: true,
-              anim: { enable: true, speed: 1, opacity_min: 0, sync: false },
-            },
-            shape: {
-              type: 'circle',
-              stroke: { width: 0, color: '#000000' },
-              polygon: { nb_sides: 5 },
-            },
-            size: {
-              value: 3,
-              random: true,
-              anim: { enable: false, speed: 4, size_min: 0.3, sync: false },
-            },
-          },
-          interactivity: {
-            detect_on: 'canvas',
-            events: {
-              onhover: { enable: true, mode: 'bubble' },
-              onclick: { enable: true, mode: 'repulse' },
-              resize: true,
-            },
-            modes: {
-              grab: { distance: 400, line_linked: { opacity: 1 } },
-              bubble: {
-                distance: 250,
-                size: 0,
-                duration: 2,
-                opacity: 0,
-                speed: 3,
-              },
-              repulse: { distance: 400, duration: 0.4 },
-              push: { particles_nb: 4 },
-              remove: { particles_nb: 2 },
-            },
-          },
-          detectRetina: true,
-        }"
-      />
-    </div>
     <div id="grid-container" class="row w-100 grid-container">
       <div
         :id="item.id"
@@ -124,7 +47,6 @@
 </template>
 
 <script>
-import { loadFull } from 'tsparticles'
 import { mapState } from 'pinia'
 import { pageStore } from '../../stores'
 export default {
@@ -143,18 +65,15 @@ export default {
     },
   },
   methods: {
-    async particlesInit(engine) {
-      await loadFull(engine)
-    },
-    async particlesLoaded(container) {
-      console.log('Particles container loaded', container)
-    },
     updateZoom() {
       this.onScroll('grid-item-one')
       this.onScroll('grid-item-two')
       this.onScroll('grid-item-three')
       this.onScroll('grid-item-four')
     },
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.updateZoom)
   },
   mounted() {
     window.addEventListener('scroll', this.updateZoom)
@@ -164,6 +83,8 @@ export default {
 
 <style scoped lang="scss">
 .service {
+  position: relative;
+  z-index: 1;
   @media (min-width: $movil-size) {
     margin: 20px 60px 20px 60px;
   }
