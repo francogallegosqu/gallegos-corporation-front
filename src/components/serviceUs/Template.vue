@@ -10,9 +10,11 @@
         </div>
         <div class="content">
           <div class="phrase">{{ phrase }}</div>
-          <p class="message">{{ message }}</p>
+          <p v-if="message" class="message">{{ message }}</p>
+          <p v-if="messageTwo" class="message">{{ messageTwo }}</p>
+          <p v-if="messageThree" class="message">{{ messageThree }}</p>
         </div>
-        <div class="video">
+        <div v-if="video" class="video">
           <iframe
             width="100%"
             :src="video"
@@ -44,7 +46,7 @@
       </div>
       <div
         class="col-service-item-three col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8"
-        v-if="listNumber"
+        v-if="listNumber.length > 0"
       >
         <div class="row row-second">
           <div
@@ -66,7 +68,7 @@
     </div>
     <div v-if="bar" class="row bar-template">
       <div class="col-item-bar col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-        <div class="title">{{ bar?.title }}</div>
+        <h4 class="title">{{ bar?.title }}</h4>
         <ul>
           <li v-for="item in bar?.list" :key="item.id">
             <span class="circle"></span> {{ item }}
@@ -126,6 +128,51 @@
         </div>
       </div>
     </div>
+    <div v-if="subservice">
+      <div
+        v-for="item in subservice"
+        :key="item?.id"
+        class="row subservice-template"
+        :style="
+          parseInt(item?.id) % 2 == 0 ? 'flex-direction: row-reverse' : ''
+        "
+      >
+        <div
+          class="col-item-service col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+        >
+          <h4 class="title">{{ item?.title }}</h4>
+          <p>{{ item?.text }}</p>
+        </div>
+        <div
+          class="col-item-service-img col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6"
+        >
+          <div class="content-images">
+            <img class="developer" :src="item?.img" :alt="item?.title" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-if="howork" class="row howork-template">
+      <div class="strategy-top">
+        <div class="title">{{ howork?.title }}</div>
+        <div class="subtitle">{{ howork?.text }}</div>
+      </div>
+      <div
+        v-for="item in howork?.list"
+        :key="item.id"
+        class="howork-item col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
+      >
+        <div class="item-inside">
+          <div class="top">
+            <span class="title"> {{ item?.title }}</span>
+          </div>
+          <div class="text">
+            {{ item?.text }}
+          </div>
+        </div>
+      </div>
+    </div>
+
     <ContactUs />
   </div>
 </template>
@@ -158,6 +205,14 @@ export default {
       type: String,
       default: () => '',
     },
+    messageTwo: {
+      type: String,
+      default: () => '',
+    },
+    messageThree: {
+      type: String,
+      default: () => '',
+    },
     photo: {
       type: String,
       default: () => '',
@@ -185,6 +240,14 @@ export default {
     strategy: {
       type: Object,
       default: () => {},
+    },
+    howork: {
+      type: Object,
+      default: () => {},
+    },
+    subservice: {
+      type: Array,
+      default: () => [],
     },
   },
   computed: {
@@ -328,7 +391,6 @@ export default {
     justify-content: center;
     align-items: center;
     .title {
-      font-size: 4vh;
       font-weight: 600;
       text-align: center;
     }
@@ -338,7 +400,6 @@ export default {
         margin: 2rem 0;
         justify-content: start;
         align-items: center;
-        font-size: 2vh;
         font-weight: 600;
         .circle {
           min-width: 10px;
@@ -363,6 +424,36 @@ export default {
   }
 }
 
+.subservice-template {
+  position: relative;
+  z-index: 1;
+  .col-item-service {
+    background-color: white;
+    color: $bg-color-dark;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title {
+      /* font-size: 4vh; */
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .col-item-service-img {
+    padding: 0;
+    .content-images {
+      height: 100%;
+      .developer {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
 .important-template {
   position: relative;
   z-index: 1;
@@ -451,16 +542,17 @@ export default {
     .item-inside {
       padding: 10px 0;
       margin: 5px;
-      background-color: white;
+      /* background-color: white; */
       border-radius: 5px;
       height: 100%;
     }
     .top {
-      color: $bg-color-dark;
+      color: white;
       .number {
         font-size: 2rem;
         font-weight: 700;
         line-height: 0.8;
+        color: $color-blue-primary;
       }
       .title {
         padding-left: 6px;
@@ -471,8 +563,84 @@ export default {
     .top,
     .text {
       margin: 1rem;
-      color: $bg-color-dark;
+      color: white;
       font-weight: 700;
+    }
+    .list {
+      ul {
+        li {
+          display: flex;
+          align-items: center;
+          .circle {
+            margin: 0;
+            min-width: 5px;
+            min-height: 5px;
+            max-width: 5px;
+            max-height: 5px;
+            background-color: rgba($color: white, $alpha: 0.5);
+            border-radius: 50%;
+            margin-right: 9px;
+          }
+          color: white;
+          font-weight: 700;
+        }
+      }
+    }
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+}
+.howork-template {
+  position: relative;
+  z-index: 1;
+  padding-top: 20px;
+  margin: 30px 2px 30px 2px;
+  @media (min-width: $movil-size) {
+    margin: 20px 40px 20px 40px;
+  }
+  @media (min-width: $tablet-size) {
+    margin: 20px 60px 20px 60px;
+  }
+  @media (min-width: $desktop-size) {
+    margin: 20px 70px 20px 70px;
+  }
+  .strategy-top {
+    text-align: center;
+    .title {
+      font-size: 2rem;
+      font-weight: 900;
+      color: $color-blue-primary;
+    }
+    .subtitle {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+  }
+  .howork-item {
+    transition: transform 0.5s ease;
+    /* background: $bg-degraded; */
+    margin: 1rem 0;
+    .item-inside {
+      border: solid 1px $color-purple-primary;
+      padding: 10px 0;
+      margin: 5px;
+      /* background-color: white; */
+      border-radius: 5px;
+      height: 100%;
+    }
+    .top {
+      color: white;
+      .title {
+        padding-left: 6px;
+        font-weight: 700;
+        font-size: 1.3rem;
+      }
+    }
+    .top,
+    .text {
+      margin: 1rem;
+      color: white;
     }
     .list {
       ul {

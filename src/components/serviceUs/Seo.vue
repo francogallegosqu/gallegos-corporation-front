@@ -4,6 +4,8 @@
       :title="getPage?.content?.services?.seo?.title"
       :phrase="getPage?.content?.services?.seo?.phrase"
       :message="getPage?.content?.services?.seo?.message"
+      :messageTwo="getPage?.content?.services?.seo?.messageTwo"
+      :messageThree="getPage?.content?.services?.seo?.messageThree"
       :photo="'/assets/service/seo.jpg'"
       :video="'https://www.youtube-nocookie.com/embed/QUnslPYf3fc'"
       :important="getPage?.content?.services?.seo?.important"

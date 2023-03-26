@@ -3,38 +3,16 @@
   <defs>
     <style>
       .cls-1 {
-        fill: white;
-      }
-
-      <!-- .cls-1, .cls-2 {
-        stroke: #089cf4;
-        stroke-miterlimit: 10;
-        stroke-width: 3px;
-      } -->
-      .cls-1, .cls-2 {
-        stroke: white;
-        stroke-miterlimit: 10;
-        stroke-width: 3px;
-      }
-      .cls-2 {
         fill: none;
+        stroke: white;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 3px;
       }
     </style>
   </defs>
-  <circle class="cls-1" cx="50" cy="22.62" r="4"/>
-  <circle class="cls-1" cx="69" cy="30.62" r="4"/>
-  <circle class="cls-1" cx="77" cy="50.88" r="4"/>
-  <circle class="cls-1" cx="54" cy="40.38" r="4"/>
-  <circle class="cls-1" cx="30.5" cy="69.62" r="4"/>
-  <circle class="cls-1" cx="55.75" cy="58.88" r="4"/>
-  <circle class="cls-1" cx="69" cy="69.62" r="4"/>
-  <circle class="cls-1" cx="38.5" cy="46.88" r="4"/>
-  <circle class="cls-1" cx="50" cy="77.38" r="4"/>
-  <circle class="cls-1" cx="31" cy="30.62" r="4"/>
-  <circle class="cls-1" cx="23" cy="50.88" r="4"/>
-  <polygon class="cls-2" points="30.5 69.62 38.5 46.88 54 58.25 30.5 69.62"/>
-  <path class="cls-2" d="m41.62,44.38c.38.56,12.38-4,12.38-4l1.75,17.88,21.25-7.38-21.25-11.5,13.25-8.75"/>
-  <path class="cls-2" d="m50,74.88c0-1.5,5.75-16.62,5.75-16.62l10.68,8.31"/>
-  <polyline class="cls-2" points="23 49.12 35.19 49.12 38.5 46.88 31 32.62 51.75 38.62 51.75 26.22"/>
-  <polygon class="cls-2" points="23 46.88 31 30.62 47.25 22.62 65.53 28.64 72.26 32.94 77 49.12 71.75 69.62 51.75 78.88 30.5 71.62 21.75 52.62 23 46.88"/>
+  <circle class="cls-1" cx="41.92" cy="37.17" r="12.39"/>
+  <path class="cls-1" d="m45.75,58.81h-16.23s-4.77,0-7.52,2.75-3,5-3,5v13.75h22.92"/>
+  <polygon class="cls-1" points="56.44 63.39 59.95 60.96 60.25 55.56 67 55.56 67 61.06 71 63.06 76.75 60.56 80 66.06 75.25 71.06 75.25 74.31 80 77.56 76.5 83.06 71.44 80.84 67.88 82.53 67.89 88.52 59.53 88.56 60.09 82.43 56.15 80.64 51.25 83.31 47.75 76.81 52.25 74.06 53.25 69.56 47.75 65.56 51 60.81 56.44 63.39"/>
+  <circle class="cls-1" cx="63.88" cy="72.06" r="5.91"/>
 </svg>

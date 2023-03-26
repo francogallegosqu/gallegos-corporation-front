@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
 import { pageStore } from '../stores'
 import { i18n } from '../i18n'
 import Render from '../components/lang/Render.vue'
@@ -25,7 +24,7 @@ const router = createRouter({
         {
           path: 'about',
           name: 'about',
-          component: AboutView,
+          component: () => import('../views/AboutView.vue'),
         },
         {
           path: 'service',
@@ -47,7 +46,22 @@ const router = createRouter({
               name: 'apps',
               component: () => import('../views/AppsView.vue'),
             },
+            {
+              path: 'blockchain',
+              name: 'blockchain',
+              component: () => import('../views/BlockchainView.vue'),
+            },
+            {
+              path: 'software',
+              name: 'software',
+              component: () => import('../views/SoftwareView.vue'),
+            },
           ],
+        },
+        {
+          path: 'contact',
+          name: 'contact',
+          component: () => import('../views/ContactView.vue'),
         },
       ],
     },

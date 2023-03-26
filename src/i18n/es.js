@@ -26,27 +26,31 @@ export const spanish = {
       { name: 'Nosotros', path: 'about' },
       { name: 'Servicios', path: 'service' },
       { name: 'Proyectos', path: 'project' },
-      { name: 'Blog', path: 'blog' },
+      // { name: 'Blog', path: 'blog' },
       { name: 'Contacto', path: 'contact' },
     ],
     hero: {
       carrusel: [
         {
           h1: 'SOFTWARE',
+          class: 'a',
           h2: 'LAS MEJORES SOLUCIONES EN',
-          router: 'Comenzar',
         },
         {
           h2: 'LAS MEJORES SOLUCIONES EN',
           h1: 'WEB3',
-          router: 'Comenzar',
+          class: 'a',
         },
         {
           h2: 'LAS MEJORES SOLUCIONES EN',
           h1: 'APPS MOVILES',
-          router: 'Comenzar',
+          class: 'apps',
         },
       ],
+      button: {
+        path: 'apps',
+        name: 'Comenzar',
+      },
     },
     //home
     service: {
@@ -97,28 +101,64 @@ export const spanish = {
           buttonName: 'Conoce Más',
           buttonImg: '@/assets/icons/arrow-lg-icon.svg',
         },
+        {
+          id: 'grid-item-five',
+          img: '/assets/icons/icon-seo.svg',
+          title: 'Software Personalizado',
+          path: 'software',
+          content: `Creación de software a medida que se adapte al rubro de tu negocio o empresa con el fin de optimizar tu productividad.
+          `,
+          buttonName: 'Learn More',
+          buttonImg: '@/assets/icons/arrow-lg-icon.svg',
+        },
+        {
+          id: 'grid-item-six',
+          img: '/assets/icons/icon-seo.svg',
+          title: 'Blockchain',
+          path: 'blockchain',
+          content: `
+          Ingresa tu empresa o negocio al mundo de las aplicaciones desentralizadas, en donde podrán interactuar con la información y los servicios de manera más segura y privada, sin la necesidad de intermediarios o plataformas centralizadas.
+          `,
+          buttonName: 'Learn More',
+          buttonImg: '@/assets/icons/arrow-lg-icon.svg',
+        },
       ],
     },
     //another section
     services: {
       howork: {
         title: '¿Cómo trabajamos?',
-        text: 'El ámbito y las características de una aplicación influyen en los plazos del proceso de desarrollo de aplicaciones móviles.',
+        text: 'El ámbito y las características de una aplicación, plataforma o software personalizado influyen en los plazos del proceso de desarrollo.',
         list: [
           {
             id: 'howork-one',
             title: 'Estrategia',
-            text: 'Se establecen los objetivos de la aplicación y las medidas de éxito, se analiza el mercado y la competencia, se investiga las necesidades de tus clientes y determinarán a qué usuarios y casos de uso servirá la aplicación',
+            text: 'Se establecen los objetivos de la aplicación y las medidas de éxito, se analiza el mercado y la competencia, se investiga las necesidades de tus clientes y determinarán a qué usuarios y casos de uso servirá la aplicación.',
           },
           {
             id: 'howork-two',
-            title: 'Estrategia',
-            text: 'Se establecen los objetivos de la aplicación y las medidas de éxito, se analiza el mercado y la competencia, se investiga las necesidades de tus clientes y determinarán a qué usuarios y casos de uso servirá la aplicación',
+            title: 'Planeamiento',
+            text: 'Se registra cada detalle obtenido durante las estrategías, para organizarlas acorde a su prioridad y los requisitos del cliente. Así se realizan los planes operativos para que  se pueda alcanzar los objetivos.',
           },
           {
             id: 'howork-three',
-            title: 'Estrategia',
-            text: 'Se establecen los objetivos de la aplicación y las medidas de éxito, se analiza el mercado y la competencia, se investiga las necesidades de tus clientes y determinarán a qué usuarios y casos de uso servirá la aplicación',
+            title: 'Diseño',
+            text: 'La apariencia, las características y la función de la aplicación móvil comienzan a tomar forma durante la fase de diseño. Los equipos trazarán la experiencia del usuario y crearán las interfaces de usuario y los estados de la aplicación en varias fidelidades.',
+          },
+          {
+            id: 'howork-four',
+            title: 'Implementación',
+            text: 'Es el paso en el que los equipos establecen la arquitectura técnica y la pila tecnológica, incluyendo el front-end, el back-end y las API, fijan los hitos de desarrollo, determinan el ciclo de vida del desarrollo de la aplicación y codifican la aplicación.',
+          },
+          {
+            id: 'howork-five',
+            title: 'Pruebas',
+            text: 'Una fase crucial del proceso de desarrollo de aplicaciones móviles. Esto asegura una aplicación segura, que funcione de la manera que los usuarios necesitan ycque  funcionará donde la implementen.',
+          },
+          {
+            id: 'howork-six',
+            title: 'Lanzamiento',
+            text: 'Es la fase final del proceso, una vez implementada la aplicación, ofrecemos soporte a los clientes que la utilizan y un seguimiento y mantenimiento continuos para garantizar que la aplicación esté disponible y funcione como debe.',
           },
         ],
       },
@@ -126,7 +166,11 @@ export const spanish = {
         title: 'Desarrollo Web',
         phrase: 'Una web Para Ti',
         message:
-          'Mejora de la eficacia de tu trabajo gracias a la automatización de procesos, aumentando la productividad de tu empresa.',
+          'Como sabe, en la era digital en la que vivimos, una presencia en línea efectiva es esencial para cualquier negocio exitoso. Una página web es una herramienta clave para lograr esto.',
+        messageTwo:
+          'Desarrollar una página web personalizada para su negocio puede ofrecer muchas ventajas. Una página web le permite tener una presencia en línea sólida y bien diseñada, que puede ser utilizada para atraer y retener a nuevos clientes. Además, una página web también puede ser utilizada para mejorar la eficiencia de sus operaciones empresariales, permitiendo que los usuarios realicen transacciones y accedan a la información de su empresa con mayor facilidad y rapidez.',
+        messageThree:
+          'Una página web también puede ayudarlo a destacarse de la competencia. Ofrecer una presencia en línea atractiva y fácil de usar puede ser un factor decisivo para atraer nuevos clientes y mantener a los existentes. Además, una página web bien diseñada puede mejorar la percepción de su empresa como una empresa innovadora y comprometida con la satisfacción del cliente. Por último, una página web puede ayudar a su empresa a expandirse a nuevos mercados. Con una página web, puede llegar a una audiencia global y llegar a nuevos clientes que de otra manera podrían estar fuera de su alcance.',
         bar: {
           title:
             'Desarrollamos una potente página web para que publiques lo que quieras, desde donde tu quieras.',
@@ -153,7 +197,7 @@ export const spanish = {
           {
             id: 'wedevelopmente-three',
             number: '03.',
-            title: 'Diseño responsive de tu web',
+            title: 'Diseño responsivo de tu web',
             text: 'Generamos diseños web que  se adaptan y se visualizan en todo tipo de dispositivos móviles.',
           },
           {
@@ -168,7 +212,11 @@ export const spanish = {
         title: 'Servicio SEO',
         phrase: 'Optimiza tu web ahora',
         message:
-          'Consiste en persuadir a los motores de búsqueda como Google, Bing y Yahoo, para que recomienden tu contenido a sus usuarios como la mejor solución a sus problemas.',
+          'A través de la implementación de estrategias de SEO y SEM, podemos ayudarlo a mejorar el posicionamiento de su sitio web en los motores de búsqueda y aumentar la cantidad de tráfico orgánico que recibe.',
+        messageTwo:
+          'El SEO (optimización para motores de búsqueda) y SEM (marketing en motores de búsqueda) son herramientas poderosas que pueden ayudar a su sitio web a ser más visible y atraer a más visitantes. El SEO es una estrategia que implica la optimización de su sitio web para que sea fácilmente accesible y comprensible por los motores de búsqueda, lo que puede mejorar su posición en los resultados de búsqueda. Por otro lado, el SEM es una estrategia de marketing que implica el uso de anuncios pagados en los resultados de búsqueda para aumentar la visibilidad de su sitio web.',
+        messageThree:
+          'La implementación de estrategias de SEO y SEM puede ofrecer muchas ventajas a su negocio. Como aumentar el tráfico orgánico a su sitio web, lo que puede mejorar la exposición de su empresa a nuevos clientes potenciales. También puede mejorar la visibilidad de su sitio web en línea, lo que puede ayudarlo a destacarse de la competencia y mejorar su reputación en línea.',
         important: {
           title: '¿Por qué es importante el SEO?',
           list: [
@@ -239,7 +287,86 @@ export const spanish = {
         title: 'Desarrollo de Aplicaciones Móviles',
         phrase: 'Desarrollo de Apps a tu medida',
         message:
-          'Abarca todos los procesos de creación y lanzamiento de una aplicación móvil, o específica, ya que se refiere a la codificación y la implementación de la aplicación.',
+          'En la era digital en la que vivimos, el uso de dispositivos móviles se ha vuelto cada vez más común, y las aplicaciones móviles han demostrado ser una herramienta eficaz para conectarse con los usuarios de manera más efectiva.',
+        messageTwo:
+          'Desarrollar una aplicación móvil para su negocio puede ofrecer numerosas ventajas. Una aplicación móvil le permite conectarse con sus clientes de una manera más personalizada y directa, lo que puede mejorar la satisfacción y lealtad del cliente. Además, una aplicación móvil también puede ayudar a mejorar la eficiencia de sus operaciones empresariales, permitiendo que los usuarios realicen transacciones y accedan a la información de su empresa con mayor facilidad y rapidez.',
+        messageThree:
+          'Una aplicación móvil también puede ayudarlo a destacarse de la competencia. Ofrecer una solución móvil atractiva y fácil de usar puede ser un factor decisivo para atraer nuevos clientes y mantener a los existentes. Además, una aplicación móvil bien diseñada puede mejorar la percepción de su empresa como una empresa innovadora y comprometida con la satisfacción del cliente. Por último, una aplicación móvil puede ayudar a su empresa a expandirse a nuevos mercados. Con una aplicación móvil, puede llegar a una audiencia global y llegar a nuevos clientes que de otra manera podrían estar fuera de su alcance.',
+      },
+      web3: {
+        title: 'Tecnología Blockchain',
+        phrase:
+          'Soluciones y Servicios con tecnología Blockchain en tus Aplicaciones',
+        message:
+          'La tecnología blockchain ha revolucionado la forma en que se gestionan y protegen los datos en línea, y ahora puede ser aplicada a su empresa a través del desarrollo de una aplicación basada en blockchain.',
+        messageTwo:
+          'El desarrollo de una aplicación basada en blockchain para su negocio puede ofrecer muchas ventajas. En primer lugar, la tecnología blockchain ofrece una seguridad sin igual para los datos de su empresa, ya que los datos son almacenados y protegidos en una red descentralizada e inmutable. Esto significa que los datos de su empresa son protegidos contra hackeos y fraudes, y también se pueden verificar y rastrear con facilidad. Además, una aplicación basada en blockchain también puede mejorar la transparencia de sus operaciones comerciales. La tecnología blockchain permite la creación de registros públicos y transparentes de transacciones, lo que puede ayudar a aumentar la confianza de sus clientes y mejorar la imagen de su empresa.',
+        messageThree:
+          'Una aplicación basada en blockchain también puede ayudarlo a destacarse de la competencia. Ofrecer una solución innovadora y segura a sus clientes puede ser un factor decisivo para atraer nuevos clientes y mantener a los existentes. Además, una aplicación basada en blockchain puede mejorar la percepción de su empresa como una empresa innovadora y comprometida con la seguridad de los datos de sus clientes. En resumen, el desarrollo de una aplicación basada en blockchain para su negocio puede ofrecer muchas ventajas y oportunidades de crecimiento. Si desea conocer más detalles sobre cómo una aplicación basada en blockchain podría ayudar a su negocio, no dude en ponerse en contacto con nosotros para conversar sobre las soluciones que podemos ofrecerle.',
+        subservice: [
+          {
+            id: 1,
+            title: 'Consultoría en desarrollo de proyectos con Blockchain',
+            text: 'Nos enfocamos en proporcionar información y conocimientos a las empresas y organizaciones sobre cómo la tecnología puede mejorar su modelo de negocio y ofrecer nuevas oportunidades de crecimiento. Además de poder ayudar a las empresas a comprender las diferentes soluciones de Blockchain disponibles y cómo pueden ser implementadas en su negocio. Y si tienen un negocio nuevo pero no saben cómo implementarla, de igual forma se le brinda los conocimientos necesarios para llevarla a producción.',
+            img: '/assets/service/blockchain/consultor.jpg',
+          },
+          {
+            id: 2,
+            title: 'Aplicaciones con Blockchain',
+            text: 'Ethereum es una plataforma de blockchain que permite la creación de contratos inteligentes y aplicaciones descentralizadas (dApps). Algunas de las aplicaciones más comunes de Ethereum son criptomonedas, contratos inteligentes, Finanzas descentralizadas (DeFi), juegos NFTs, identidad digital, Votación electrónica, comercios y más. En resumen, Ethereum ha sido fundamental para el desarrollo del ecosistema DeFi y ha permitido la creación de aplicaciones descentralizadas que están transformando la forma en que interactuamos y hacemos negocios en línea. De tal forma que nos encargaremos de crear tu futura aplicación con dicha tecnología.',
+            img: '/assets/service/blockchain/creacion-app.jpg',
+          },
+        ],
+      },
+      software: {
+        title: 'Desarrollo de Software Personalizado',
+        phrase: 'Tu tienes la idea, Nosotros los recursos.',
+        message:
+          'Como sabe, cada empresa es única en su industria y enfrenta desafíos específicos que no siempre pueden ser resueltos por soluciones de software existentes en el mercado. Es por eso que considero que el desarrollo de software personalizado puede ser la solución ideal para su empresa.',
+        messageTwo:
+          'El desarrollo de software personalizado implica crear una solución única y específica para su negocio, adaptada a sus necesidades y requerimientos. Esto significa que su empresa puede tener una solución de software única que no solo mejora la eficiencia y la productividad, sino que también puede mejorar la experiencia del usuario y aumentar la satisfacción del cliente. Además, el software personalizado ofrece la flexibilidad necesaria para adaptarse a los cambios en su empresa y en la industria. Puede ser escalado y mejorado fácilmente, y puede ser actualizado regularmente para mantenerse al día con las nuevas tecnologías y tendencias del mercado.',
+        messageThree:
+          'También vale la pena destacar que el software personalizado puede ayudar a su empresa a ser más competitiva. Al tener una solución única, puede destacar de la competencia y ofrecer una ventaja única a sus clientes y usuarios.',
+        subservice: [
+          {
+            id: 1,
+            title: 'Sistema personalizado para tu negocio o empresa',
+            text: 'El desarrollo de software personalizado puede ser la solución perfecta para las necesidades únicas de su empresa. Podemos mejorar significativamente la eficiencia y la productividad de su empresa, mejorar la experiencia del usuario y aumentar la satisfacción del cliente y de su mismo personal. Creamos sus inventarios, manejo de personal, finanzas, administración de tiendas virtuales y más.',
+            img: '/assets/service/software/system.jpg',
+          },
+        ],
+        grid: [
+          {
+            id: 'software-one',
+            number: '01.',
+            title: 'Diseño profesional a medida',
+            text: 'Diseñamos tu sistema o aplicación a medida para todo tipo de empresas o negocio.',
+          },
+          {
+            id: 'software-two',
+            number: '02.',
+            title: 'Desarrollo de objetivos',
+            text: 'Nuestro equipo ofrece la mejor asesoría para aterrizar tus ideas y llevarlas a la realidad.',
+          },
+          {
+            id: 'software-three',
+            number: '03.',
+            title: 'Diseño responsivo de tu web',
+            text: 'Generamos diseños que se adaptan y se visualizan en todo tipo de dispositivos.',
+          },
+          {
+            id: 'software-four',
+            number: '04.',
+            title: 'Actualización de tu Sistema',
+            text: 'No importa si tu software ya está creado, si aún tienes ideas nuevas, podemos implementarlas.',
+          },
+          {
+            id: 'software-five',
+            number: '05.',
+            title: 'Mantenimiento de Primera',
+            text: 'Nuestro equipo estará al pendiente de cualquier problema tecnico pueda ocurrir en el futuro, y resolverla de inmediato.',
+          },
+        ],
       },
     },
     firstImage: {
@@ -428,6 +555,14 @@ export const spanish = {
         message: '¡No eres Tú, Somos nosotros!',
         advice: 'Contactanos por nuestros telefonos',
       },
+    },
+    contactView: {
+      title: 'CONTÁCTANOS',
+      subtitle: 'Ofrecemos la mejor experiencia',
+      message: `Si está buscando un software o aplicación que se adapte perfectamente a sus necesidades, entonces nuestros servicios personalizado es la opción ideal para su empresa o negocio.
+      `,
+      messageTwo:
+        'Nos enorgullece ser una empresa líder en el desarrollo de software personalizado. Nuestro equipo de expertos puede ayudarlo en todo el proceso, desde el análisis de sus necesidades hasta el diseño, desarrollo y mantenimiento de su software.',
     },
     footer: {
       contact: 'Información de Contacto',

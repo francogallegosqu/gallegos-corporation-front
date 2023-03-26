@@ -70,6 +70,8 @@ export default {
       this.onScroll('grid-item-two')
       this.onScroll('grid-item-three')
       this.onScroll('grid-item-four')
+      this.onScroll('grid-item-five')
+      this.onScroll('grid-item-six')
     },
   },
   beforeUnmount() {

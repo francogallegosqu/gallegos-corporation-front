@@ -24,7 +24,9 @@
         <h2>{{ item.h2 }}</h2>
         <h1>{{ item.h1 }}</h1>
         <div class="button">
-          <RouterLink to="/">{{ item.router }}</RouterLink>
+          <RouterLink to="/">{{
+            getPage?.content?.hero?.button?.name
+          }}</RouterLink>
         </div>
       </div>
 

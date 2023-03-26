@@ -26,7 +26,7 @@ export const english = {
       { name: 'About', path: 'about' },
       { name: 'Service', path: 'service' },
       { name: 'Project', path: 'project' },
-      { name: 'Blog', path: 'blog' },
+      // { name: 'Blog', path: 'blog' },
       { name: 'Contact', path: 'contact' },
     ],
     hero: {
@@ -34,19 +34,23 @@ export const english = {
         {
           h1: 'SOFTWARE',
           h2: 'THE BEST SOLUTIONS IN',
-          router: 'Start',
+          id: 's',
         },
         {
           h2: 'THE BEST SOLUTIONS IN',
           h1: 'WEB3',
-          router: 'Start',
+          id: 'w',
         },
         {
           h2: 'THE BEST SOLUTIONS IN',
           h1: 'APPS MOVILES',
-          router: 'Start',
+          id: 'a',
         },
       ],
+      button: {
+        path: '',
+        name: 'Start',
+      },
     },
     //home
     service: {
@@ -97,15 +101,77 @@ export const english = {
           buttonName: 'Learn More',
           buttonImg: '@/assets/icons/arrow-lg-icon.svg',
         },
+        {
+          id: 'grid-item-five',
+          img: '/assets/icons/icon-seo.svg',
+          title: 'Custom Software',
+          path: 'software',
+          content: `Creation of customized software that adapts to the field of your business or company in order to optimize your productivity.
+          `,
+          buttonName: 'Learn More',
+          buttonImg: '@/assets/icons/arrow-lg-icon.svg',
+        },
+        {
+          id: 'grid-item-six',
+          img: '/assets/icons/icon-seo.svg',
+          title: 'Blockchain',
+          path: 'blockchain',
+          content: `
+          Enter your company or business into the world of decentralized applications, where you can interact with information and services in a more secure and private way, without the need for intermediaries or centralized platforms.
+          `,
+          buttonName: 'Learn More',
+          buttonImg: '@/assets/icons/arrow-lg-icon.svg',
+        },
       ],
     },
     //another section
     services: {
+      howork: {
+        title: 'How we work?',
+        text: 'The scope and characteristics of an application, platform, or custom software influence the timelines of the development process.',
+        list: [
+          {
+            id: 'howork-one',
+            title: 'Strategy',
+            text: 'You establish the objectives of the application and the measures of success, analyze the market and the competition, investigate the needs of your customers and determine which users and use cases the application will serve.',
+          },
+          {
+            id: 'howork-two',
+            title: 'Planning',
+            text: `Every detail obtained during the strategies is recorded, to organize them according to their priority and the client's requirements. This is how the operational plans are made so that the objectives can be achieved.
+            `,
+          },
+          {
+            id: 'howork-three',
+            title: 'Design',
+            text: 'The appearance, features, and function of the mobile app begin to take shape during the design phase. The teams will map out the user experience and create the user interfaces and states of the app at various fidelities.',
+          },
+          {
+            id: 'howork-four',
+            title: 'Implementation',
+            text: 'This is the step where teams establish the technical architecture and technology stack, including front-end, back-end, and APIs, set development milestones, determine the application development lifecycle, and code the application. application.',
+          },
+          {
+            id: 'howork-five',
+            title: 'Test',
+            text: 'A crucial phase of the mobile app development process. This ensures an application that is secure, that works the way users need it to, and that will work wherever they deploy it.',
+          },
+          {
+            id: 'howork-six',
+            title: 'Launching',
+            text: 'It is the final phase of the process, once the application is deployed, we offer support to the clients that use it and continuous monitoring and maintenance to ensure that the application is available and works as it should.',
+          },
+        ],
+      },
       webdevelopment: {
         title: 'Web Development',
         phrase: 'A website for you',
         message:
-          'Improvement of the efficiency of your work thanks to the automation of processes, increasing the productivity of your company.',
+          'As you know, in the digital age in which we live, an effective online presence is essential for any successful business. A website is a key tool to achieve this.',
+        messageTwo: `Developing a customized website for your business can offer many advantages. A website allows you to have a solid, well-designed online presence that can be used to attract and retain new customers. In addition, a website can also be used to improve the efficiency of your business operations, allowing users to transact and access your company's information more easily and quickly.
+          `,
+        messageThree:
+          'A website can also help you stand out from the competition. Offering an attractive and user-friendly online presence can be a decisive factor in attracting new customers and retaining existing ones. In addition, a well-designed website can enhance the perception of your company as innovative and committed to customer satisfaction. Finally, a website can help your company expand into new markets. With a website, you can reach a global audience and reach new customers who might otherwise be out of reach.',
         bar: {
           title:
             'We develop a powerful website for you to publish what you want, from wherever you want.',
@@ -146,8 +212,12 @@ export const english = {
       seo: {
         title: 'SEO service',
         phrase: 'Optimize your website now',
-        message:
-          'It consists of persuading search engines like Google, Bing and Yahoo, to recommend your content to their users as the best solution to their problems.',
+        message: `
+          Through the implementation of SEO and SEM strategies, we can help you improve your website's search engine rankings and increase the amount of organic traffic you receive.`,
+        messageTwo:
+          'SEO (search engine optimization) and SEM (search engine marketing) are powerful tools that can help your website become more visible and attract more visitors. SEO is a strategy that involves optimizing your website to be easily accessible and understandable by search engines, which can improve your position in search results. On the other hand, SEM is a marketing strategy that involves the use of paid advertisements in search results to increase the visibility of your website.',
+        messageThree: `Implementing SEO and SEM strategies can offer many advantages to your business. Such as increasing organic traffic to your website, which can improve your company's exposure to new potential customers. It can also improve the visibility of your website online, which can help you stand out from the competition and improve your online reputation.
+          `,
         important: {
           title: 'Why is SEO important?',
           list: [
@@ -213,10 +283,90 @@ export const english = {
         },
       },
       apps: {
-        title: 'Mobile application development',
-        phrase: 'Development of Apps to suit you',
+        title: 'Mobile Application Development',
+        phrase: 'Custom App Development',
         message:
-          'It covers all the processes of creating and launching a mobile application, or specific, as it refers to the coding and implementation of the application.',
+          'In the digital era in which we live, the use of mobile devices has become increasingly common, and mobile applications have proven to be an effective tool to connect with users more effectively.',
+        messageTwo: `Developing a mobile application for your business can offer numerous advantages. A mobile app allows you to connect with your customers in a more personalized and direct way, which can improve customer satisfaction and loyalty. In addition, a mobile app can also help improve the efficiency of your business operations, allowing users to transact and access your company's information more easily and quickly.
+          `,
+        messageThree:
+          'A mobile application can also help you stand out from the competition. Offering an attractive and easy-to-use mobile solution can be a decisive factor in attracting new customers and retaining existing ones. In addition, a well-designed mobile application can enhance the perception of your company as an innovative company committed to customer satisfaction. Finally, a mobile app can help your company expand into new markets. With a mobile app, you can reach a global audience and reach new customers who might otherwise be out of reach.',
+      },
+      web3: {
+        title: 'Tecnología Blockchain',
+        phrase:
+          'Soluciones y Servicios con tecnología Blockchain en tus Aplicaciones',
+        message:
+          'Blockchain technology has revolutionized the way data is managed and secured online, and now it can be applied to your business through the development of a blockchain-based application.',
+        messageTwo: `Developing a blockchain-based application for your business can offer many advantages. Firstly, blockchain technology offers unparalleled security for your company's data, as the data is stored and protected in a decentralized, immutable network. This means that your company's data is protected against hacks and fraud, and can also be easily verified and tracked. In addition, a blockchain-based application can also improve the transparency of your business operations. Blockchain technology enables the creation of public and transparent records of transactions, which can help increase the trust of your customers and improve your company's image.
+          `,
+        messageThree: `A blockchain-based application can also help you stand out from the competition. Offering an innovative and secure solution to your customers can be a decisive factor in attracting new customers and retaining existing ones. In addition, a blockchain-based application can improve the perception of your company as an innovative company committed to the security of your customers' data. In short, developing a blockchain-based application for your business can offer many advantages and opportunities for growth. If you would like to learn more about how a blockchain-based application could help your business, please do not hesitate to contact us to discuss the solutions we can offer you.
+          `,
+        subservice: [
+          {
+            id: 1,
+            title: 'Consulting in project development with Blockchain',
+            text: 'We focus on providing information and knowledge to companies and organizations on how technology can improve their business model and offer new growth opportunities. In addition to being able to help companies understand the different Blockchain solutions available and how they can be implemented in their business. And if they have a new business but do not know how to implement it, they are also provided with the necessary knowledge to bring it to production.',
+            img: '/assets/service/blockchain/consultor.jpg',
+          },
+          {
+            id: 2,
+            title: 'Blockchain Applications',
+            text: 'Ethereum is a blockchain platform that enables the creation of smart contracts and decentralized applications (dApps). Some of the most common applications of Ethereum are cryptocurrencies, smart contracts, Decentralized Finance (DeFi), NFTs games, digital identity, eVoting, trades and more. In short, Ethereum has been instrumental in the development of the DeFi ecosystem and has enabled the creation of decentralized applications that are transforming the way we interact and do business online. So we will take care of creating your future application with this technology.',
+            img: '/assets/service/blockchain/creacion-app.jpg',
+          },
+        ],
+      },
+      software: {
+        title: 'Custom Software Development',
+        phrase: 'You have the idea, we have the resources.',
+        message:
+          'As you know, each company is unique in its industry and faces specific challenges that cannot always be solved by existing software solutions on the market. That is why I believe that custom software development can be the ideal solution for your company.',
+        messageTwo:
+          'Custom software development involves creating a unique and specific solution for your business, tailored to your needs and requirements. This means that your company can have a unique software solution that not only improves efficiency and productivity, but can also enhance the user experience and increase customer satisfaction. In addition, custom software offers the flexibility to adapt to changes in your business and industry. It can be easily scaled and improved, and can be regularly updated to keep up with new technologies and market trends.',
+        messageThree: `It's also worth noting that custom software can help your business be more competitive. By having a unique solution, you can stand out from the competition and offer a unique advantage to your customers and users.
+          `,
+        subservice: [
+          {
+            id: 1,
+            title: 'Customized system for your business or company',
+            text: `
+            Custom software development can be the perfect solution for your company's unique needs. We can significantly improve your company's efficiency and productivity, enhance the user experience and increase customer and staff satisfaction. We create your inventory, personnel management, financials, online store management and more.`,
+            img: '/assets/service/software/system.jpg',
+          },
+        ],
+        grid: [
+          {
+            id: 'software-one',
+            number: '01.',
+            title: 'Professional custom design',
+            text: 'We design your system or custom application for any type of company or business.',
+          },
+          {
+            id: 'software-two',
+            number: '02.',
+            title: 'Development of objectives',
+            text: 'Our team offers the best advice to land your ideas and bring them to reality.',
+          },
+          {
+            id: 'software-three',
+            number: '03.',
+            title: 'Responsive web design',
+            text: 'We generate designs that adapt and display on all types of devices.',
+          },
+          {
+            id: 'software-four',
+            number: '04.',
+            title: 'System Upgrade',
+            text: 'No matter if your software is already created, if you still have new ideas, we can implement them.',
+          },
+          {
+            id: 'software-five',
+            number: '05.',
+            title: 'First Class Maintenance',
+            text: 'Our team will be on the lookout for any technical problems that may occur in the future, and will resolve them immediately.',
+          },
+        ],
       },
     },
     firstImage: {
@@ -406,6 +556,14 @@ export const english = {
         it's us!`,
         advice: 'Contact us by phone',
       },
+    },
+    contactView: {
+      title: 'CONTACT US',
+      subtitle: 'We offer the best experience',
+      message: `If you are looking for a software or application that perfectly suits your needs, then our customized services are the ideal choice for your company or business.
+      `,
+      messageTwo:
+        'We are proud to be a leader in custom software development. Our team of experts can help you through the entire process, from the analysis of your needs to the design, development and maintenance of your software.',
     },
     footer: {
       contact: 'Contact Information',
