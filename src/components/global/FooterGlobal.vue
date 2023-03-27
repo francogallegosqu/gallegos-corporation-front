@@ -29,15 +29,15 @@
           <h3>{{ getPage?.content?.footer?.network }}</h3>
           <ul class="networks">
             <li>
-              <img alt="Logo Instagram" src="/src/assets/icons/insta.png" />
+              <img alt="Logo Instagram" src="/assets/icons/insta.png" />
               /GallegoCorporation
             </li>
             <li>
-              <img alt="Logo Instagram" src="/src/assets/icons/face.png" />
+              <img alt="Logo Instagram" src="/assets/icons/face.png" />
               @GallegoCorporation
             </li>
             <li>
-              <img alt="Logo Instagram" src="/src/assets/icons/wsp.png" />
+              <img alt="Logo Instagram" src="/assets/icons/wsp.png" />
               +51 933 571 960
             </li>
           </ul>
@@ -70,7 +70,7 @@ export default {
 <style scoped lang="scss">
 footer {
   min-height: 450px !important;
-  background: no-repeat url('@/assets/footer/footer.gif');
+  background: no-repeat url('/assets/footer/footer.gif');
   background-size: cover;
   background-position: bottom;
 }

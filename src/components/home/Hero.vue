@@ -6,6 +6,7 @@
     <img class="astronaut" :src="srcAstronauth" alt="Planet Earth" />
     <div class="music">
       <img :src="srcMusicActive" @click="changeMusic" alt="Music Active" />
+      <audio ref="audioPlayer" :src="audioSrc" loop></audio>
     </div>
     <div class="mask"></div>
     <div class="arrow">
@@ -15,7 +16,7 @@
         <img id="img-three" src="/assets/icons/arrow-down.svg" alt="Arrow" />
       </div>
     </div>
-    <div class="carusel">
+    <div class="carusel" id="navbar-example2">
       <div
         class="content"
         v-for="item in getPage?.content?.hero?.carrusel"
@@ -24,39 +25,11 @@
         <h2>{{ item.h2 }}</h2>
         <h1>{{ item.h1 }}</h1>
         <div class="button">
-          <RouterLink to="/">{{
+          <RouterLink :to="{ name: 'service' }">{{
             getPage?.content?.hero?.button?.name
           }}</RouterLink>
         </div>
       </div>
-
-      <!-- <div class="content">
-        <h2>{{ $t('content.hero.carrusel.h2') }}</h2>
-        <h1>{{ $tc('content.hero.carrusel.h1', 0) }}</h1>
-        <div class="button">
-          <RouterLink to="/">{{
-            $t('content.hero.carrusel.router')
-          }}</RouterLink>
-        </div>
-      </div>
-      <div>
-        <h2>{{ $t('content.hero.carrusel.h2') }}</h2>
-        <h1>{{ $tc('content.hero.carrusel.h1', 1) }}</h1>
-        <div class="button">
-          <RouterLink to="/">{{
-            $t('content.hero.carrusel.router')
-          }}</RouterLink>
-        </div>
-      </div>
-      <div>
-        <h2>{{ $t('content.hero.carrusel.h2') }}</h2>
-        <h1>{{ $tc('content.hero.carrusel.h1', 2) }}</h1>
-        <div class="button">
-          <RouterLink to="/">{{
-            $t('content.hero.carrusel.router')
-          }}</RouterLink>
-        </div>
-      </div> -->
     </div>
   </div>
 </template>
@@ -67,7 +40,8 @@ import { pageStore } from '../../stores'
 export default {
   data() {
     return {
-      music: true,
+      music: false,
+      audioSrc: '/assets/all-remind.mp3',
     }
   },
   computed: {
@@ -93,6 +67,11 @@ export default {
   methods: {
     changeMusic() {
       this.music = !this.music
+      if (this.music) {
+        this.$refs.audioPlayer.play()
+      } else {
+        this.$refs.audioPlayer.pause()
+      }
     },
   },
 }
@@ -147,14 +126,14 @@ export default {
     align-content: center;
     z-index: 559;
     img {
-      width: 5rem;
-      height: 5rem;
+      width: 4rem;
+      height: 4rem;
       max-width: 90px;
       max-height: 90px;
       border-radius: 50%;
-      box-shadow: 0px 3px 0px 2px $color-blue-primary;
-      -webkit-box-shadow: 0px 3px 0px 2px $color-blue-primary;
-      -moz-box-shadow: 0px 3px 0px 2px $color-blue-primary;
+      box-shadow: 1px 1px 4px $color-blue-primary;
+      -webkit-box-shadow: 1px 1px 4px $color-blue-primary;
+      -moz-box-shadow: 1px 1px 4px $color-blue-primary;
       @include animation-right-left(2s);
       &:hover {
         cursor: pointer;

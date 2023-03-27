@@ -1,7 +1,7 @@
 <template>
   <HeaderGlobal v-if="getWidthScreen > 767" />
+  <MainMenu v-else />
   <PreLoader v-if="getLoader" />
-
   <router-view v-if="!getLoader" v-slot="{ Component }">
     <transition name="slide" mode="out-in">
       <component :is="Component" />
@@ -62,21 +62,34 @@
       detectRetina: true,
     }"
   />
-  <FooterGlobal />
+  <GoTop v-if="isTopView" class="top-view" />
+  <Wsp />
+  <FooterGlobal :class="getIsOpen == true ? 'close-main' : ''" />
 </template>
 
 <script>
 import HeaderGlobal from './components/global/HeaderGlobal.vue'
+import MainMenu from './components/global/MainMenu.vue'
 import FooterGlobal from './components/global/FooterGlobal.vue'
 import PreLoader from './components/global/PreLoader.vue'
+import GoTop from './components/icons/GoTop.vue'
+import Wsp from './components/icons/Wsp.vue'
 import { mapState, mapActions } from 'pinia'
 import { loadFull } from 'tsparticles'
 import { useSizeStore, projectStore, loaderStore } from './stores'
 export default {
   components: {
     HeaderGlobal,
+    MainMenu,
     FooterGlobal,
     PreLoader,
+    GoTop,
+    Wsp,
+  },
+  data() {
+    return {
+      isTopView: false,
+    }
   },
   computed: {
     ...mapState(useSizeStore, ['getWidthScreen']),
@@ -88,17 +101,42 @@ export default {
     async particlesInit(engine) {
       await loadFull(engine)
     },
-    async particlesLoaded(container) {
-      console.log('Particles container loaded', container)
+    async particlesLoaded() {
+      // console.log('Particles container loaded', container)
+    },
+    updateZoom() {
+      if (window.scrollY > 0) {
+        this.isTopView = true
+      } else {
+        this.isTopView = false
+      }
     },
   },
   mounted() {
     this.loadCharacters()
+    window.addEventListener('scroll', this.updateZoom)
   },
 }
 </script>
 
-<style>
+<style lang="scss">
+.top-view {
+  animation: viewGoTop 1s ease-out 1;
+}
+
+@keyframes viewGoTop {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.close-main {
+  overflow: hidden;
+  display: none;
+}
+
 .slide-enter-active,
 .slide-leave-active {
   transition: opacity 1s, transform 1s;

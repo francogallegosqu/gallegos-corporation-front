@@ -20,7 +20,7 @@
         id="why-img"
         class="col-item col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4"
       >
-        <img class="about-img" src="@/assets/software-development.jpg" alt="" />
+        <img class="about-img" src="/assets/software-development.jpg" alt="" />
       </div>
       <div
         class="col-item col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 col-icons-text"

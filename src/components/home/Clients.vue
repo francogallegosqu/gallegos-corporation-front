@@ -140,7 +140,7 @@ export default {
     }
   }
   border: 1px solid transparent;
-  border-image: url('@/assets/clients/back-clients.jpg') 30 round;
+  border-image: url('/assets/clients/back-clients.jpg') 30 round;
   border-radius: 0px 0px 10px 10px;
   border-top: 6px solid $color-blue-primary;
   width: 100%;

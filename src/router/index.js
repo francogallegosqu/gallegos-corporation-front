@@ -42,6 +42,11 @@ const router = createRouter({
               component: () => import('../views/SeoView.vue'),
             },
             {
+              path: 'marketing',
+              name: 'marketing',
+              component: () => import('../views/MarketingView.vue'),
+            },
+            {
               path: 'apps',
               name: 'apps',
               component: () => import('../views/AppsView.vue'),
@@ -62,6 +67,11 @@ const router = createRouter({
           path: 'contact',
           name: 'contact',
           component: () => import('../views/ContactView.vue'),
+        },
+        {
+          path: 'projects',
+          name: 'projects',
+          component: () => import('../views/ProjectsView.vue'),
         },
       ],
     },

@@ -24,8 +24,8 @@ export const english = {
     headers: [
       { name: 'Home', path: 'home' },
       { name: 'About', path: 'about' },
-      { name: 'Service', path: 'service' },
-      { name: 'Project', path: 'project' },
+      { name: 'Services', path: 'service' },
+      { name: 'Projects', path: 'projects' },
       // { name: 'Blog', path: 'blog' },
       { name: 'Contact', path: 'contact' },
     ],
@@ -68,7 +68,7 @@ export const english = {
           content: `Your website is the first presentation to your potential
           customers, that is why an impact web design is important.`,
           buttonName: 'Learn More',
-          buttonImg: '@/assets/icons/arrow-lg-icon.svg',
+          buttonImg: '/assets/icons/arrow-lg-icon.svg',
         },
         {
           id: 'grid-item-two',
@@ -78,7 +78,7 @@ export const english = {
           content: `Reach your audience at the best time with powerful
           automations.`,
           buttonName: 'Learn More',
-          buttonImg: '@/assets/icons/arrow-lg-icon.svg',
+          buttonImg: '/assets/icons/arrow-lg-icon.svg',
         },
         {
           id: 'grid-item-three',
@@ -88,7 +88,7 @@ export const english = {
           content: `Creating simple software that can be used on devices
           Mobile phones such as tablets and cell phones.`,
           buttonName: 'Learn More',
-          buttonImg: '@/assets/icons/arrow-lg-icon.svg',
+          buttonImg: '/assets/icons/arrow-lg-icon.svg',
         },
         {
           id: 'grid-item-four',
@@ -99,28 +99,28 @@ export const english = {
           appear organically on Internet search engines like Google,
           Yahoo or Youtube.`,
           buttonName: 'Learn More',
-          buttonImg: '@/assets/icons/arrow-lg-icon.svg',
+          buttonImg: '/assets/icons/arrow-lg-icon.svg',
         },
         {
           id: 'grid-item-five',
-          img: '/assets/icons/icon-seo.svg',
+          img: '/assets/icons/icon-software.svg',
           title: 'Custom Software',
           path: 'software',
           content: `Creation of customized software that adapts to the field of your business or company in order to optimize your productivity.
           `,
           buttonName: 'Learn More',
-          buttonImg: '@/assets/icons/arrow-lg-icon.svg',
+          buttonImg: '/assets/icons/arrow-lg-icon.svg',
         },
         {
           id: 'grid-item-six',
-          img: '/assets/icons/icon-seo.svg',
+          img: '/assets/icons/icon-blockchain.svg',
           title: 'Blockchain',
           path: 'blockchain',
           content: `
           Enter your company or business into the world of decentralized applications, where you can interact with information and services in a more secure and private way, without the need for intermediaries or centralized platforms.
           `,
           buttonName: 'Learn More',
-          buttonImg: '@/assets/icons/arrow-lg-icon.svg',
+          buttonImg: '/assets/icons/arrow-lg-icon.svg',
         },
       ],
     },
@@ -402,7 +402,7 @@ export const english = {
         },
         {
           id: 'row-second-four',
-          img: '/assets/icons/about-us/world-icon.svg',
+          img: '/assets/icons/about-us/support-icon.svg',
           title: '24/7 Support',
           content: `Attention through our official contacts, with information
           truthful, quality of service and the protection of your data.`,
@@ -527,6 +527,10 @@ export const english = {
         },
       },
     },
+    projects: {
+      title: 'Project catalog',
+      subtitle: 'Latest projects developed',
+    },
     contact: {
       title: 'Contact',
       init: 'Start Your Project',
@@ -568,6 +572,9 @@ export const english = {
     footer: {
       contact: 'Contact Information',
       network: 'Our Social Networks',
+    },
+    wsp: {
+      text: 'Hello, I would like to quote a project on',
     },
   },
 }

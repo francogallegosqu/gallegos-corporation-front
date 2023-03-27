@@ -25,7 +25,7 @@ export const spanish = {
       { name: 'Home', path: 'home' },
       { name: 'Nosotros', path: 'about' },
       { name: 'Servicios', path: 'service' },
-      { name: 'Proyectos', path: 'project' },
+      { name: 'Proyectos', path: 'projects' },
       // { name: 'Blog', path: 'blog' },
       { name: 'Contacto', path: 'contact' },
     ],
@@ -78,7 +78,7 @@ export const spanish = {
           content: `Llega a tu público en el mejor momento con potentes
           automatizaciones.`,
           buttonName: 'Conoce Más',
-          buttonImg: '@/assets/icons/arrow-lg-icon.svg',
+          buttonImg: '/assets/icons/arrow-lg-icon.svg',
         },
         {
           id: 'grid-item-three',
@@ -88,7 +88,7 @@ export const spanish = {
           content: `Creación de software simple que pueda ser usado en dispositivos
           móviles como tabletas y celulares.`,
           buttonName: 'Conoce Más',
-          buttonImg: '@/assets/icons/arrow-lg-icon.svg',
+          buttonImg: '/assets/icons/arrow-lg-icon.svg',
         },
         {
           id: 'grid-item-four',
@@ -99,28 +99,28 @@ export const spanish = {
           aparezca orgánicamente en buscadores de Internet como Google,
           Yahoo o Youtube.`,
           buttonName: 'Conoce Más',
-          buttonImg: '@/assets/icons/arrow-lg-icon.svg',
+          buttonImg: '/assets/icons/arrow-lg-icon.svg',
         },
         {
           id: 'grid-item-five',
-          img: '/assets/icons/icon-seo.svg',
+          img: '/assets/icons/icon-software.svg',
           title: 'Software Personalizado',
           path: 'software',
           content: `Creación de software a medida que se adapte al rubro de tu negocio o empresa con el fin de optimizar tu productividad.
           `,
           buttonName: 'Learn More',
-          buttonImg: '@/assets/icons/arrow-lg-icon.svg',
+          buttonImg: '/assets/icons/arrow-lg-icon.svg',
         },
         {
           id: 'grid-item-six',
-          img: '/assets/icons/icon-seo.svg',
+          img: '/assets/icons/icon-blockchain.svg',
           title: 'Blockchain',
           path: 'blockchain',
           content: `
           Ingresa tu empresa o negocio al mundo de las aplicaciones desentralizadas, en donde podrán interactuar con la información y los servicios de manera más segura y privada, sin la necesidad de intermediarios o plataformas centralizadas.
           `,
           buttonName: 'Learn More',
-          buttonImg: '@/assets/icons/arrow-lg-icon.svg',
+          buttonImg: '/assets/icons/arrow-lg-icon.svg',
         },
       ],
     },
@@ -402,7 +402,7 @@ export const spanish = {
         },
         {
           id: 'row-second-four',
-          img: '/assets/icons/about-us/world-icon.svg',
+          img: '/assets/icons/about-us/support-icon.svg',
           title: 'Soporte 24/7',
           content: `Atención a través de nuestros contactos oficiales, con información
           veraz, calidad de servicio y la protección de sus datos.`,
@@ -527,6 +527,10 @@ export const spanish = {
         },
       },
     },
+    projects: {
+      title: 'Catálogo de proyectos',
+      subtitle: 'Últimos proyectos desarrollados',
+    },
     contact: {
       title: 'Contacto',
       init: 'Inicia Tu Proyecto',
@@ -567,6 +571,9 @@ export const spanish = {
     footer: {
       contact: 'Información de Contacto',
       network: 'Nuestras Redes Sociales',
+    },
+    wsp: {
+      text: 'Hola, Deseo cotizar un proyecto sobre',
     },
   },
 }

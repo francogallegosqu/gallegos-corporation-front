@@ -6,7 +6,7 @@
       :disabled="currentPage.current === 1"
       @click="changePage(currentPage.current - 1)"
     >
-      <img src="@/assets/icons/arrow.svg" alt="Arrow Left" />
+      <img src="/assets/icons/arrow.svg" alt="Arrow Left" />
     </button>
     <button
       class="button-items"
@@ -23,7 +23,7 @@
       :disabled="currentPage.current === totalPages"
       @click="changePage(currentPage.current + 1)"
     >
-      <img src="@/assets/icons/arrow.svg" alt="Arrow Right" />
+      <img src="/assets/icons/arrow.svg" alt="Arrow Right" />
     </button>
   </div>
 </template>
@@ -109,7 +109,7 @@ export default {
   display: flex;
   justify-content: center;
   .button-items {
-    z-index: 2;
+    z-index: 1;
     margin: 5px;
     width: 35px !important;
     height: 35px !important;

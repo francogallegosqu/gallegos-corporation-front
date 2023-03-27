@@ -51,7 +51,7 @@
     </div>
 
     <div class="scroll-down">
-      <img alt="Scroll Down" class="arrow" src="@/assets/img/arrow.svg" />
+      <img alt="Scroll Down" class="arrow" src="/assets/img/arrow.svg" />
     </div>
   </div>
 </template>

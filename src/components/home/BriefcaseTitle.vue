@@ -13,18 +13,26 @@
       </div>
       <div class="col-12 col-sm-3">
         <p class="background-service">
-          {{ getPage?.content?.briefCaseTitle?.button }}
+          <router-link
+            class="a-target"
+            @click="goTop()"
+            :to="{ name: 'projects' }"
+            >{{ getPage?.content?.briefCaseTitle?.button }}</router-link
+          >
         </p>
       </div>
     </div>
   </div>
 </template>
 <script>
-import { mapState } from 'pinia'
-import { pageStore } from '../../stores'
+import { mapActions, mapState } from 'pinia'
+import { pageStore, topStore } from '../../stores'
 export default {
   computed: {
     ...mapState(pageStore, ['getPage']),
+  },
+  methods: {
+    ...mapActions(topStore, ['goTop']),
   },
 }
 </script>
@@ -66,6 +74,10 @@ export default {
       background: $bg-degraded;
       border-radius: 4px 10px;
       padding: 5px;
+      .a-target {
+        text-decoration: none;
+        color: white;
+      }
     }
   }
 }

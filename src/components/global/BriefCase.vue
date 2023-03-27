@@ -13,12 +13,14 @@
         <div class="brief-text">
           <h3>{{ project?.attributes?.title }}</h3>
           <button type="button" class="button-gradient">
-            <span class="text">{{
-              getPage?.content?.briefCaseTitle?.button
-            }}</span>
-            <!-- <div class="img-button">
-              <img src="@/assets/icons/arrow-lg-icon.svg" alt="Arrow Right" />
-            </div> -->
+            <span class="text">
+              <a
+                class="a-target"
+                :href="project?.attributes?.link"
+                target="_blank"
+                >{{ getPage?.content?.briefCaseTitle?.button }}</a
+              >
+            </span>
           </button>
         </div>
       </div>
@@ -87,7 +89,7 @@ export default {
       transition: scale 0.4s ease-out 100ms;
       .background-img {
         width: 100%;
-        height: 250px;
+        min-height: 270px;
         background-size: 100% 100%;
         background-position: center;
         background-repeat: no-repeat;
@@ -120,6 +122,10 @@ export default {
           transition: filter 1s ease-out 100ms;
           .text {
             padding: 2px 7px;
+            .a-target {
+              text-decoration: none;
+              color: white;
+            }
           }
         }
       }

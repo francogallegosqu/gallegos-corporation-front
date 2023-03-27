@@ -109,7 +109,7 @@
       >
         <video
           id="video"
-          src="/src/assets/planet-color.mp4"
+          src="/assets/planet-color.mp4"
           autoplay="true"
           muted="muted"
           style="height: 100%; width: 100%"

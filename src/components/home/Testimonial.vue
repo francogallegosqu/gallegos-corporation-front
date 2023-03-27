@@ -65,7 +65,7 @@ export default {
 <style scoped lang="scss">
 .testimonial {
   margin-top: 100px;
-  background: no-repeat url('@/assets/testimonial/back-testimonial.png');
+  background: no-repeat url('/assets/testimonial/back-testimonial.png');
   background-size: cover;
   background-position: center;
   z-index: 1;

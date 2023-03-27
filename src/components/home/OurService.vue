@@ -14,7 +14,12 @@
       </div>
       <div class="col-12 col-sm-3">
         <p class="background-service">
-          {{ getPage?.content?.service?.backService }}
+          <router-link
+            class="a-target"
+            @click="goTop()"
+            :to="{ name: 'service' }"
+            >{{ getPage?.content?.service?.backService }}</router-link
+          >
         </p>
       </div>
     </div>
@@ -36,8 +41,13 @@
 
           <div class="button">
             <button class="button-gradient">
-              {{ item?.buttonName }}
-              <img src="@/assets/icons/arrow-lg-icon.svg" alt="Arrow Right" />
+              <router-link
+                class="link"
+                @click="goTop()"
+                :to="{ name: item?.path }"
+                >{{ item?.buttonName }}</router-link
+              >
+              <img src="/assets/icons/arrow-lg-icon.svg" alt="Arrow Right" />
             </button>
           </div>
         </div>
@@ -47,8 +57,8 @@
 </template>
 
 <script>
-import { mapState } from 'pinia'
-import { pageStore } from '../../stores'
+import { mapState, mapActions } from 'pinia'
+import { pageStore, topStore } from '../../stores'
 export default {
   data() {
     return {
@@ -57,6 +67,7 @@ export default {
   },
   computed: {
     ...mapState(pageStore, ['getPage']),
+    ...mapActions(topStore, ['goTop']),
     listImg() {
       const list = this.getPage?.content?.service?.grid
       return list.map((e) => {
@@ -123,6 +134,10 @@ export default {
       background: $bg-degraded;
       border-radius: 4px 10px;
       padding: 5px;
+      .a-target {
+        color: white;
+        text-decoration: none;
+      }
     }
   }
   .grid-container {
@@ -164,7 +179,6 @@ export default {
           justify-content: end;
           flex-wrap: wrap;
           button {
-            /* min-width: 90%; */
             border: none;
             text-align: center;
             flex-wrap: wrap;
@@ -172,6 +186,10 @@ export default {
             font-size: 1.2rem;
             img {
               width: 10%;
+            }
+            .link {
+              color: white;
+              text-decoration: none;
             }
           }
         }

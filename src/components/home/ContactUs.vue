@@ -332,7 +332,7 @@ export default {
   animation: shadowAnimation 2s linear infinite;
   display: flex;
   align-items: start;
-  background-image: url('@/assets/blue-target.jpg');
+  background-image: url('/assets/blue-target.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 10px;
@@ -384,7 +384,7 @@ export default {
   animation: shadowAnimationError 2s linear infinite;
   display: flex;
   align-items: start;
-  background-image: url('@/assets/blue-target.jpg');
+  background-image: url('/assets/blue-target.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 10px;

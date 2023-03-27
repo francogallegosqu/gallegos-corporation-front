@@ -5,7 +5,7 @@
       class="content d-flex justify-content-between align-items-center w-100"
       :class="scrollY > 0 ? 'header-fixed' : ''"
     >
-      <div class="logo d-flex align-items-center">
+      <div class="logo d-flex align-items-center" @click="goHome()">
         <Logo />
         <span class="name-logo" v-if="getWidthScreen >= 1200"
           >GALLEGOS CORPORATION</span
@@ -21,17 +21,6 @@
         >
           {{ item?.name }}</RouterLink
         >
-        <!-- <div class="locale-changer">
-          <select v-model="$i18n.locale" @change="updateRoute">
-            <option
-              v-for="locale in $i18n.availableLocales"
-              :key="`locale-${locale}`"
-              :value="locale"
-            >
-              {{ locale }}
-            </option>
-          </select>
-        </div> -->
         <div class="dropdown">
           <button
             class="dropdown-toggle"
@@ -91,6 +80,9 @@ export default {
     catchScroll() {
       this.scrollY = window.scrollY
     },
+    goHome() {
+      this.$router.push({ name: 'home' })
+    },
   },
   mounted() {
     window.addEventListener('scroll', this.catchScroll)
@@ -114,7 +106,7 @@ $links: 'one' 1s, 'two' 1.2s, 'three' 1.4s, 'four' 1.6s, 'five' 1.8s, 'six' 2s;
   /* transition: all 2s ease-in; */
 
   .dropdown-menu {
-    background: url('@/assets/blue-target.jpg');
+    background: url('/assets/blue-target.jpg');
     /* transition: all 3s ease-in-out; */
     animation: dropdownAnimation 0.5s ease-in-out;
     /* transition: display 700ms; */
@@ -173,6 +165,7 @@ $links: 'one' 1s, 'two' 1.2s, 'three' 1.4s, 'four' 1.6s, 'five' 1.8s, 'six' 2s;
     margin-left: 20px;
     letter-spacing: 0.04em;
     z-index: 560;
+    cursor: pointer;
     @include animation-top-down(1s);
   }
   position: absolute;

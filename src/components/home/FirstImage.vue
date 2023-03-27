@@ -36,7 +36,7 @@ export default {
   margin-top: 100px;
   width: 100%;
   height: 400px;
-  background: no-repeat url('@/assets/first-image-home.jpg');
+  background: no-repeat url('/assets/first-image-home.jpg');
   background-size: cover;
   background-position: center;
   .content {
