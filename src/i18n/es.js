@@ -43,7 +43,7 @@ export const spanish = {
         },
         {
           h2: 'LAS MEJORES SOLUCIONES EN',
-          h1: 'APPS MOVILES',
+          h1: 'APPS MÓVILES',
           class: 'apps',
         },
       ],
@@ -368,6 +368,110 @@ export const spanish = {
           },
         ],
       },
+      marketing: {
+        title: 'Marketing Digital para tu negocio',
+        phrase:
+          'Lo mejor en soluciones estrategicas de marketing para tu negocio',
+        message:
+          'Si está buscando mejorar la presencia en línea de su negocio y atraer a más clientes potenciales, entonces el marketing digital es la opción ideal para su empresa. El marketing digital es una herramienta esencial para el éxito en el mundo actual, donde la mayoría de las personas buscan información en línea y las redes sociales son una gran plataforma para promocionar su negocio.',
+        messageTwo:
+          'El marketing digital puede ayudar a su empresa a aumentar la visibilidad en línea, atraer más tráfico a su sitio web y convertir a los visitantes en clientes potenciales y ventas. Nuestro equipo de expertos en marketing digital puede ayudarlo a diseñar una estrategia personalizada que se adapte a sus necesidades y objetivos de negocio.',
+        messageThree:
+          'Nos enorgullece ser una empresa que tiene como objetivo principal ayudar a otras empresas como la suya a alcanzar el éxito en línea. Ofrecemos una amplia gama de servicios de marketing digital, desde la optimización de campañas publicitarias y publicidad en línea hasta la gestión de redes sociales y la creación de contenido o marca (branding). Nos aseguramos de utilizar las últimas herramientas y técnicas para maximizar los resultados de su campaña de marketing digital.',
+        titleListNumber: 'Tipos de Marketing Digital',
+        grid: [
+          {
+            id: 'marketing-one',
+            number: '01.',
+            title: 'Optimización del motor de búsqueda',
+            text: 'Es técnicamente una herramienta de marketing, no una forma de marketing en sí misma. ',
+            textTwo:
+              'Se define como "el arte y la ciencia de hacer que las páginas web sean atractivas para los motores de búsqueda".',
+          },
+          {
+            id: 'marketing-two',
+            number: '02.',
+            title: 'Marketing de contenido',
+            text: 'Busca captar la atención de la gente que va a leer el material, compartirlo y seguir interactuando con la marca. ',
+            textTwo:
+              'Creando un contenido es relevante, que puede establecer relaciones fuertes a lo largo de todo el proceso.',
+          },
+          {
+            id: 'marketing-three',
+            number: '03.',
+            title: 'Marketing en redes sociales',
+            text: 'Buscamos generar tráfico y crear conocimiento sobre tu marca, atrayendo a la gente a una conversación en línea. ',
+            textTwo:
+              'Mediante las plataformas más populares como Facebook, Twitter e Instagram, Linkedin y Youtube.',
+          },
+          {
+            id: 'marketing-four',
+            number: '04.',
+            title: 'Marketing de pago por clic',
+            text: 'Consiste en publicar un anuncio en una plataforma y pagar cada vez que alguien haga clic en él.',
+            textTwo:
+              'Además puedes rastrear lo que elijas como conversiones objetivo a través de la plataforma que quieras para ver cómo le va a tu campaña.',
+          },
+          {
+            id: 'marketing-five',
+            number: '05.',
+            title: 'Marketing de afiliación',
+            text: 'Permite a alguien ganar dinero promocionando el negocio de otra persona. ',
+            textTwo: `Puedes ser el patrocinador o el negocio que trabaja con el patrocinador, pero en cualquier caso el proceso es el mismo.
+            Funciona con un modelo de ingresos compartidos.`,
+          },
+          {
+            id: 'marketing-six',
+            number: '06.',
+            title: 'Publicidad nativa',
+            text: 'Su objetivo es integrarse con el contenido de alrededor para que resulte menos evidente que es publicidad.',
+            textTwo:
+              'Logra que losconsumidores sepan exactamente qué están comprando, por lo que se sentirán mejor respecto a tu contenido y tu marca.',
+          },
+        ],
+        benefits: {
+          title: 'Beneficios',
+          subtitle: 'Aumenta tus ventas',
+          list: [
+            {
+              id: 'marketing--benefits-one',
+              number: '01.',
+              title: 'Amplio alcance geográfico',
+              img: '/assets/service/marketing/marketing-1.jpg',
+            },
+            {
+              id: 'marketing--benefits-two',
+              number: '02.',
+              title: 'Rentabilidad',
+              img: '/assets/service/marketing/marketing-2.jpg',
+            },
+            {
+              id: 'marketing--benefits-three',
+              number: '03.',
+              title: 'Resultados cuantificables',
+              img: '/assets/service/marketing/marketing-3.jpg',
+            },
+            {
+              id: 'marketing--benefits-four',
+              number: '04.',
+              title: 'Personalización más sencilla',
+              img: '/assets/service/marketing/marketing-4.jpg',
+            },
+            {
+              id: 'marketing--benefits-five',
+              number: '05.',
+              title: 'Más conexión con TUS CLIENTES',
+              img: '/assets/service/marketing/marketing-5.jpg',
+            },
+            {
+              id: 'marketing--benefits-six',
+              number: '06.',
+              title: 'Conversiones fáciles y prácticas',
+              img: '/assets/service/marketing/marketing-6.jpg',
+            },
+          ],
+        },
+      },
     },
     firstImage: {
       title: 'Tecnología del Futuro',
@@ -571,6 +675,54 @@ export const spanish = {
     footer: {
       contact: 'Información de Contacto',
       network: 'Nuestras Redes Sociales',
+    },
+    policy: {
+      title: 'Política de Privacidad',
+      list: [
+        {
+          id: 'policy-one',
+          text: 'El presente documento (“Política de Privacidad”) regula el tratamiento de los datos personales suministrados por parte del Usuario dentro de la página web de Gallegos Corporation (en adelante Empresa). Cualquier persona que decida usar los servicios de Gallegos Corp.(en adelante, el “Usuario”), se adhiere a los principios que rigen en la presente Política de Privacidad. Cualquier persona que no acepte la Política de Privacidad, debe abstenerse de usar la página web, ya que estos principios son de carácter obligatorio y vinculante. El Usuario debe leer, comprender y aceptar todos los principios establecidos en la Política de Privacidad de Gallegos Corporation. Al brindar sus datos personales, el Usuario acepta todos los términos descritos en este documento.',
+        },
+        {
+          id: 'policy-two',
+          subtitle: '1. Política de Privacidad y Datos Personales',
+          text: 'Gallegos Corp. informa al Usuario que, al aceptar la presente Política de Privacidad, se encuentra brindando su consentimiento y autorización para que La Empresa realice el tratamiento de los Datos Personales con la finalidad de hacer uso de los Servicios ofrecidos por la empresa. En virtud de lo señalado, el Usuario autoriza expresamente a La Empresa a incorporar, almacenar, dar tratamiento, y procesar sus Datos Personales conforme a los procedimientos que Gallegos Corporation determine en el marco de sus operaciones habituales y conforme a lo establecido en la Ley N° 29733, Ley de Protección de Datos Personales, su Reglamento aprobado mediante Decreto Supremo N° 003-2013-JUS y las demás disposiciones complementarias.',
+          listText: [
+            {
+              id: 'policy-listext-one',
+              text: 'Para llevar a cabo la finalidad antes descrita, es indispensable que el Usuario proporcione los siguientes Datos Personales: (i) nombres; (ii) apellidos; (iii) empleador o empresa que representa; (iv) número de celular; y (v) correo electrónico. De no proporcionar los referidos Datos Personales, no se le podrán brindar los Servicios.',
+            },
+            {
+              id: 'policy-listext-two',
+              text: 'El Usuario reconoce haber sido informado de que sus Datos Personales serán conservados y tratados por Gallegos Corp. hasta por 5 años o hasta que el Usuario revoque su consentimiento.',
+            },
+            {
+              id: 'policy-listext-two',
+              text: 'El Usuario reconoce haber sido informado de que podrá ejercer sus derechos de acceso, rectificación, cancelación, revocación y oposición, siempre que cumpla con los requisitos exigidos por las normas aplicables, enviando un correo electrónico a la empresa en la sección de Contacto en el horario de 9:00 a.m. a 5:00 p.m., indicando los siguientes datos: (i) nombres y apellidos completos; (ii) número de DNI o Ruc; (iii) Correo Electrónico; y, (v) detalle claro y conciso de lo que solicita o reclama. Gallegos Corp. atenderá la solicitud o reclamo dentro del plazo establecido por las normas aplicables.',
+            },
+          ],
+        },
+        {
+          id: 'policy-three',
+          subtitle: '2. Reclamos y Consultas',
+          text: 'Gallegos Corp. pone a disposición un canal de comunicación para atender cualquier tipo de reclamo, consulta o asesoría que desee el Usuario antes, durante y después de utilizar algún servicio. El canal de comunicación ofrecido es contacto@gallegoscorporation.com, La empresa podrá comunicarse con el Usuario a través de mensajes de texto, correo electrónico o comunicación por mensajería de whatsapp al número de celular consignado.',
+        },
+        {
+          id: 'policy-four',
+          subtitle: '3. Cesión de los Términos de Uso',
+          text: 'Los Usuarios autorizan expresamente y otorgan su consentimiento para la cesión de las obligaciones de Gallegos Corp. derivadas de esta Política de Privacidad en favor de cualquier tercero que quede obligado por esta Política de Privacidad y/o que sea el nuevo responsable del banco de datos que contenga la información personal de los Usuarios. En ese sentido, una vez realizada la cesión, Gallegos Corp. no será responsable sobre cualquier hecho que ocurra a partir de la fecha de la cesión de la Política de Privacidad, siendo el nuevo responsable quien asumirá todas y cada una de las obligaciones establecidas en la presente Política de Privacidad.',
+        },
+        {
+          id: 'policy-five',
+          subtitle: '4. Sobre la modificación de las condiciones del Servicio',
+          text: 'La presente Política de Privacidad se encuentra a disposición del Usuario en la página web de Gallegos Corp. para su conservación y posterior consulta. El Usuario declara conocer que esta política podrá ser eventualmente modificada de acuerdo a ley, por lo que la versión que se encontrará disponible en la página web será la vigente al momento de su consulta.',
+        },
+        {
+          id: 'policy-six',
+          subtitle: '5. Propiedad Intelectual',
+          text: 'Todos los derechos de propiedad intelectual, marca registrada, nombre o logotipo, contenidos, diseños, de la página web de Gallegos Corp. pertenecen a Gallegos Corp. Quedan expresamente prohibidas la reproducción, distribución, transformación, comunicación pública, puesta a disposición o cualquier modo de utilización, de la totalidad o parte de la página web de Gallegos Corp. y los contenidos de propiedad de Gallegos Corp., en cualquier soporte y por cualquier medio técnico, sin la autorización previa de Gallegos Corp.',
+        },
+      ],
     },
     wsp: {
       text: 'Hola, Deseo cotizar un proyecto sobre',

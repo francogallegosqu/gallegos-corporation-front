@@ -5,7 +5,7 @@
       <div
         class="col-service-item-one col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8"
       >
-        <div class="img">
+        <div v-if="photo" class="img">
           <img :src="photo" alt="Photo" />
         </div>
         <div class="content">
@@ -38,6 +38,7 @@
           >
             <img :src="item?.img" :alt="item?.title" /><RouterLink
               :to="item?.path"
+              @click="goTop()"
               class="router-link"
               >{{ item?.title }}</RouterLink
             >
@@ -49,6 +50,9 @@
         v-if="listNumber.length > 0"
       >
         <div class="row row-second">
+          <h2 v-if="titleListNumber" class="title-number">
+            {{ titleListNumber }}
+          </h2>
           <div
             :id="item.id"
             v-for="item in listNumber"
@@ -62,6 +66,7 @@
             <p>
               {{ item?.text }}
             </p>
+            <p v-if="item?.textTwo">{{ item?.textTwo }}</p>
           </div>
         </div>
       </div>
@@ -152,6 +157,27 @@
         </div>
       </div>
     </div>
+    <div v-if="benefits" class="row benefits-template">
+      <div class="strategy-top">
+        <div class="title">{{ benefits?.title }}</div>
+        <div class="subtitle">{{ benefits?.subtitle }}</div>
+      </div>
+      <div
+        v-for="item in benefits?.list"
+        :key="item.id"
+        class="strategy-item col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3"
+      >
+        <div class="item-inside">
+          <div class="top">
+            <span class="number"> {{ item?.number }}</span
+            ><span class="title"> {{ item?.title }}</span>
+          </div>
+          <div class="text">
+            <img :src="item?.img" :alt="item?.title" />
+          </div>
+        </div>
+      </div>
+    </div>
     <div v-if="howork" class="row howork-template">
       <div class="strategy-top">
         <div class="title">{{ howork?.title }}</div>
@@ -180,8 +206,8 @@
 <script>
 import Hero from '../global/Hero.vue'
 import ContactUs from '../home/ContactUs.vue'
-import { mapState } from 'pinia'
-import { pageStore, useSizeStore } from '../../stores'
+import { mapActions, mapState } from 'pinia'
+import { pageStore, useSizeStore, topStore } from '../../stores'
 export default {
   components: {
     Hero,
@@ -225,6 +251,10 @@ export default {
       type: Array,
       default: () => [],
     },
+    titleListNumber: {
+      type: String,
+      default: () => '',
+    },
     bar: {
       type: Object,
       default: () => {},
@@ -241,6 +271,10 @@ export default {
       type: Object,
       default: () => {},
     },
+    benefits: {
+      type: Object,
+      default: () => {},
+    },
     howork: {
       type: Object,
       default: () => {},
@@ -253,6 +287,9 @@ export default {
   computed: {
     ...mapState(pageStore, ['getPage']),
     ...mapState(useSizeStore, ['getWidthScreen']),
+  },
+  methods: {
+    ...mapActions(topStore, ['goTop']),
   },
 }
 </script>
@@ -348,6 +385,10 @@ export default {
     margin: 4rem 0px;
     padding: 0 2rem;
     .row-second {
+      .title-number {
+        color: $color-blue-primary;
+        font-weight: 700;
+      }
       .row-second-item {
         display: flex;
         flex-direction: column;
@@ -586,6 +627,67 @@ export default {
         }
       }
     }
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+}
+.benefits-template {
+  position: relative;
+  z-index: 1;
+  margin: 30px 2px 30px 2px;
+  @media (min-width: $movil-size) {
+    margin: 20px 40px 20px 40px;
+  }
+  @media (min-width: $tablet-size) {
+    margin: 20px 60px 20px 60px;
+  }
+  @media (min-width: $desktop-size) {
+    margin: 20px 70px 20px 70px;
+  }
+  .strategy-top {
+    text-align: center;
+    .title {
+      font-size: 2rem;
+      font-weight: 900;
+      color: $color-blue-primary;
+    }
+    .subtitle {
+      font-size: 2.5rem;
+      font-weight: 900;
+    }
+  }
+  .strategy-item {
+    transition: transform 0.5s ease;
+    /* background: $bg-degraded; */
+    margin: 1rem 0;
+    .item-inside {
+      padding: 10px 0 0 0;
+      /* margin: 5px; */
+      border: 2px solid $color-purple-primary;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 5px;
+      height: 100%;
+      .top {
+        color: white;
+        padding: 5px 16px;
+
+        .number {
+          font-size: 2rem;
+          font-weight: 700;
+          line-height: 0.8;
+          color: $color-blue-primary;
+        }
+        .title {
+          padding-left: 6px;
+          font-weight: 700;
+          font-size: 1.3rem;
+        }
+      }
+    }
+
     &:hover {
       transform: translateY(-5px);
     }

@@ -1,6 +1,8 @@
 <template>
   <div id="preloader" class="preloader">
-    <div class="content">LOADING...</div>
+    <div class="content">
+      <img src="/assets/loading.gif" alt="Loading" />
+    </div>
   </div>
 </template>
 
@@ -11,7 +13,8 @@
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: black;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,6 +23,9 @@
     color: $color-blue-primary;
     font-size: 44px;
     font-weight: 900;
+    img {
+      border-radius: 50%;
+    }
   }
 }
 </style>

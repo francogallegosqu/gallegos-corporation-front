@@ -12,15 +12,42 @@
         >
       </div>
       <nav class="navbar d-flex align-items-center">
-        <RouterLink
+        <div
           class="navlink-header-one"
           style="color: white"
           v-for="item in getPage?.content?.headers"
           :key="item.id"
-          :to="`/${$i18n.locale}/${item.path}`"
         >
-          {{ item?.name }}</RouterLink
-        >
+          <div v-if="item.path == 'service'" class="dropdown link-dropdown">
+            <button
+              class="dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              {{ item?.name }}
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <RouterLink
+                  class="dropdown-item"
+                  @click="goTop()"
+                  :id="`${item.path}-${service.id}`"
+                  v-for="service in getPage?.content?.service?.grid"
+                  :key="`${item.path}-${service.id}`"
+                  :to="`/${$i18n.locale}/service/${service.path}`"
+                  >{{ service?.title }}</RouterLink
+                >
+              </li>
+            </ul>
+          </div>
+          <RouterLink
+            v-else
+            @click="goTop()"
+            :to="`/${$i18n.locale}/${item.path}`"
+          >
+            {{ item?.name }}</RouterLink
+          >
+        </div>
         <div class="dropdown">
           <button
             class="dropdown-toggle"
@@ -52,7 +79,7 @@
 import Logo from '../icons/Logo.vue'
 import Traslate from '../icons/Traslate.vue'
 import { mapState, mapActions } from 'pinia'
-import { useSizeStore, pageStore } from '../../stores'
+import { useSizeStore, pageStore, topStore } from '../../stores'
 export default {
   components: {
     Logo,
@@ -69,6 +96,7 @@ export default {
   },
   methods: {
     ...mapActions(pageStore, ['loadPage']),
+    ...mapActions(topStore, ['goTop']),
     updateRoute(locale) {
       const lang = locale
       this.$router.push({ params: { lang } })
@@ -178,11 +206,30 @@ $links: 'one' 1s, 'two' 1.2s, 'three' 1.4s, 'four' 1.6s, 'five' 1.8s, 'six' 2s;
       gap: 4rem;
       padding-right: 6%;
       padding-left: 2%;
+      .navlink-header-one {
+        .link-dropdown {
+          button {
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 24px;
+          }
+          ul {
+            li {
+              a {
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+              }
+            }
+          }
+        }
+      }
       a {
         font-weight: 700;
         font-size: 16px;
         line-height: 24px;
         color: $bg-color-primary;
+        text-decoration: none;
       }
     }
   }

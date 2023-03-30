@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Marketing from '../components/Marketing.vue'
+import Marketing from '../components//serviceUs/Marketing.vue'
 export default {
   components: {
     Marketing,

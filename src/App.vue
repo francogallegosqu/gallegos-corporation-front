@@ -76,7 +76,7 @@ import GoTop from './components/icons/GoTop.vue'
 import Wsp from './components/icons/Wsp.vue'
 import { mapState, mapActions } from 'pinia'
 import { loadFull } from 'tsparticles'
-import { useSizeStore, projectStore, loaderStore } from './stores'
+import { useSizeStore, projectStore, loaderStore, audioStore } from './stores'
 export default {
   components: {
     HeaderGlobal,
@@ -98,6 +98,7 @@ export default {
   methods: {
     ...mapActions(useSizeStore, ['loadCharacters']),
     ...mapActions(projectStore, ['loadProjects']),
+    ...mapActions(audioStore, ['updateMusic']),
     async particlesInit(engine) {
       await loadFull(engine)
     },
@@ -114,6 +115,7 @@ export default {
   },
   mounted() {
     this.loadCharacters()
+    this.updateMusic(new Audio('/assets/all-remind.mp3'))
     window.addEventListener('scroll', this.updateZoom)
   },
 }

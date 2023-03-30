@@ -6,7 +6,6 @@
     <img class="astronaut" :src="srcAstronauth" alt="Planet Earth" />
     <div class="music">
       <img :src="srcMusicActive" @click="changeMusic" alt="Music Active" />
-      <audio ref="audioPlayer" :src="audioSrc" loop></audio>
     </div>
     <div class="mask"></div>
     <div class="arrow">
@@ -35,17 +34,12 @@
 </template>
 
 <script>
-import { mapState } from 'pinia'
-import { pageStore } from '../../stores'
+import { mapActions, mapState } from 'pinia'
+import { pageStore, audioStore } from '../../stores'
 export default {
-  data() {
-    return {
-      music: false,
-      audioSrc: '/assets/all-remind.mp3',
-    }
-  },
   computed: {
     ...mapState(pageStore, ['getPage']),
+    ...mapState(audioStore, ['getStatus']),
     srcSpace() {
       return '/assets/hero/sky-space.jpg'
     },
@@ -59,18 +53,18 @@ export default {
       return '/assets/hero/astronaut.png'
     },
     srcMusicActive() {
-      return this.music
+      return this.getStatus
         ? '/assets/hero/music.gif'
         : '/assets/hero/music_inactive.gif'
     },
   },
   methods: {
+    ...mapActions(audioStore, ['play', 'pause']),
     changeMusic() {
-      this.music = !this.music
-      if (this.music) {
-        this.$refs.audioPlayer.play()
+      if (!this.getStatus) {
+        this.play()
       } else {
-        this.$refs.audioPlayer.pause()
+        this.pause()
       }
     },
   },
@@ -161,7 +155,7 @@ export default {
       justify-content: center;
       align-content: end;
       flex-wrap: wrap;
-      z-index: 559;
+      z-index: 558;
       .content {
         display: flex;
         flex-direction: column;
@@ -202,7 +196,7 @@ export default {
     position: absolute;
     top: 0;
     left: 10%;
-    z-index: 558;
+    z-index: 559;
     word-break: break-word;
     @include animation-down-top(2s);
     .content {

@@ -67,7 +67,6 @@ export default {
   },
   computed: {
     ...mapState(pageStore, ['getPage']),
-    ...mapActions(topStore, ['goTop']),
     listImg() {
       const list = this.getPage?.content?.service?.grid
       return list.map((e) => {
@@ -76,6 +75,7 @@ export default {
     },
   },
   methods: {
+    ...mapActions(topStore, ['goTop']),
     updateZoom() {
       this.onScroll('grid-item-one')
       this.onScroll('grid-item-two')
